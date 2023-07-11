@@ -2,7 +2,7 @@
 
 #' Search Collections
 #'
-#' **Search for collections.** 🔒 *For admins only.*
+#' **Search for collections.** Note: Only manageable collections are returned.
 #'
 #' @param title string; Search by title, use % for searching with 'any char'.
 #'
@@ -10,7 +10,7 @@
 search_collections <- function(title) {
   handle_api_response(
     httr::GET(
-      url = paste0(api_url(), "/collections/search"),
+      url = paste0(api_url(), "/collections/search", query_string(title = title)),
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)
     )

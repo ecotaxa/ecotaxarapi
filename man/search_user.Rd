@@ -10,5 +10,5 @@ search_user(by_name = NULL)
 \item{by_name}{string; Search by name, use \% for searching with 'any char'.}
 }
 \description{
-\strong{Search users using various criteria}, search is case insensitive and might contain \% chars.
+\strong{Search users using various criteria}, search is case-insensitive and might contain \% chars.
 }

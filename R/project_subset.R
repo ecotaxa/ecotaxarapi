@@ -5,7 +5,7 @@
 #' **Subset a project into another one.**
 #'
 #' @param project_id integer; Internal, numeric id of the project.
-#' @param filters object; The filters to apply to project.
+#' @param filters NULL; The filters to apply to project.
 #' @param dest_prj_id integer; The destination project ID.
 #' @param group_type NULL; Define the groups in which to apply limits. C for categories, S for samples, A for acquisitions.
 #' @param limit_type NULL; The type of limit_value: P for %, V for constant, both per group.
@@ -19,7 +19,7 @@ project_subset <- function(project_id, filters = NULL, dest_prj_id = NULL, group
   request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE, digits = 22, null = "null")
   handle_api_response(
     httr::POST(
-      url = paste0(api_url(), "/projects/{project_id}/subset"),
+      url = paste0(api_url(), "/projects/", project_id, "/subset"),
       body = request_body_json, encode = "raw",
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)

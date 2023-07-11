@@ -2,7 +2,7 @@
 
 #' Create Collection
 #'
-#' **Create a collection** with at least one project inside. Returns the created collection Id. 🔒 *For admins only.*
+#' **Create a collection** with at least one project inside. Returns the created collection Id. Note: 'manage' right is required on all underlying projects.
 #'
 #' @param title string; The collection title.
 #' @param project_ids array; The list of composing project IDs.

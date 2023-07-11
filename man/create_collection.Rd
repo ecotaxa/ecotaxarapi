@@ -12,5 +12,5 @@ create_collection(title = NULL, project_ids = NULL)
 \item{project_ids}{array; The list of composing project IDs.}
 }
 \description{
-\strong{Create a collection} with at least one project inside. Returns the created collection Id. 🔒 \emph{For admins only.}
+\strong{Create a collection} with at least one project inside. Returns the created collection Id. Note: 'manage' right is required on all underlying projects.
 }

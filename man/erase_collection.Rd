@@ -10,5 +10,5 @@ erase_collection(collection_id)
 \item{collection_id}{integer; Internal, the unique numeric id of this collection.}
 }
 \description{
-\strong{Delete the collection}, i.e. the precious fields, as the projects are just linked-at from the collection. 🔒 \emph{For admins only.}
+\strong{Delete the collection}, i.e. the precious fields, as the projects are just linked-at from the collection. Note: Only manageable collections can be deleted.
 }

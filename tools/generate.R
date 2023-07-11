@@ -111,7 +111,7 @@ for (path in paths[1:20]) {
           "@param ",
           gel(args, "name"), " ",
           gel(args, "type"), "; ",
-          clean_doc_string(gel(args, "description"))
+          clean_string(gel(args, "description"))
         )
       },
       "",
@@ -145,19 +145,21 @@ for (path in paths[1:20]) {
 
       # URL
       { #browser()
-      url_args <- gel(args, "name")[gel(args, "in") == "path"]
-      url_args_list <- as.list(str_c("', ", url_args, ", '"))
-      names(url_args_list) <- url_args
-      path_piece <- with(url_args_list, glue(path))
+        url_args <- gel(args, "name")[gel(args, "in") == "path"]
+        url_args_list <- as.list(str_c("', ", url_args, ", '"))
+        names(url_args_list) <- url_args
+        path_piece <- with(url_args_list, glue(path))
 
-      query_args <- gel(args, "name")[gel(args, "in") == "query"]
-      if (length(query_args) > 0) {
-        query_piece <- str_c("query_string(", str_c(query_args, "=", query_args, collapse=","), ")")
-      } else {
-        query_piece <- ""
-      }
+        url <- str_c("url=paste0(api_url(), '", path_piece, "'")
 
-      str_c("url=paste0(api_url(), '", path_piece, "', ", query_piece, ")")
+        query_args <- gel(args, "name")[gel(args, "in") == "query"]
+        if (length(query_args) > 0) {
+          url <- str_c(url, ", query_string(", str_c(query_args, "=", query_args, collapse=","), ")")
+        }
+
+        url <- str_c(url, "),")
+
+        url
       },
 
       # add body to request if needed
@@ -179,6 +181,7 @@ for (path in paths[1:20]) {
     # TODO upgrade to new version of httr
 
     ## write function to file ----
+    # browser()
     function_file <- str_c("R/", x$operationId, ".R")
     c(
       mess,

@@ -10,5 +10,5 @@ get_collection(collection_id)
 \item{collection_id}{integer; Internal, the unique numeric id of this collection.}
 }
 \description{
-Returns \strong{information about the collection} corresponding to the given id. 🔒 \emph{For admins only.}
+Returns \strong{information about the collection} corresponding to the given id. Note: The collection is returned only if manageable.
 }

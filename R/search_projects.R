@@ -10,7 +10,7 @@
 #' @param title_filter string; Use this pattern for matching returned projects names.
 #' @param instrument_filter string; Only return projects where this instrument was used.
 #' @param filter_subset boolean; Only return projects having 'subset' in their names.
-#' @param order_field string; One of ['instrument', 'highest_right', 'license', 'projid', 'title', 'visible', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'description', 'rf_models_used', 'cnn_network_id']
+#' @param order_field string; One of ['instrument', 'instrument_url', 'highest_right', 'projid', 'title', 'visible', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'description', 'rf_models_used', 'cnn_network_id']
 #' @param window_start integer; Skip `window_start` before returning data.
 #' @param window_size integer; Return only `window_size` lines.
 #'
@@ -18,7 +18,7 @@
 search_projects <- function(also_others = NULL, not_granted = NULL, for_managing = NULL, title_filter = NULL, instrument_filter = NULL, filter_subset = NULL, order_field = NULL, window_start = NULL, window_size = NULL) {
   handle_api_response(
     httr::GET(
-      url = paste0(api_url(), "/projects/search"),
+      url = paste0(api_url(), "/projects/search", query_string(also_others = also_others, not_granted = not_granted, for_managing = for_managing, title_filter = title_filter, instrument_filter = instrument_filter, filter_subset = filter_subset, order_field = order_field, window_start = window_start, window_size = window_size)),
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)
     )

@@ -60,5 +60,5 @@ update_collection(
 \item{description}{string; The collection description.}
 }
 \description{
-\strong{Update the collection}. Note that some updates are silently failing when not compatible with the composing projects. \strong{Returns NULL upon success.} 🔒 \emph{For admins only.}
+\strong{Update the collection}. Note that some updates are silently failing when not compatible with the composing projects. \strong{Returns NULL upon success.} Note: The collection is updated only if manageable.
 }

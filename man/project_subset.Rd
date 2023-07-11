@@ -16,7 +16,7 @@ project_subset(
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
-\item{filters}{object; The filters to apply to project.}
+\item{filters}{NULL; The filters to apply to project.}
 
 \item{dest_prj_id}{integer; The destination project ID.}
 

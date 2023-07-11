@@ -11,7 +11,7 @@
 get_current_user_prefs <- function(project_id, key) {
   handle_api_response(
     httr::GET(
-      url = paste0(api_url(), "/users/my_preferences/{project_id}"),
+      url = paste0(api_url(), "/users/my_preferences/", project_id, "", query_string(key = key)),
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)
     )

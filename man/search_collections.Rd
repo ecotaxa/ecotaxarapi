@@ -10,5 +10,5 @@ search_collections(title)
 \item{title}{string; Search by title, use \% for searching with 'any char'.}
 }
 \description{
-\strong{Search for collections.} 🔒 \emph{For admins only.}
+\strong{Search for collections.} Note: Only manageable collections are returned.
 }

@@ -1,16 +1,15 @@
 # Generated automatically. See README before editing.
 
-#' Get User
+#' Get Users Admins
 #'
-#' Returns **information about the user** corresponding to the given id.
+#' **List users administrators**, themselves being users. 🔒 Public, no auth.
 #'
-#' @param user_id integer; Internal, the unique numeric id of this user.
 #'
 #' @export
-get_user <- function(user_id) {
+get_users_admins <- function() {
   handle_api_response(
     httr::GET(
-      url = paste0(api_url(), "/users/", user_id, ""),
+      url = paste0(api_url(), "/users/admins"),
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)
     )

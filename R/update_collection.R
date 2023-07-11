@@ -2,7 +2,7 @@
 
 #' Update Collection
 #'
-#' **Update the collection**. Note that some updates are silently failing when not compatible with the composing projects. **Returns NULL upon success.** 🔒 *For admins only.*
+#' **Update the collection**. Note that some updates are silently failing when not compatible with the composing projects. **Returns NULL upon success.** Note: The collection is updated only if manageable.
 #'
 #' @param collection_id integer; Internal, the unique numeric id of this collection.
 #' @param project_ids array; The list of composing project IDs.
@@ -30,7 +30,7 @@ update_collection <- function(collection_id, project_ids = NULL, provider_user =
   request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE, digits = 22, null = "null")
   handle_api_response(
     httr::PUT(
-      url = paste0(api_url(), "/collections/{collection_id}"),
+      url = paste0(api_url(), "/collections/", collection_id, ""),
       body = request_body_json, encode = "raw",
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)

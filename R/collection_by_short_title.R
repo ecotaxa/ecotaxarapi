@@ -10,7 +10,7 @@
 collection_by_short_title <- function(q) {
   handle_api_response(
     httr::GET(
-      url = paste0(api_url(), "/collections/by_short_title"),
+      url = paste0(api_url(), "/collections/by_short_title", query_string(q = q)),
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)
     )

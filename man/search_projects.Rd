@@ -29,7 +29,7 @@ search_projects(
 
 \item{filter_subset}{boolean; Only return projects having 'subset' in their names.}
 
-\item{order_field}{string; One of \link{'instrument', 'highest_right', 'license', 'projid', 'title', 'visible', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'description', 'rf_models_used', 'cnn_network_id'}}
+\item{order_field}{string; One of \link{'instrument', 'instrument_url', 'highest_right', 'projid', 'title', 'visible', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'description', 'rf_models_used', 'cnn_network_id'}}
 
 \item{window_start}{integer; Skip \code{window_start} before returning data.}
 

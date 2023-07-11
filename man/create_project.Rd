@@ -4,12 +4,19 @@
 \alias{create_project}
 \title{Create Project}
 \usage{
-create_project(clone_of_id = NULL, title = NULL, visible = NULL)
+create_project(
+  clone_of_id = NULL,
+  title = NULL,
+  instrument = NULL,
+  visible = NULL
+)
 }
 \arguments{
 \item{clone_of_id}{integer; Internal, numeric id of a project to clone as a new one. By default it does not clone anything.}
 
 \item{title}{string; The project title, as text.}
+
+\item{instrument}{string; The project instrument.}
 
 \item{visible}{boolean; When TRUE, the project is created visible by all users.}
 }

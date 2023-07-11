@@ -9,6 +9,7 @@
 show_current_user <- function() {
   handle_api_response(
     httr::GET(
+      url = paste0(api_url(), "/users/me"),
       httr::add_headers(Authorization = paste0("Bearer ", api_token())),
       config = httr::config(ssl_verifypeer = FALSE)
     )
