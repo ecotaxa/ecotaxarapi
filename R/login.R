@@ -9,15 +9,10 @@
 #'
 #' @export
 login <- function(password = NULL, username = NULL) {
-  # convert body to json ourselves, to control the settings
-  # this is based on the httr defaults with some additions
   request_body <- list(password = password, username = username)
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE, digits = 22, null = "null")
   handle_api_response(
-    httr::POST(
-      url = paste0(api_url(), "/login"),
-      body = request_body_json, encode = "raw",
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/login")) %>%
+      httr2::req_body_json(request_body) %>%
+      httr2::req_perform()
   )
 }

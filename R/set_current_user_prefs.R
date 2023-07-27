@@ -11,10 +11,8 @@
 #' @export
 set_current_user_prefs <- function(project_id, key, value) {
   handle_api_response(
-    httr::PUT(
-      url = paste0(api_url(), "/users/my_preferences/", project_id, "", query_string(key = key, value = value)),
-      httr::add_headers(Authorization = paste0("Bearer ", api_token())),
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/users/my_preferences/", project_id, "", query_string(key = key, value = value))) %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
   )
 }

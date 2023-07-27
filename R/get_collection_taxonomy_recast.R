@@ -9,10 +9,8 @@
 #' @export
 get_collection_taxonomy_recast <- function(collection_id) {
   handle_api_response(
-    httr::GET(
-      url = paste0(api_url(), "/collections/", collection_id, "/taxo_recast"),
-      httr::add_headers(Authorization = paste0("Bearer ", api_token())),
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/collections/", collection_id, "/taxo_recast")) %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
   )
 }

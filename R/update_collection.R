@@ -24,16 +24,11 @@
 #'
 #' @export
 update_collection <- function(collection_id, project_ids = NULL, provider_user = NULL, contact_user = NULL, creator_users = NULL, creator_organisations = NULL, associate_users = NULL, associate_organisations = NULL, id = NULL, external_id = NULL, external_id_system = NULL, title = NULL, short_title = NULL, citation = NULL, license = NULL, abstract = NULL, description = NULL) {
-  # convert body to json ourselves, to control the settings
-  # this is based on the httr defaults with some additions
   request_body <- list(project_ids = project_ids, provider_user = provider_user, contact_user = contact_user, creator_users = creator_users, creator_organisations = creator_organisations, associate_users = associate_users, associate_organisations = associate_organisations, id = id, external_id = external_id, external_id_system = external_id_system, title = title, short_title = short_title, citation = citation, license = license, abstract = abstract, description = description)
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE, digits = 22, null = "null")
   handle_api_response(
-    httr::PUT(
-      url = paste0(api_url(), "/collections/", collection_id, ""),
-      body = request_body_json, encode = "raw",
-      httr::add_headers(Authorization = paste0("Bearer ", api_token())),
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/collections/", collection_id, "")) %>%
+      httr2::req_body_json(request_body) %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
   )
 }

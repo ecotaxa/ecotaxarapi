@@ -13,16 +13,11 @@
 #'
 #' @export
 project_subset <- function(project_id, filters = NULL, dest_prj_id = NULL, group_type = NULL, limit_type = NULL, limit_value = NULL) {
-  # convert body to json ourselves, to control the settings
-  # this is based on the httr defaults with some additions
   request_body <- list(filters = filters, dest_prj_id = dest_prj_id, group_type = group_type, limit_type = limit_type, limit_value = limit_value)
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE, digits = 22, null = "null")
   handle_api_response(
-    httr::POST(
-      url = paste0(api_url(), "/projects/", project_id, "/subset"),
-      body = request_body_json, encode = "raw",
-      httr::add_headers(Authorization = paste0("Bearer ", api_token())),
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/subset")) %>%
+      httr2::req_body_json(request_body) %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
   )
 }

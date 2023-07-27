@@ -19,16 +19,11 @@
 #'
 #' @export
 update_user <- function(user_id, id = NULL, email = NULL, password = NULL, name = NULL, organisation = NULL, active = NULL, country = NULL, usercreationdate = NULL, usercreationreason = NULL, can_do = NULL, last_used_projects = NULL) {
-  # convert body to json ourselves, to control the settings
-  # this is based on the httr defaults with some additions
   request_body <- list(id = id, email = email, password = password, name = name, organisation = organisation, active = active, country = country, usercreationdate = usercreationdate, usercreationreason = usercreationreason, can_do = can_do, last_used_projects = last_used_projects)
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE, digits = 22, null = "null")
   handle_api_response(
-    httr::PUT(
-      url = paste0(api_url(), "/users/", user_id, ""),
-      body = request_body_json, encode = "raw",
-      httr::add_headers(Authorization = paste0("Bearer ", api_token())),
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/users/", user_id, "")) %>%
+      httr2::req_body_json(request_body) %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
   )
 }
