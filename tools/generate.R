@@ -84,7 +84,7 @@ clean_string <- function(x) {
 count <- 1
 
 paths <- names(api$paths)
-for (path in paths[1:20]) {
+for (path in paths) {
 # path <- "/login" # parameters, 2
 # path <- "/users/me"  # nothing
 # path <- "/object/{object_id}" # parameters, 1

@@ -9,10 +9,8 @@
 #' @export
 project_set_get_user_stats <- function(ids) {
   handle_api_response(
-    httr::GET(
-      url = paste0(api_url(), "/project_set/user_stats"),
-      httr::add_headers(Authorization = paste0("Bearer ", api_token())),
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/project_set/user_stats", query_string(ids = ids))) %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
   )
 }

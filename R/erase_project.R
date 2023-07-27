@@ -10,10 +10,8 @@
 #' @export
 erase_project <- function(project_id, only_objects = NULL) {
   handle_api_response(
-    httr::DELETE(
-      url = paste0(api_url(), "/projects/{project_id}"),
-      httr::add_headers(Authorization = paste0("Bearer ", api_token())),
-      config = httr::config(ssl_verifypeer = FALSE)
-    )
+    httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "", query_string(only_objects = only_objects))) %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
   )
 }

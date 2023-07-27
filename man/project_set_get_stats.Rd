@@ -7,7 +7,7 @@
 project_set_get_stats(ids, taxa_ids = NULL)
 }
 \arguments{
-\item{ids}{string; String containing the list of one or more id separated by non-num char. \strong{If several ids are provided}, one stat record will be returned per project.}
+\item{ids}{string; String containing the list of one or more project id separated by non-num char. \strong{If several ids are provided}, one stat record will be returned per project.}
 
 \item{taxa_ids}{string; \strong{If several taxa_ids are provided}, one stat record will be returned per requested taxa, if populated. \strong{If taxa_ids is all}, all valued taxa in the project(s) are returned.}
 }

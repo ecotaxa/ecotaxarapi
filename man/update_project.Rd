@@ -10,11 +10,13 @@ update_project(
   sample_free_cols = NULL,
   acquisition_free_cols = NULL,
   process_free_cols = NULL,
+  bodc_variables = NULL,
   init_classif_list = NULL,
   managers = NULL,
   annotators = NULL,
   viewers = NULL,
   instrument = NULL,
+  instrument_url = NULL,
   contact = NULL,
   highest_right = NULL,
   license = NULL,
@@ -45,6 +47,8 @@ update_project(
 
 \item{process_free_cols}{object; Process free columns.}
 
+\item{bodc_variables}{object; BODC quantities from columns. Only the 3 keys listed in example are valid.}
+
 \item{init_classif_list}{array; Favorite taxa used in classification.}
 
 \item{managers}{array; Managers of this project.}
@@ -53,13 +57,15 @@ update_project(
 
 \item{viewers}{array; Viewers of this project, if not manager nor annotator.}
 
-\item{instrument}{string; This project's instrument. Transitory: if several of them, then coma-separated.}
+\item{instrument}{string; This project's instrument code.}
+
+\item{instrument_url}{string; This project's instrument BODC definition.}
 
 \item{contact}{NULL; The contact person is a manager who serves as the contact person for other users and EcoTaxa's managers.}
 
 \item{highest_right}{string; The highest right for requester on this project. One of 'Manage', 'Annotate', 'View'.}
 
-\item{license}{string; NULL}
+\item{license}{NULL; Data licence.}
 
 \item{projid}{integer; The project Id.}
 
