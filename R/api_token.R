@@ -47,8 +47,8 @@ save_api_token <- function(token, path=api_token_path()) {
   if (path != api_token_path()) {
     options("ecotaxar.token_path"=path)
   }
-  writeLines(path, con=path)
-  return(invisible(path))
+  writeLines(token, con=path)
+  return(invisible(token))
 }
 
 
