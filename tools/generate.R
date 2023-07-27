@@ -76,6 +76,7 @@ clean_string <- function(x) {
 # str(api$components$schemas, 1)
 # api$components$schemas$UserModel
 # api$paths
+# path with several methods: "/users/{user_id}" has "get" "put"
 
 
 ## Create functions ----
@@ -132,16 +133,12 @@ for (path in paths[1:20]) {
       if (!is.null(x$requestBody)) {
         request_body_args <- names(args[gel(args, "in") == "body"])
         c(
-          "# convert body to json ourselves, to control the settings",
-          "# this is based on the httr defaults with some additions",
-          str_c("request_body <- list(", str_c(request_body_args, "=", request_body_args, collapse=", "), ")"),
-         "request_body_json <- jsonlite::toJSON(request_body, auto_unbox=TRUE, digits=22, null='null')"
+          str_c("request_body <- list(", str_c(request_body_args, "=", request_body_args, collapse=", "), ")")
         )
       },
 
       # HTTP function
       "handle_api_response(",
-      str_c("httr::", str_to_upper(method), "("),
 
       # URL
       { #browser()
@@ -150,35 +147,33 @@ for (path in paths[1:20]) {
         names(url_args_list) <- url_args
         path_piece <- with(url_args_list, glue(path))
 
-        url <- str_c("url=paste0(api_url(), '", path_piece, "'")
+        url <- str_c("base_url=paste0(api_url(), '", path_piece, "'")
 
         query_args <- gel(args, "name")[gel(args, "in") == "query"]
         if (length(query_args) > 0) {
           url <- str_c(url, ", query_string(", str_c(query_args, "=", query_args, collapse=","), ")")
         }
 
-        url <- str_c(url, "),")
+        url <- str_c("httr2::request(", url, ")) %>% ")
 
         url
       },
 
       # add body to request if needed
       if (!is.null(x$requestBody)) {
-        str_c("body=request_body_json, encode='raw',")
+        str_c("httr2::req_body_json(request_body) %>% ")
       },
 
       # HTTP usual arguments
       # TODO omit this for login or other not requiring authorization
       if (path != "/login") {
-        "httr::add_headers(Authorization=paste0('Bearer ', api_token())),"
+        "httr2::req_auth_bearer_token(api_token()) %>%"
       },
-      "config=httr::config(ssl_verifypeer=FALSE)",
-      ")",
+      "httr2::req_perform()",
       ")"
     )
 
     # TODO allow to get the raw output
-    # TODO upgrade to new version of httr
 
     ## write function to file ----
     # browser()

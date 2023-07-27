@@ -2,10 +2,10 @@
 #'
 #' Fail, with information, if the status code is not 200. Return the parsed response content otherwise.
 #'
-#' @param x an [httr::response] object.
+#' @param x an [httr2::httr2_response] object.
 #' @export
 handle_api_response <- function(x) {
-  content <- httr::content(x, as="parsed", simplifyVector=TRUE)
+  content <- httr2::resp_body_json(x, simplifyVector=TRUE)
   if (x$status_code != 200) {
     print(x)
     print(content)
