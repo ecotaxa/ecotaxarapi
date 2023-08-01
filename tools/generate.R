@@ -159,6 +159,9 @@ for (path in paths) {
         url
       },
 
+      # method
+      str_c("httr2::req_method('", str_to_upper(method) ,"') %>% "),
+
       # add body to request if needed
       if (!is.null(x$requestBody)) {
         str_c("httr2::req_body_json(request_body) %>% ")
