@@ -24,6 +24,8 @@ get_request_properties <- function(x, api) {
   return(properties)
 }
 
+
+
 # Get all arguments for an endpoint
 get_args <- function(x, api) {
   if (is.null(x$parameters)) {
@@ -38,7 +40,9 @@ get_args <- function(x, api) {
     names(params) <- gel(params, "name")
   }
 
-  if (is.null(x$requestBody)) {
+  #TODO deal with case when x$requestBody$content$`application/json`$schema$`$ref` is null but $requestBody$content$`application/json`$schema exists
+  # i.e. schema exists but has no ref. Four path are concerned: "/object_set/parents", "/object_set/", "/jobs/{job_id}/answer", "/my_files/"
+  if (is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
     properties <- NULL
   } else {
     # get needed properties
@@ -130,7 +134,7 @@ for (path in paths) {
     # if (count ==5) browser()
     body <- c(
       # prepare request body if needed
-      if (!is.null(x$requestBody)) {
+      if (!is.null(x$requestBody) & !is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
         request_body_args <- names(args[gel(args, "in") == "body"])
         c(
           str_c("request_body <- list(", str_c(request_body_args, "=", request_body_args, collapse=", "), ")")
