@@ -168,8 +168,8 @@ for (path in paths) {
       },
 
       # HTTP usual arguments
-      # TODO omit this for login or other not requiring authorization
-      if (path != "/login") {
+      # Send bearer token if required
+      if (!is.null(x$security)) {
         "httr2::req_auth_bearer_token(api_token()) %>%"
       },
       "httr2::req_perform()",
