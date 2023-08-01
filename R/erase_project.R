@@ -11,6 +11,7 @@
 erase_project <- function(project_id, only_objects = NULL) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "", query_string(only_objects = only_objects))) %>%
+      httr2::req_method("DELETE") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
   )

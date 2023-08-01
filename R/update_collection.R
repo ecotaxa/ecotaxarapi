@@ -27,6 +27,7 @@ update_collection <- function(collection_id, project_ids = NULL, provider_user =
   request_body <- list(project_ids = project_ids, provider_user = provider_user, contact_user = contact_user, creator_users = creator_users, creator_organisations = creator_organisations, associate_users = associate_users, associate_organisations = associate_organisations, id = id, external_id = external_id, external_id_system = external_id_system, title = title, short_title = short_title, citation = citation, license = license, abstract = abstract, description = description)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/collections/", collection_id, "")) %>%
+      httr2::req_method("PUT") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

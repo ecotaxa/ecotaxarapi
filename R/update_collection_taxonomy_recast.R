@@ -13,6 +13,7 @@ update_collection_taxonomy_recast <- function(collection_id, from_to = NULL, doc
   request_body <- list(from_to = from_to, doc = doc)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/collections/", collection_id, "/taxo_recast")) %>%
+      httr2::req_method("PUT") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

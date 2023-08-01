@@ -17,6 +17,7 @@ darwin_core_format_export <- function(collection_id = NULL, dry_run = NULL, pre_
   request_body <- list(collection_id = collection_id, dry_run = dry_run, pre_mapping = pre_mapping, include_predicted = include_predicted, with_absent = with_absent, with_computations = with_computations, formulae = formulae)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/collections/export/darwin_core")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

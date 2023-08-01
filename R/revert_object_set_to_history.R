@@ -40,6 +40,7 @@ revert_object_set_to_history <- function(project_id, dry_run, target = NULL, tax
   request_body <- list(taxo = taxo, taxochild = taxochild, statusfilter = statusfilter, MapN = MapN, MapW = MapW, MapE = MapE, MapS = MapS, depthmin = depthmin, depthmax = depthmax, samples = samples, instrum = instrum, daytime = daytime, month = month, fromdate = fromdate, todate = todate, fromtime = fromtime, totime = totime, inverttime = inverttime, validfromdate = validfromdate, validtodate = validtodate, freenum = freenum, freenumst = freenumst, freenumend = freenumend, freetxt = freetxt, freetxtval = freetxtval, filt_annot = filt_annot, filt_last_annot = filt_last_annot)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object_set/", project_id, "/revert_to_history", query_string(dry_run = dry_run, target = target))) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

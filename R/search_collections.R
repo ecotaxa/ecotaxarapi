@@ -10,6 +10,7 @@
 search_collections <- function(title) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/collections/search", query_string(title = title))) %>%
+      httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
   )

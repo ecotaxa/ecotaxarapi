@@ -16,6 +16,7 @@ project_subset <- function(project_id, filters = NULL, dest_prj_id = NULL, group
   request_body <- list(filters = filters, dest_prj_id = dest_prj_id, group_type = group_type, limit_type = limit_type, limit_value = limit_value)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/subset")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

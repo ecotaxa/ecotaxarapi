@@ -39,6 +39,7 @@ update_project <- function(project_id, obj_free_cols = NULL, sample_free_cols = 
   request_body <- list(obj_free_cols = obj_free_cols, sample_free_cols = sample_free_cols, acquisition_free_cols = acquisition_free_cols, process_free_cols = process_free_cols, bodc_variables = bodc_variables, init_classif_list = init_classif_list, managers = managers, annotators = annotators, viewers = viewers, instrument = instrument, instrument_url = instrument_url, contact = contact, highest_right = highest_right, license = license, projid = projid, title = title, visible = visible, status = status, objcount = objcount, pctvalidated = pctvalidated, pctclassified = pctclassified, classifsettings = classifsettings, classiffieldlist = classiffieldlist, popoverfieldlist = popoverfieldlist, comments = comments, description = description, rf_models_used = rf_models_used, cnn_network_id = cnn_network_id)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "")) %>%
+      httr2::req_method("PUT") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

@@ -10,7 +10,7 @@
 collection_by_short_title <- function(q) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/collections/by_short_title", query_string(q = q))) %>%
-      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_method("GET") %>%
       httr2::req_perform()
   )
 }

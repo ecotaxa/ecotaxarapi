@@ -12,6 +12,7 @@ update_acquisitions <- function(target_ids = NULL, updates = NULL) {
   request_body <- list(target_ids = target_ids, updates = updates)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/acquisition_set/update")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

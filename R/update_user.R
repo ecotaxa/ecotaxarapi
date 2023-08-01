@@ -22,6 +22,7 @@ update_user <- function(user_id, id = NULL, email = NULL, password = NULL, name 
   request_body <- list(id = id, email = email, password = password, name = name, organisation = organisation, active = active, country = country, usercreationdate = usercreationdate, usercreationreason = usercreationreason, can_do = can_do, last_used_projects = last_used_projects)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/users/", user_id, "")) %>%
+      httr2::req_method("PUT") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

@@ -10,6 +10,7 @@
 project_recompute_sunpos <- function(project_id) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/recompute_sunpos")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
   )

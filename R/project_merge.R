@@ -12,6 +12,7 @@
 project_merge <- function(project_id, source_project_id, dry_run) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/merge", query_string(source_project_id = source_project_id, dry_run = dry_run))) %>%
+      httr2::req_method("POST") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
   )

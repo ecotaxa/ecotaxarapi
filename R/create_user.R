@@ -22,6 +22,7 @@ create_user <- function(no_bot = NULL, id = NULL, email = NULL, password = NULL,
   request_body <- list(id = id, email = email, password = password, name = name, organisation = organisation, active = active, country = country, usercreationdate = usercreationdate, usercreationreason = usercreationreason, can_do = can_do, last_used_projects = last_used_projects)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/users/create", query_string(no_bot = no_bot))) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

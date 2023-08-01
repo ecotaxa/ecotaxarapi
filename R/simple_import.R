@@ -15,6 +15,7 @@ simple_import <- function(project_id, dry_run, source_path = NULL, values = NULL
   request_body <- list(source_path = source_path, values = values, possible_values = possible_values)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/simple_import/", project_id, "", query_string(dry_run = dry_run))) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

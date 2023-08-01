@@ -14,6 +14,7 @@ create_project <- function(clone_of_id = NULL, title = NULL, instrument = NULL, 
   request_body <- list(clone_of_id = clone_of_id, title = title, instrument = instrument, visible = visible)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/create")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

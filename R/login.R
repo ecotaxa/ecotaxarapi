@@ -12,6 +12,7 @@ login <- function(password = NULL, username = NULL) {
   request_body <- list(password = password, username = username)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/login")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_perform()
   )

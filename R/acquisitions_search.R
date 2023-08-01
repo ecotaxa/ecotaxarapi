@@ -10,6 +10,7 @@
 acquisitions_search <- function(project_id) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/acquisitions/search", query_string(project_id = project_id))) %>%
+      httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
   )

@@ -10,6 +10,7 @@
 project_set_get_user_stats <- function(ids) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/project_set/user_stats", query_string(ids = ids))) %>%
+      httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
   )

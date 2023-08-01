@@ -16,6 +16,7 @@ import_file <- function(project_id, source_path = NULL, taxo_mappings = NULL, sk
   request_body <- list(source_path = source_path, taxo_mappings = taxo_mappings, skip_loaded_files = skip_loaded_files, skip_existing_objects = skip_existing_objects, update_mode = update_mode)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/file_import/", project_id, "")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

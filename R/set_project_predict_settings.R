@@ -11,6 +11,7 @@
 set_project_predict_settings <- function(project_id, settings) {
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/prediction_settings", query_string(settings = settings))) %>%
+      httr2::req_method("PUT") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
   )

@@ -13,6 +13,7 @@ classify_object_set <- function(target_ids = NULL, classifications = NULL, wante
   request_body <- list(target_ids = target_ids, classifications = classifications, wanted_qualification = wanted_qualification)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object_set/classify")) %>%
+      httr2::req_method("POST") %>%
       httr2::req_body_json(request_body) %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
