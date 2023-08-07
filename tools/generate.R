@@ -18,11 +18,30 @@ last <- function(x) { x[length(x)] }
 
 # Get list of requested properties for an endpoint
 get_request_properties <- function(x, api) {
-  path_to_schema <- x$requestBody$content$`application/json`$schema$`$ref`
+  schema <- x$requestBody$content$`application/json`$schema
   schema_name <- last(strsplit(path_to_schema, "/")[[1]])
   properties <- api$components$schemas[[schema_name]]$properties
   return(properties)
 }
+
+x$requestBody$content$`application/json`
+
+x$requestBody$content$`application/json`$schema
+# vector of integer
+str_replace_all(str_to_lower(schema$title), pattern = " ", replacement = "_")
+x$requestBody$content$`application/json`$schema$type
+x$requestBody$content$`application/json`$schema$items$type
+x$requestBody$content$`application/json`$schema$description
+
+
+props <- lapply(x$requestBody$content$`application/json`, function(p) {
+  p$type <- p$schema$type
+  p$name <- str_replace_all(str_to_lower(p$schema$title), pattern = " ", replacement = "_")
+  p <- p[c("name", "type", "description", "example", "required", "in")]
+  return(p)
+})
+
+
 
 
 
@@ -42,28 +61,48 @@ get_args <- function(x, api) {
 
   #TODO deal with case when x$requestBody$content$`application/json`$schema$`$ref` is null but $requestBody$content$`application/json`$schema exists
   # i.e. schema exists but has no ref. Four path are concerned: "/object_set/parents", "/object_set/", "/jobs/{job_id}/answer", "/my_files/"
-  if (is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
-    properties <- NULL
+  # "/my_files/" uses Body_put_user_file_my_files__post, from x$requestBody$content$`multipart/form-data`$schema$`$ref`
+
+  # properties
+  if (!is.null(x$requestBody$content$`application/json`$schema) & is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
+    schema <- x$requestBody$content$`application/json`
+    name <- str_replace_all(str_to_lower(schema$schema$title), pattern = " ", replacement = "_")
+    props <- NULL
+    props[[name]]$name <- name
+    props[[name]]$type <- schema$schema$type
+    props[[name]]$description <- schema$schema$description
+    props[[name]]$example <- schema$example[[1]]
+    props[[name]]$required <- TRUE
   } else {
-    # get needed properties
-    properties <- get_request_properties(x, api)
-    # get properties to look like parameters
-    # add name
-    for (n in names(properties)) {
-      properties[[n]]$name <- n
-    }
-    properties <- lapply(properties, function(p, req) {
-        p <- p[c("name", "type", "description", "example")]
-        p$required <- FALSE
-        # p$required <- req
-        p$`in` <- "body"
-        return(p)
-      }, req=x$requestBody$required)
+    props <- NULL
   }
 
-  args <- c(params, properties)
+  args <- c(params, props)
   return(args)
 }
+
+
+
+
+
+get_schema <- function(x, api){
+  # Typically, schema reference is found at x$requestBody$content$`application/json`$schema$`$ref`
+  if (!is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
+    title <- sapply(str_split(x$requestBody$content$`application/json`$schema$`$ref`, "/"), tail, 1)
+    description <- api$components$schemas[[title]]$description
+    schema <-  list(title = title, description = description)
+  # But for "/my_files/", it lives at x$requestBody$content$`multipart/form-data`$schema$`$ref`
+  } else  if (!is.null(x$requestBody$content$`multipart/form-data`$schema$`$ref`)) {
+    title <- sapply(str_split(x$requestBody$content$`multipart/form-data`$schema$`$ref`, "/"), tail, 1)
+    description <- api$components$schemas[[title]]$description
+    schema <-  list(title = title, description = description)
+  # If no schema, return NULL
+  } else {
+    schema <- NULL
+  }
+  return(schema)
+}
+
 
 # Remove unwanted elements from character string
 clean_string <- function(x) {
@@ -83,6 +122,7 @@ clean_string <- function(x) {
 # path with several methods: "/users/{user_id}" has "get" "put"
 
 
+
 ## Create functions ----
 
 count <- 1
@@ -98,6 +138,7 @@ for (path in paths) {
     # get endpoint description from API object
     x <- api$paths[[path]][[method]]
     args <- get_args(x, api)
+    schema <- get_schema(x, api)
 
     # inform the user
     message(count, ": ", method, " ", path, " -> ", x$operationId)
@@ -111,12 +152,22 @@ for (path in paths) {
       "",
       clean_string(x$description),
       "",
+      # Args
       if (!is.null(args)) {
         str_c(
           "@param ",
           gel(args, "name"), " ",
           gel(args, "type"), "; ",
           clean_string(gel(args, "description"))
+        )
+      },
+      # Schema
+      if (!is.null(schema)) {
+        str_c(
+          "@param ",
+          schema$title, " ",
+          "Output of ", schema$title, "(); ",
+          schema$description
         )
       },
       "",
@@ -126,7 +177,7 @@ for (path in paths) {
     ## define call ----
     call <- str_c(
         x$operationId, " <- function(",
-        str_c(gel(args, "name"), ifelse(gel(args, "required"), "", "=NULL"), collapse=", "),
+        str_flatten(str_subset(c(str_c(gel(args, "name"), ifelse(gel(args, "required"), "", "=NULL"), collapse=", "), schema$title), pattern = ".+"), collapse = ", "),
         ") {"
       )
 
@@ -134,7 +185,7 @@ for (path in paths) {
     # if (count ==5) browser()
     body <- c(
       # prepare request body if needed
-      if (!is.null(x$requestBody) & !is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
+      if (!is.null(x$requestBody) & is.null(x$requestBody$content$`application/json`)) {
         request_body_args <- names(args[gel(args, "in") == "body"])
         c(
           str_c("request_body <- list(", str_c(request_body_args, "=", request_body_args, collapse=", "), ")")
@@ -167,8 +218,10 @@ for (path in paths) {
       str_c("httr2::req_method('", str_to_upper(method) ,"') %>% "),
 
       # add body to request if needed
-      if (!is.null(x$requestBody)) {
-        str_c("httr2::req_body_json(request_body) %>% ")
+      if (!is.null(x$requestBody$content$`application/json`$schema$`$ref`)) { # schema
+        glue("httr2::req_body_json({schema$title}) %>% ")
+      } else if (!is.null(x$requestBody)){
+        "httr2::req_body_json(request_body) %>% " # body
       },
 
       # HTTP usual arguments
@@ -192,8 +245,8 @@ for (path in paths) {
       body,
       "}"
     ) %>%
-      style_text() %>%
-      cat(file=function_file, sep="\n")
+      style_text() #%>%
+      #cat(file=function_file, sep="\n")
 
     count <- count+1
   }
