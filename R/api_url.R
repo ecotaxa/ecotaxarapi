@@ -40,13 +40,13 @@ query_string <- function(...) {
       piece <- NA
     } else {
       # build this piece of the query
-      piece <- str_c(key, "=", val)
+      piece <- stringr::str_c(key, "=", val)
     }
     return(piece)
   })
   # remove NULL parameters
   pieces <- na.omit(pieces)
   # combine pieces
-  query <- str_c("?", str_c(pieces, collapse="&"))
+  query <- stringr::str_c("?", stringr::str_c(pieces, collapse="&"))
   return(query)
 }
