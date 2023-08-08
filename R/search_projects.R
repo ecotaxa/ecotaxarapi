@@ -16,7 +16,6 @@
 #'
 #' @export
 search_projects <- function(also_others = NULL, not_granted = NULL, for_managing = NULL, title_filter = NULL, instrument_filter = NULL, filter_subset = NULL, order_field = NULL, window_start = NULL, window_size = NULL) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/search", query_string(also_others = also_others, not_granted = not_granted, for_managing = for_managing, title_filter = title_filter, instrument_filter = instrument_filter, filter_subset = filter_subset, order_field = order_field, window_start = window_start, window_size = window_size))) %>%
       httr2::req_method("GET") %>%

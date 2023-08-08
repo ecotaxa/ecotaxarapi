@@ -8,7 +8,6 @@
 #'
 #' @export
 instrument_query <- function(project_ids) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/instruments/", query_string(project_ids = project_ids))) %>%
       httr2::req_method("GET") %>%

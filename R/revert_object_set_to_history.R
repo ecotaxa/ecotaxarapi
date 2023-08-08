@@ -11,7 +11,6 @@
 #'
 #' @export
 revert_object_set_to_history <- function(project_id, dry_run, target = NULL, ProjectFilters) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object_set/", project_id, "/revert_to_history", query_string(dry_run = dry_run, target = target))) %>%
       httr2::req_method("POST") %>%

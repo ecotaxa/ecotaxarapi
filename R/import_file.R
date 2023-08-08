@@ -9,7 +9,6 @@
 #'
 #' @export
 import_file <- function(project_id, ImportReq) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/file_import/", project_id, "")) %>%
       httr2::req_method("POST") %>%

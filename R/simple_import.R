@@ -10,7 +10,6 @@
 #'
 #' @export
 simple_import <- function(project_id, dry_run, SimpleImportReq) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/simple_import/", project_id, "", query_string(dry_run = dry_run))) %>%
       httr2::req_method("POST") %>%

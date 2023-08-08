@@ -10,7 +10,6 @@
 #'
 #' @export
 set_current_user_prefs <- function(project_id, key, value) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/users/my_preferences/", project_id, "", query_string(key = key, value = value))) %>%
       httr2::req_method("PUT") %>%

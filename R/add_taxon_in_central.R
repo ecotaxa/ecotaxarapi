@@ -13,7 +13,6 @@
 #'
 #' @export
 add_taxon_in_central <- function(name, parent_id, taxotype, creator_email, source_desc = NULL, source_url = NULL) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/taxon/central", query_string(name = name, parent_id = parent_id, taxotype = taxotype, creator_email = creator_email, source_desc = source_desc, source_url = source_url))) %>%
       httr2::req_method("PUT") %>%

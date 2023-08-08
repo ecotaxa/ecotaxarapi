@@ -9,7 +9,6 @@
 #'
 #' @export
 create_user <- function(no_bot = NULL, UserModelWithRights) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/users/create", query_string(no_bot = no_bot))) %>%
       httr2::req_method("POST") %>%

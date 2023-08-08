@@ -9,7 +9,6 @@
 #'
 #' @export
 set_project_predict_settings <- function(project_id, settings) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/prediction_settings", query_string(settings = settings))) %>%
       httr2::req_method("PUT") %>%

@@ -11,7 +11,6 @@
 #'
 #' @export
 reclassify_object_set <- function(project_id, forced_id, reason, ProjectFilters) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object_set/", project_id, "/reclassify", query_string(forced_id = forced_id, reason = reason))) %>%
       httr2::req_method("POST") %>%

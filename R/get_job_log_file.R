@@ -8,7 +8,6 @@
 #'
 #' @export
 get_job_log_file <- function(job_id) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/jobs/", job_id, "/log")) %>%
       httr2::req_method("GET") %>%

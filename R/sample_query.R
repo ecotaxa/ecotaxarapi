@@ -8,7 +8,6 @@
 #'
 #' @export
 sample_query <- function(sample_id) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/sample/", sample_id, "")) %>%
       httr2::req_method("GET") %>%

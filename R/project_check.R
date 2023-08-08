@@ -8,7 +8,6 @@
 #'
 #' @export
 project_check <- function(project_id) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/check")) %>%
       httr2::req_method("GET") %>%

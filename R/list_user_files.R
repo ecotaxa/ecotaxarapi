@@ -8,7 +8,6 @@
 #'
 #' @export
 list_user_files <- function(sub_path) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/my_files/", sub_path, "")) %>%
       httr2::req_method("GET") %>%

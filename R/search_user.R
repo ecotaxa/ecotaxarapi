@@ -8,7 +8,6 @@
 #'
 #' @export
 search_user <- function(by_name = NULL) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/users/search", query_string(by_name = by_name))) %>%
       httr2::req_method("GET") %>%

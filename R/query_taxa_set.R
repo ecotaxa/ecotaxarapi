@@ -8,7 +8,6 @@
 #'
 #' @export
 query_taxa_set <- function(ids) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/taxon_set/query", query_string(ids = ids))) %>%
       httr2::req_method("GET") %>%

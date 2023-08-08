@@ -10,7 +10,6 @@
 #'
 #' @export
 get_object_set_summary <- function(project_id, only_total, ProjectFilters) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object_set/", project_id, "/summary", query_string(only_total = only_total))) %>%
       httr2::req_method("POST") %>%

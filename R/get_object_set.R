@@ -13,7 +13,6 @@
 #'
 #' @export
 get_object_set <- function(project_id, fields = NULL, order_field = NULL, window_start = NULL, window_size = NULL, ProjectFilters) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object_set/", project_id, "/query", query_string(fields = fields, order_field = order_field, window_start = window_start, window_size = window_size))) %>%
       httr2::req_method("POST") %>%

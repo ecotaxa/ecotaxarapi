@@ -8,7 +8,6 @@
 #'
 #' @export
 sample_set_get_stats <- function(sample_ids) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/sample_set/taxo_stats", query_string(sample_ids = sample_ids))) %>%
       httr2::req_method("GET") %>%

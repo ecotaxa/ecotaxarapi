@@ -9,7 +9,6 @@
 #'
 #' @export
 project_subset <- function(project_id, SubsetReq) {
-  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "/subset")) %>%
       httr2::req_method("POST") %>%
