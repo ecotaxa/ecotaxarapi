@@ -6,7 +6,7 @@ library("styler")
 ## Prepare (load API description, define functions)  ----
 
 # load API description
-# api <- fromJSON("https://ecotaxa.obs-vlfr.fr/api/api/openapi.json", simplifyDataFrame=F, simplifyVector=F)
+#api <- fromJSON("https://ecotaxa.obs-vlfr.fr/api/api/openapi.json", simplifyDataFrame=F, simplifyVector=F)
 api <- fromJSON("tools/openapi.json", simplifyDataFrame=F, simplifyVector=F)
 
 # Extract elements from a list, as a vector
@@ -24,22 +24,22 @@ get_request_properties <- function(x, api) {
   return(properties)
 }
 
-x$requestBody$content$`application/json`
+#x$requestBody$content$`application/json`
+#
+#x$requestBody$content$`application/json`$schema
+## vector of integer
+#str_replace_all(str_to_lower(schema$title), pattern = " ", replacement = "_")
+#x$requestBody$content$`application/json`$schema$type
+#x$requestBody$content$`application/json`$schema$items$type
+#x$requestBody$content$`application/json`$schema$description
 
-x$requestBody$content$`application/json`$schema
-# vector of integer
-str_replace_all(str_to_lower(schema$title), pattern = " ", replacement = "_")
-x$requestBody$content$`application/json`$schema$type
-x$requestBody$content$`application/json`$schema$items$type
-x$requestBody$content$`application/json`$schema$description
 
-
-props <- lapply(x$requestBody$content$`application/json`, function(p) {
-  p$type <- p$schema$type
-  p$name <- str_replace_all(str_to_lower(p$schema$title), pattern = " ", replacement = "_")
-  p <- p[c("name", "type", "description", "example", "required", "in")]
-  return(p)
-})
+#props <- lapply(x$requestBody$content$`application/json`, function(p) {
+#  p$type <- p$schema$type
+#  p$name <- str_replace_all(str_to_lower(p$schema$title), pattern = " ", replacement = "_")
+#  p <- p[c("name", "type", "description", "example", "required", "in")]
+#  return(p)
+#})
 
 
 
@@ -73,6 +73,7 @@ get_args <- function(x, api) {
     props[[name]]$description <- schema$schema$description
     props[[name]]$example <- schema$example[[1]]
     props[[name]]$required <- TRUE
+    props[[name]]$`in` <- "body"
   } else {
     props <- NULL
   }
@@ -184,8 +185,9 @@ for (path in paths) {
     ## define body ----
     # if (count ==5) browser()
     body <- c(
+
       # prepare request body if needed
-      if (!is.null(x$requestBody) & is.null(x$requestBody$content$`application/json`)) {
+      if (!is.null(args)) {
         request_body_args <- names(args[gel(args, "in") == "body"])
         c(
           str_c("request_body <- list(", str_c(request_body_args, "=", request_body_args, collapse=", "), ")")
