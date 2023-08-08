@@ -9,6 +9,7 @@
 #'
 #' @export
 search_taxa <- function(query, project_id = NULL) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/taxon_set/search", query_string(query = query, project_id = project_id))) %>%
       httr2::req_method("GET") %>%

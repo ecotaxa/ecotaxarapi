@@ -8,6 +8,7 @@
 #'
 #' @export
 acquisition_query <- function(acquisition_id) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/acquisition/", acquisition_id, "")) %>%
       httr2::req_method("GET") %>%

@@ -4,9 +4,11 @@
 #'
 #' **Delete the objects with given object ids.** **Returns** the number of : **deleted objects**, 0, **deleated image rows** and **deleated image files**. 🔒 Current user needs *Manage* right on all projects of specified objects.
 #'
+#' @param object_ids_list array; The list of object ids.
 #'
 #' @export
-erase_object_set <- function() {
+erase_object_set <- function(object_ids_list) {
+  request_body <- list(object_ids_list = object_ids_list)
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object_set/")) %>%
       httr2::req_method("DELETE") %>%

@@ -8,6 +8,7 @@
 #'
 #' @export
 list_jobs <- function(for_admin) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/jobs/", query_string(for_admin = for_admin))) %>%
       httr2::req_method("GET") %>%

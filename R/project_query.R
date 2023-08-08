@@ -9,6 +9,7 @@
 #'
 #' @export
 project_query <- function(project_id, for_managing = NULL) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/projects/", project_id, "", query_string(for_managing = for_managing))) %>%
       httr2::req_method("GET") %>%

@@ -11,6 +11,7 @@
 #'
 #' @export
 project_set_get_column_stats <- function(ids, names, limit = NULL, categories = NULL) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/project_set/column_stats", query_string(ids = ids, names = names, limit = limit, categories = categories))) %>%
       httr2::req_method("GET") %>%

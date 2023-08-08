@@ -24,27 +24,6 @@ get_request_properties <- function(x, api) {
   return(properties)
 }
 
-#x$requestBody$content$`application/json`
-#
-#x$requestBody$content$`application/json`$schema
-## vector of integer
-#str_replace_all(str_to_lower(schema$title), pattern = " ", replacement = "_")
-#x$requestBody$content$`application/json`$schema$type
-#x$requestBody$content$`application/json`$schema$items$type
-#x$requestBody$content$`application/json`$schema$description
-
-
-#props <- lapply(x$requestBody$content$`application/json`, function(p) {
-#  p$type <- p$schema$type
-#  p$name <- str_replace_all(str_to_lower(p$schema$title), pattern = " ", replacement = "_")
-#  p <- p[c("name", "type", "description", "example", "required", "in")]
-#  return(p)
-#})
-
-
-
-
-
 # Get all arguments for an endpoint
 get_args <- function(x, api) {
   if (is.null(x$parameters)) {
@@ -58,10 +37,6 @@ get_args <- function(x, api) {
     })
     names(params) <- gel(params, "name")
   }
-
-  #TODO deal with case when x$requestBody$content$`application/json`$schema$`$ref` is null but $requestBody$content$`application/json`$schema exists
-  # i.e. schema exists but has no ref. Four path are concerned: "/object_set/parents", "/object_set/", "/jobs/{job_id}/answer", "/my_files/"
-  # "/my_files/" uses Body_put_user_file_my_files__post, from x$requestBody$content$`multipart/form-data`$schema$`$ref`
 
   # properties
   if (!is.null(x$requestBody$content$`application/json`$schema) & is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
@@ -82,10 +57,6 @@ get_args <- function(x, api) {
   return(args)
 }
 
-
-
-
-
 get_schema <- function(x, api){
   # Typically, schema reference is found at x$requestBody$content$`application/json`$schema$`$ref`
   if (!is.null(x$requestBody$content$`application/json`$schema$`$ref`)) {
@@ -103,7 +74,6 @@ get_schema <- function(x, api){
   }
   return(schema)
 }
-
 
 # Remove unwanted elements from character string
 clean_string <- function(x) {
@@ -247,8 +217,8 @@ for (path in paths) {
       body,
       "}"
     ) %>%
-      style_text() #%>%
-      #cat(file=function_file, sep="\n")
+      style_text() %>%
+      cat(file=function_file, sep="\n")
 
     count <- count+1
   }

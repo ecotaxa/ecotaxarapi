@@ -8,6 +8,7 @@
 #'
 #' @export
 collection_by_short_title <- function(q) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/collections/by_short_title", query_string(q = q))) %>%
       httr2::req_method("GET") %>%

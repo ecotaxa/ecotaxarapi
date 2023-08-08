@@ -8,6 +8,7 @@
 #'
 #' @export
 reclassif_stats <- function(taxa_ids) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/taxa/reclassification_stats", query_string(taxa_ids = taxa_ids))) %>%
       httr2::req_method("GET") %>%

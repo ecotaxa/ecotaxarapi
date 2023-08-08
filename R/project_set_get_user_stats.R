@@ -8,6 +8,7 @@
 #'
 #' @export
 project_set_get_user_stats <- function(ids) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/project_set/user_stats", query_string(ids = ids))) %>%
       httr2::req_method("GET") %>%

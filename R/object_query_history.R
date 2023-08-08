@@ -8,6 +8,7 @@
 #'
 #' @export
 object_query_history <- function(object_id) {
+  request_body <- list()
   handle_api_response(
     httr2::request(base_url = paste0(api_url(), "/object/", object_id, "/history")) %>%
       httr2::req_method("GET") %>%
