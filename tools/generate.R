@@ -109,6 +109,7 @@ for (path in paths) {
     # get endpoint description from API object
     x <- api$paths[[path]][[method]]
     args <- get_args(x, api)
+    request_body_args <- names(args[gel(args, "in") == "body"])
     schema <- get_schema(x, api)
 
     # inform the user
@@ -156,14 +157,6 @@ for (path in paths) {
     # if (count ==5) browser()
     body <- c(
 
-      # prepare request body if needed
-      if (!is.null(args)) {
-        request_body_args <- names(args[gel(args, "in") == "body"])
-        c(
-          str_c("request_body <- list(", str_c(request_body_args, "=", request_body_args, collapse=", "), ")")
-        )
-      },
-
       # HTTP function
       "handle_api_response(",
 
@@ -182,7 +175,6 @@ for (path in paths) {
         }
 
         url <- str_c("httr2::request(", url, ")) %>% ")
-
         url
       },
 
@@ -190,10 +182,10 @@ for (path in paths) {
       str_c("httr2::req_method('", str_to_upper(method) ,"') %>% "),
 
       # add body to request if needed
-      if (!is.null(x$requestBody$content$`application/json`$schema$`$ref`)) { # schema
+      if (!is.null(schema)) { # schema
         glue("httr2::req_body_json({schema$title}) %>% ")
       } else if (!is.null(x$requestBody)){
-        "httr2::req_body_json(request_body) %>% " # body
+        glue("httr2::req_body_json(list({request_body_args})) %>% ") # body
       },
 
       # HTTP usual arguments
