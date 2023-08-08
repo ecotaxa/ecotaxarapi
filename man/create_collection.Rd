@@ -4,12 +4,10 @@
 \alias{create_collection}
 \title{Create Collection}
 \usage{
-create_collection(title = NULL, project_ids = NULL)
+create_collection(CreateCollectionReq)
 }
 \arguments{
-\item{title}{string; The collection title.}
-
-\item{project_ids}{array; The list of composing project IDs.}
+\item{CreateCollectionReq}{Output of CreateCollectionReq();}
 }
 \description{
 \strong{Create a collection} with at least one project inside. Returns the created collection Id. Note: 'manage' right is required on all underlying projects.

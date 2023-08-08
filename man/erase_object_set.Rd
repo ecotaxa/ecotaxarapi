@@ -4,7 +4,10 @@
 \alias{erase_object_set}
 \title{Erase Object Set}
 \usage{
-erase_object_set()
+erase_object_set(object_ids_list)
+}
+\arguments{
+\item{object_ids_list}{array; The list of object ids.}
 }
 \description{
 \strong{Delete the objects with given object ids.} \strong{Returns} the number of : \strong{deleted objects}, 0, \strong{deleated image rows} and \strong{deleated image files}. 🔒 Current user needs \emph{Manage} right on all projects of specified objects.

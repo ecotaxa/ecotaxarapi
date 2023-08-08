@@ -4,12 +4,10 @@
 \alias{export_object_set}
 \title{Export Object Set}
 \usage{
-export_object_set(filters = NULL, request = NULL)
+export_object_set(Body_export_object_set_object_set_export_post)
 }
 \arguments{
-\item{filters}{NULL; NULL}
-
-\item{request}{NULL; NULL}
+\item{Body_export_object_set_object_set_export_post}{Output of Body_export_object_set_object_set_export_post();}
 }
 \description{
 \strong{Start an export job for the given object set and options.}

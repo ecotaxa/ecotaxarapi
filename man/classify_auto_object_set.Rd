@@ -4,21 +4,10 @@
 \alias{classify_auto_object_set}
 \title{Classify Auto Object Set}
 \usage{
-classify_auto_object_set(
-  target_ids = NULL,
-  classifications = NULL,
-  scores = NULL,
-  keep_log = NULL
-)
+classify_auto_object_set(ClassifyAutoReq)
 }
 \arguments{
-\item{target_ids}{array; The IDs of the target objects.}
-
-\item{classifications}{array; The wanted new classifications, i.e. taxon ID, one for each object.}
-
-\item{scores}{array; The classification score is generally between 0 and 1. It indicates the probability that the taxon prediction of this object is correct.}
-
-\item{keep_log}{boolean; Set if former automatic classification history is needed.}
+\item{ClassifyAutoReq}{Output of ClassifyAutoReq();}
 }
 \description{
 \strong{Set automatic classification} of a set of objects. \strong{Returns the number of updated entities.}

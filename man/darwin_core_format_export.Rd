@@ -4,30 +4,10 @@
 \alias{darwin_core_format_export}
 \title{Emodnet Format Export}
 \usage{
-darwin_core_format_export(
-  collection_id = NULL,
-  dry_run = NULL,
-  pre_mapping = NULL,
-  include_predicted = NULL,
-  with_absent = NULL,
-  with_computations = NULL,
-  formulae = NULL
-)
+darwin_core_format_export(DarwinCoreExportReq)
 }
 \arguments{
-\item{collection_id}{integer; The collection to export, by its internal Id.}
-
-\item{dry_run}{boolean; If set, then only a diagnostic of doability will be done.}
-
-\item{pre_mapping}{object; Mapping from present taxon (key) to output replacement one (value). Use a null replacement to \emph{discard} the present taxon. Note: These are EcoTaxa categories, WoRMS mapping happens after, whatever.}
-
-\item{include_predicted}{boolean; If set, then predicted objects, as well as validated ones, will be exported. A validation status will allow to distinguish between the two possible statuses.}
-
-\item{with_absent}{boolean; If set, then \emph{absent} records will be generated, in the relevant samples, for categories present in other samples.}
-
-\item{with_computations}{array; Compute organisms abundances (ABO), concentrations (CNC) or biovolumes (BIV). Several possible.}
-
-\item{formulae}{object; Transitory: How to get values from DB free columns. Python syntax, prefixes are 'sam', 'ssm' and 'obj'. Variables used in computations are 'total_water_volume', 'subsample_coef' and 'individual_volume'}
+\item{DarwinCoreExportReq}{Output of DarwinCoreExportReq(); Darwin Core format export request, only allowed format for a Collection. @see https://dwc.tdwg.org/}
 }
 \description{
 \strong{Export the collection in Darwin Core format, e.g. for EMODnet portal}, @see https://www.emodnet-ingestion.eu Produces a DwC-A (https://dwc.tdwg.org/) archive into a temporary directory, ready for download. Maybe useful, a reader in Python: https://python-dwca-reader.readthedocs.io/en/latest/index.html Note: Only manageable collections can be exported.

@@ -4,10 +4,12 @@
 \alias{reply_job_question}
 \title{Reply Job Question}
 \usage{
-reply_job_question(job_id)
+reply_job_question(job_id, reply_job_question)
 }
 \arguments{
 \item{job_id}{integer; Internal, the unique numeric id of this job.}
+
+\item{reply_job_question}{object; NULL}
 }
 \description{
 \strong{Send answers to last question.} The job resumes after it receives the reply. Return \strong{NULL upon success.} \emph{Note: It's only about data storage here.} If the data is technically NOK e.g. not a JS object, standard 422 error should be thrown. If the data is incorrect from consistency point of view, the job will return in Asking state.

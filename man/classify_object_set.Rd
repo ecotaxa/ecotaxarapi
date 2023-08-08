@@ -4,18 +4,10 @@
 \alias{classify_object_set}
 \title{Classify Object Set}
 \usage{
-classify_object_set(
-  target_ids = NULL,
-  classifications = NULL,
-  wanted_qualification = NULL
-)
+classify_object_set(ClassifyReq)
 }
 \arguments{
-\item{target_ids}{array; The IDs of the target objects.}
-
-\item{classifications}{array; The wanted new classifications, i.e. taxon ID, one for each object. Use -1 to keep present one.}
-
-\item{wanted_qualification}{string; The wanted qualifications for all objects. 'V' or 'P'.}
+\item{ClassifyReq}{Output of ClassifyReq();}
 }
 \description{
 \strong{Change classification and/or qualification for a set of objects.} \strong{Returns the number of updated entities.} 🔒 Current user needs at \emph{least Annotate} right on all projects of specified objects.

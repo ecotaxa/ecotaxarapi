@@ -4,96 +4,12 @@
 \alias{update_project}
 \title{Update Project}
 \usage{
-update_project(
-  project_id,
-  obj_free_cols = NULL,
-  sample_free_cols = NULL,
-  acquisition_free_cols = NULL,
-  process_free_cols = NULL,
-  bodc_variables = NULL,
-  init_classif_list = NULL,
-  managers = NULL,
-  annotators = NULL,
-  viewers = NULL,
-  instrument = NULL,
-  instrument_url = NULL,
-  contact = NULL,
-  highest_right = NULL,
-  license = NULL,
-  projid = NULL,
-  title = NULL,
-  visible = NULL,
-  status = NULL,
-  objcount = NULL,
-  pctvalidated = NULL,
-  pctclassified = NULL,
-  classifsettings = NULL,
-  classiffieldlist = NULL,
-  popoverfieldlist = NULL,
-  comments = NULL,
-  description = NULL,
-  rf_models_used = NULL,
-  cnn_network_id = NULL
-)
+update_project(project_id, ProjectModel)
 }
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
-\item{obj_free_cols}{object; Object free columns.}
-
-\item{sample_free_cols}{object; Sample free columns.}
-
-\item{acquisition_free_cols}{object; Acquisition free columns.}
-
-\item{process_free_cols}{object; Process free columns.}
-
-\item{bodc_variables}{object; BODC quantities from columns. Only the 3 keys listed in example are valid.}
-
-\item{init_classif_list}{array; Favorite taxa used in classification.}
-
-\item{managers}{array; Managers of this project.}
-
-\item{annotators}{array; Annotators of this project, if not manager.}
-
-\item{viewers}{array; Viewers of this project, if not manager nor annotator.}
-
-\item{instrument}{string; This project's instrument code.}
-
-\item{instrument_url}{string; This project's instrument BODC definition.}
-
-\item{contact}{NULL; The contact person is a manager who serves as the contact person for other users and EcoTaxa's managers.}
-
-\item{highest_right}{string; The highest right for requester on this project. One of 'Manage', 'Annotate', 'View'.}
-
-\item{license}{NULL; Data licence.}
-
-\item{projid}{integer; The project Id.}
-
-\item{title}{string; The project title.}
-
-\item{visible}{boolean; The project visibility.}
-
-\item{status}{string; The project status.}
-
-\item{objcount}{number; The number of objects.}
-
-\item{pctvalidated}{number; Percentage of validated images.}
-
-\item{pctclassified}{number; Percentage of classified images.}
-
-\item{classifsettings}{string; NULL}
-
-\item{classiffieldlist}{string; NULL}
-
-\item{popoverfieldlist}{string; NULL}
-
-\item{comments}{string; The project comments.}
-
-\item{description}{string; The project description, i.e. main traits.}
-
-\item{rf_models_used}{string; NULL}
-
-\item{cnn_network_id}{string; NULL}
+\item{ProjectModel}{Output of ProjectModel(); Basic and computed information about the Project.}
 }
 \description{
 \strong{Update the project}, return \strong{NULL upon success.} Note that some fields will \strong{NOT} be updated and simply ignored, e.g. \emph{free_cols}.

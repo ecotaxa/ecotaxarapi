@@ -4,7 +4,10 @@
 \alias{post_user_file}
 \title{Put User File}
 \usage{
-post_user_file()
+post_user_file(Body_put_user_file_my_files__post)
+}
+\arguments{
+\item{Body_put_user_file_my_files__post}{Output of Body_put_user_file_my_files__post();}
 }
 \description{
 \strong{Upload a file for the current user.} The returned text will contain a server-side path which is usable for some file-related operations. \emph{e.g. import.}

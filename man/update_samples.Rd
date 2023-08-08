@@ -4,12 +4,10 @@
 \alias{update_samples}
 \title{Update Samples}
 \usage{
-update_samples(target_ids = NULL, updates = NULL)
+update_samples(BulkUpdateReq)
 }
 \arguments{
-\item{target_ids}{array; The IDs of the target entities.}
-
-\item{updates}{array; The list of updates, to do on all impacted entities. { ucol : A column name, pseudo-columns AKA free ones, are OK. uval : The new value to set, always as a string }}
+\item{BulkUpdateReq}{Output of BulkUpdateReq();}
 }
 \description{
 Do the required \strong{update for each sample in the set.} Any non-null field in the model is written to every impacted sample. \strong{Returns the number of updated entities.}

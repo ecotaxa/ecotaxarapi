@@ -4,12 +4,10 @@
 \alias{update_processes}
 \title{Update Processes}
 \usage{
-update_processes(target_ids = NULL, updates = NULL)
+update_processes(BulkUpdateReq)
 }
 \arguments{
-\item{target_ids}{array; The IDs of the target entities.}
-
-\item{updates}{array; The list of updates, to do on all impacted entities. { ucol : A column name, pseudo-columns AKA free ones, are OK. uval : The new value to set, always as a string }}
+\item{BulkUpdateReq}{Output of BulkUpdateReq();}
 }
 \description{
 Do the required \strong{update for each process in the set.} \strong{Returns the number of updated entities.}

@@ -4,12 +4,10 @@
 \alias{login}
 \title{Login}
 \usage{
-login(password = NULL, username = NULL)
+login(LoginReq)
 }
 \arguments{
-\item{password}{string; User password.}
-
-\item{username}{string; User email used during registration.}
+\item{LoginReq}{Output of LoginReq();}
 }
 \description{
 \strong{Login barrier,} If successful, the login will returns a \strong{JWT} which will have to be used in bearer authentication scheme for subsequent calls.

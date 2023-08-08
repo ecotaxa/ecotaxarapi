@@ -4,27 +4,12 @@
 \alias{project_subset}
 \title{Project Subset}
 \usage{
-project_subset(
-  project_id,
-  filters = NULL,
-  dest_prj_id = NULL,
-  group_type = NULL,
-  limit_type = NULL,
-  limit_value = NULL
-)
+project_subset(project_id, SubsetReq)
 }
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
-\item{filters}{NULL; The filters to apply to project.}
-
-\item{dest_prj_id}{integer; The destination project ID.}
-
-\item{group_type}{NULL; Define the groups in which to apply limits. C for categories, S for samples, A for acquisitions.}
-
-\item{limit_type}{NULL; The type of limit_value: P for \%, V for constant, both per group.}
-
-\item{limit_value}{number; Limit value, e.g. 20\% or 5 per copepoda or 5\% per sample.}
+\item{SubsetReq}{Output of SubsetReq(); Subset request.}
 }
 \description{
 \strong{Subset a project into another one.}

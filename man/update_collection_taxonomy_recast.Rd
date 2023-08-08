@@ -4,14 +4,12 @@
 \alias{update_collection_taxonomy_recast}
 \title{Update Collection Taxo Recast}
 \usage{
-update_collection_taxonomy_recast(collection_id, from_to = NULL, doc = NULL)
+update_collection_taxonomy_recast(collection_id, TaxonomyRecast)
 }
 \arguments{
 \item{collection_id}{integer; Internal, the unique numeric id of this collection.}
 
-\item{from_to}{object; Mapping from seen taxon (key) to output replacement one (value). Use a null replacement to \emph{discard} the present taxon. Note: keys are strings.}
-
-\item{doc}{object; To keep memory of the reasons for the above mapping. Note: keys are strings.}
+\item{TaxonomyRecast}{Output of TaxonomyRecast(); In various contexts, a taxo recast (from taxon -> to taxon) setting.}
 }
 \description{
 \strong{Create or Update the collection taxonomy recast}. \strong{Returns NULL upon success.} Note: The collection is updated only if manageable.

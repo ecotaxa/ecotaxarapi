@@ -4,21 +4,10 @@
 \alias{create_project}
 \title{Create Project}
 \usage{
-create_project(
-  clone_of_id = NULL,
-  title = NULL,
-  instrument = NULL,
-  visible = NULL
-)
+create_project(CreateProjectReq)
 }
 \arguments{
-\item{clone_of_id}{integer; Internal, numeric id of a project to clone as a new one. By default it does not clone anything.}
-
-\item{title}{string; The project title, as text.}
-
-\item{instrument}{string; The project instrument.}
-
-\item{visible}{boolean; When TRUE, the project is created visible by all users.}
+\item{CreateProjectReq}{Output of CreateProjectReq();}
 }
 \description{
 \strong{Create an empty project with only a title,} and \strong{return the numeric id of this newly created project}. The project will be managed by current user. 🔒 The user has to be \emph{app administrator} or \emph{project creator}.

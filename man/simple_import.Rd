@@ -4,24 +4,14 @@
 \alias{simple_import}
 \title{Simple Import}
 \usage{
-simple_import(
-  project_id,
-  dry_run,
-  source_path = NULL,
-  values = NULL,
-  possible_values = NULL
-)
+simple_import(project_id, dry_run, SimpleImportReq)
 }
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
 \item{dry_run}{boolean; If set, then only a diagnostic of doability will be done. In this case, plain value check. If no dry_run, this call will create a background job.}
 
-\item{source_path}{string; Source path on server, to zip or plain directory.}
-
-\item{values}{object; :imgdate, imgtime, latitude, longitude, depthmin, depthmax, taxolb, userlb, status}
-
-\item{possible_values}{array; NULL}
+\item{SimpleImportReq}{Output of SimpleImportReq(); Simple Import request.}
 }
 \description{
 \strong{Import images only}, with same metadata for all.

@@ -4,7 +4,10 @@
 \alias{query_object_set_parents}
 \title{Query Object Set Parents}
 \usage{
-query_object_set_parents()
+query_object_set_parents(object_ids_list)
+}
+\arguments{
+\item{object_ids_list}{array; The list of object ids.}
 }
 \description{
 \strong{Return object ids, with parent ones and projects} for the objects in given list.

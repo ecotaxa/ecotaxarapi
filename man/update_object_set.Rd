@@ -4,12 +4,10 @@
 \alias{update_object_set}
 \title{Update Object Set}
 \usage{
-update_object_set(target_ids = NULL, updates = NULL)
+update_object_set(BulkUpdateReq)
 }
 \arguments{
-\item{target_ids}{array; The IDs of the target entities.}
-
-\item{updates}{array; The list of updates, to do on all impacted entities. { ucol : A column name, pseudo-columns AKA free ones, are OK. uval : The new value to set, always as a string }}
+\item{BulkUpdateReq}{Output of BulkUpdateReq();}
 }
 \description{
 Do the required \strong{update for each objects in the set.} \strong{Returns the number of updated entities.} 🔒 Current user needs \emph{Manage} right on all projects of specified objects.
