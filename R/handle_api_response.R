@@ -5,7 +5,11 @@
 #' @param x an `httr2_response` object similar to what is output by [httr2::response()].
 #' @export
 handle_api_response <- function(x) {
-  content <- httr2::resp_body_json(x, simplifyVector=TRUE)
+  if (x$headers$`Content-Type` == "application/json") {
+    content <- httr2::resp_body_json(x, simplifyVector=TRUE)
+  } else {
+    content <- httr2::resp_body_raw(x)
+  }
   if (x$status_code != 200) {
     print(x)
     print(content)
