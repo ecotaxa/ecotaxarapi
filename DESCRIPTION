@@ -1,12 +1,9 @@
 Package: ecotaxarapi
 Type: Package
-Title: What the Package Does (Title Case)
+Title: R Package to access EcoTaxa's API
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: This package exposes all objects and endpoints of EcoTaxa's API (documented at http://ecotaxa.obs-vlfr.fr/api/docs) as R functions, allowing to easily call them from R.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
@@ -16,3 +13,7 @@ Imports:
     httr2,
     stats,
     stringr
+Authors@R: c(
+    person("Jean-Olivier", "Irisson", , "irisson@normalesup.org", role = c("aut", "cre")),
+    person("Thelma", "Panaiotis", , "thelma.panaiotis@imev-mer.fr", role = "aut")
+  )

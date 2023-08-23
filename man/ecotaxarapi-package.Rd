@@ -4,8 +4,17 @@
 \name{ecotaxarapi-package}
 \alias{ecotaxarapi}
 \alias{ecotaxarapi-package}
-\title{ecotaxarapi: What the Package Does (Title Case)}
+\title{ecotaxarapi: R Package to access EcoTaxa's API}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+This package exposes all objects and endpoints of EcoTaxa's API (documented at http://ecotaxa.obs-vlfr.fr/api/docs) as R functions, allowing to easily call them from R.
+}
+\author{
+\strong{Maintainer}: Jean-Olivier Irisson \email{irisson@normalesup.org}
+
+Authors:
+\itemize{
+  \item Thelma Panaiotis \email{thelma.panaiotis@imev-mer.fr}
+}
+
 }
 \keyword{internal}
