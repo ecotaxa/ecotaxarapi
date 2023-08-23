@@ -17,7 +17,7 @@ This path can be changed with option "ecotaxar.token_path"; by default, it is
 # get current token path
 api_token_path()
 # set the option to change the path
-options(ecotaxar.token_path="~/.my_ecotaxa_token")
+options(ecotaxa.token_path="~/.my_ecotaxa_token")
 api_token_path()
 # NB: write this option in .Rprofile to make it permanent.
 }

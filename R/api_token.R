@@ -9,13 +9,13 @@
 #' # get current token path
 #' api_token_path()
 #' # set the option to change the path
-#' options(ecotaxar.token_path="~/.my_ecotaxa_token")
+#' options(ecotaxa.token_path="~/.my_ecotaxa_token")
 #' api_token_path()
 #' # NB: write this option in .Rprofile to make it permanent.
 api_token_path <- function() {
-  token_path <- getOption("ecotaxar.token_path")
+  token_path <- getOption("ecotaxa.token_path")
   if (is.null(token_path)) {
-    token_path <- "~/.R/ecotaxar/token"
+    token_path <- "~/.R/ecotaxa/token"
   }
   token_path <- path.expand(token_path)
   return(token_path)
@@ -45,7 +45,7 @@ api_token_path <- function() {
 #' # NB: write this option in .Rprofile to make it permanent.
 save_api_token <- function(token, path=api_token_path()) {
   if (path != api_token_path()) {
-    options("ecotaxar.token_path"=path)
+    options("ecotaxa.token_path"=path)
   }
   writeLines(token, con=path)
   return(invisible(token))
