@@ -7,7 +7,7 @@
 handle_api_response(x)
 }
 \arguments{
-\item{x}{an \link[httr2:httr2_response]{httr2::httr2_response} object.}
+\item{x}{an \code{httr2_response} object similar to what is output by \code{\link[httr2:response]{httr2::response()}}.}
 }
 \description{
 Fail, with information, if the status code is not 200. Return the parsed response content otherwise.
