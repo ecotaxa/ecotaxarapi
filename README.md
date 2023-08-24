@@ -12,7 +12,7 @@ devtools::install_github("ecotaxa/ecotaxarapi")
 
 ## Usage
 
-The first step is to log in, since most functions require an EcoTaxa account. This log in action will generate a personal token which you can save so that it can then be used by all subsequent function calls (without having to log in again). This token is confidential and gives all the permissions that you have when you log in with your password on the web. Do not share it!
+The first step is to log in, since most functions require an EcoTaxa account. This action will generate a personal token. You can save it and it will be used in all subsequent function calls, even in new R sessions. This means you only have to do this once. This also means that anyone that has your token can perform all permitted actions (including deleting all your data) without your password: do not share it!
 
 ```
 library("ecotaxarapi")
@@ -25,7 +25,7 @@ save_api_token(token)
 
 NB: this action shows a common pattern in the API calls: the argument to the `login()` function is another function that defines an object of a given type. It is documented so that you can figure out its arguments (`?LoginReq`). It may seem convoluted but is standard practice to check the input arguments for each object. Those objects are often called `***Req` or `***Model`.
 
-Then you are ready to make another API call. For example you can get information about yourself
+Now, you are ready to make API calls. A simple example is getting information about yourself
 
 ```
 show_current_user()
