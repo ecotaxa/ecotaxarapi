@@ -7,7 +7,7 @@ An Application Programming Interface is a set of functions that are exposed thro
 The package is in development and not on CRAN. To install it, install the `devtools` package and then
 
 ```
-devtools::install_github("ecotaxa/ecotaxarapi")
+remotes::install_github("ecotaxa/ecotaxarapi")
 ```
 
 ## Usage
