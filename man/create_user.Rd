@@ -4,10 +4,12 @@
 \alias{create_user}
 \title{Create User}
 \usage{
-create_user(no_bot = NULL, UserModelWithRights)
+create_user(no_bot = NULL, token = NULL, UserModelWithRights)
 }
 \arguments{
 \item{no_bot}{array; not-a-robot proof}
+
+\item{token}{string; token in the url to validate request}
 
 \item{UserModelWithRights}{Output of UserModelWithRights();}
 }

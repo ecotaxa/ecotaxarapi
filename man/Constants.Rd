@@ -4,7 +4,18 @@
 \alias{Constants}
 \title{Constants}
 \usage{
-Constants(license_texts = NULL, app_manager = NULL, countries = NULL)
+Constants(
+  license_texts = NULL,
+  app_manager = NULL,
+  countries = NULL,
+  user_status = NULL,
+  password_regexp = NULL,
+  email_verification = NULL,
+  account_validation = NULL,
+  short_token_age = NULL,
+  profile_token_age = NULL,
+  recaptchaid = NULL
+)
 }
 \arguments{
 \item{license_texts}{[list] The supported licenses and help text/links.}
@@ -12,6 +23,20 @@ Constants(license_texts = NULL, app_manager = NULL, countries = NULL)
 \item{app_manager}{[vector of string] The application manager identity (name, mail), from config file.}
 
 \item{countries}{[vector of string] List of known countries names.}
+
+\item{user_status}{[list] Application User status values}
+
+\item{password_regexp}{[string] 8 char. minimum, at least one uppercase, one lowercase, one number and one special char in '#?!@\%^&*-+'}
+
+\item{email_verification}{[boolean] Require verification before activation.}
+
+\item{account_validation}{[boolean] Require validation by a Users Administrator before activation.}
+
+\item{short_token_age}{[integer] Email confirmation, password reset token lifespan.}
+
+\item{profile_token_age}{[integer] Profile modification token lifespan.}
+
+\item{recaptchaid}{[boolean] use Google ReCaptcha}
 }
 \description{
 A list defining a Constants

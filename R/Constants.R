@@ -6,13 +6,27 @@
 #' @param license_texts \[list\] The supported licenses and help text/links.
 #' @param app_manager \[vector of string\] The application manager identity (name, mail), from config file.
 #' @param countries \[vector of string\] List of known countries names.
+#' @param user_status \[list\] Application User status values
+#' @param password_regexp \[string\] 8 char. minimum, at least one uppercase, one lowercase, one number and one special char in '#?!@%^&*-+' 
+#' @param email_verification \[boolean\] Require verification before activation.
+#' @param account_validation \[boolean\] Require validation by a Users Administrator before activation.
+#' @param short_token_age \[integer\] Email confirmation, password reset token lifespan.
+#' @param profile_token_age \[integer\] Profile modification token lifespan.
+#' @param recaptchaid \[boolean\] use Google ReCaptcha
 #' 
 #' @export
-Constants <- function(license_texts=NULL, app_manager=NULL, countries=NULL) {
+Constants <- function(license_texts=NULL, app_manager=NULL, countries=NULL, user_status=NULL, password_regexp=NULL, email_verification=NULL, account_validation=NULL, short_token_age=NULL, profile_token_age=NULL, recaptchaid=NULL) {
   body <- list(
     license_texts=license_texts,
     app_manager=app_manager,
-    countries=countries
+    countries=countries,
+    user_status=user_status,
+    password_regexp=password_regexp,
+    email_verification=email_verification,
+    account_validation=account_validation,
+    short_token_age=short_token_age,
+    profile_token_age=profile_token_age,
+    recaptchaid=recaptchaid
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

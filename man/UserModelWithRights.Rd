@@ -10,10 +10,15 @@ UserModelWithRights(
   password = NULL,
   name,
   organisation = NULL,
-  active = NULL,
+  status = NULL,
+  status_date = NULL,
+  status_admin_comment = NULL,
   country = NULL,
+  orcid = NULL,
   usercreationdate = NULL,
   usercreationreason = NULL,
+  mail_status = NULL,
+  mail_status_date = NULL,
   can_do = NULL,
   last_used_projects = NULL
 )
@@ -29,13 +34,23 @@ UserModelWithRights(
 
 \item{organisation}{[string] User's organisation name, as text.}
 
-\item{active}{[boolean] Whether the user is still active.}
+\item{status}{[integer] Status of the user : 1 for active, 0 for inactive ,2 for pending, -1 for blocked}
+
+\item{status_date}{[string] Timestamp status modification date}
+
+\item{status_admin_comment}{[string] Optional Users admininistrator comment about the account status.}
 
 \item{country}{[string] The country name, as text (but chosen in a consistent list).}
+
+\item{orcid}{[string] The orcid id https://support.orcid.org.}
 
 \item{usercreationdate}{[string] The date of creation of the user, as text formatted according to the ISO 8601 standard.}
 
 \item{usercreationreason}{[string] Paragraph describing the usage of EcoTaxa made by the user.}
+
+\item{mail_status}{[boolean] True for verified, False for waiting for verification, None for no action.}
+
+\item{mail_status_date}{[string] Timestamp mail status modification date}
 
 \item{can_do}{[vector of integer] List of User's allowed actions : 1 create a project, 2 administrate the app, 3 administrate users, 4 create taxon.}
 

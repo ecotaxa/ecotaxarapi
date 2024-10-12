@@ -8,25 +8,35 @@
 #' @param password \[string\] Encrypted (or not) password.
 #' @param name \[string, required\] User's full name, as text.
 #' @param organisation \[string\] User's organisation name, as text.
-#' @param active \[boolean\] Whether the user is still active.
+#' @param status \[integer\] Status of the user : 1 for active, 0 for inactive ,2 for pending, -1 for blocked
+#' @param status_date \[string\] Timestamp status modification date
+#' @param status_admin_comment \[string\] Optional Users admininistrator comment about the account status.
 #' @param country \[string\] The country name, as text (but chosen in a consistent list).
+#' @param orcid \[string\] The orcid id https://support.orcid.org.
 #' @param usercreationdate \[string\] The date of creation of the user, as text formatted according to the ISO 8601 standard.
 #' @param usercreationreason \[string\] Paragraph describing the usage of EcoTaxa made by the user.
+#' @param mail_status \[boolean\] True for verified, False for waiting for verification, None for no action.
+#' @param mail_status_date \[string\] Timestamp mail status modification date
 #' @param can_do \[vector of integer\] List of User's allowed actions : 1 create a project, 2 administrate the app, 3 administrate users, 4 create taxon.
 #' @param last_used_projects \[vector of \] List of User's last used projects.
 #' 
 #' @export
-UserModelWithRights <- function(id, email, password=NULL, name, organisation=NULL, active=NULL, country=NULL, usercreationdate=NULL, usercreationreason=NULL, can_do=NULL, last_used_projects=NULL) {
+UserModelWithRights <- function(id, email, password=NULL, name, organisation=NULL, status=NULL, status_date=NULL, status_admin_comment=NULL, country=NULL, orcid=NULL, usercreationdate=NULL, usercreationreason=NULL, mail_status=NULL, mail_status_date=NULL, can_do=NULL, last_used_projects=NULL) {
   body <- list(
     id=id,
     email=email,
     password=password,
     name=name,
     organisation=organisation,
-    active=active,
+    status=status,
+    status_date=status_date,
+    status_admin_comment=status_admin_comment,
     country=country,
+    orcid=orcid,
     usercreationdate=usercreationdate,
     usercreationreason=usercreationreason,
+    mail_status=mail_status,
+    mail_status_date=mail_status_date,
     can_do=can_do,
     last_used_projects=last_used_projects
   )

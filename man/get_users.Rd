@@ -4,10 +4,12 @@
 \alias{get_users}
 \title{Get Users}
 \usage{
-get_users(ids = NULL)
+get_users(ids = NULL, summary = NULL)
 }
 \arguments{
 \item{ids}{string; String containing the list of one or more id separated by non-num char. \strong{If several ids are provided}, one full info is returned per user.}
+
+\item{summary}{boolean; Return users except rights and last_used_projects if set to True. For users list display purpose.}
 }
 \description{
 Returns the list of \strong{all users} with their full information, or just some of them if their ids are provided. 🔒 \emph{For admins only.}
