@@ -4,10 +4,12 @@
 \alias{get_job_file}
 \title{Get Job File}
 \usage{
-get_job_file(job_id)
+get_job_file(job_id, Range = NULL)
 }
 \arguments{
 \item{job_id}{integer; Internal, the unique numeric id of this job.}
+
+\item{Range}{string; NULL}
 }
 \description{
 \strong{Return the file produced by given job.} 🔒 The job must be accessible to current user.
