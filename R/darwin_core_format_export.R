@@ -1,6 +1,6 @@
 # Generated automatically. See README before editing.
 
-#' Emodnet Format Export
+#' Darwin Core Format Export
 #'
 #' **Export the collection in Darwin Core format, e.g. for EMODnet portal**, @see https://www.emodnet-ingestion.eu Produces a DwC-A (https://dwc.tdwg.org/) archive into a temporary directory, ready for download. Maybe useful, a reader in Python: https://python-dwca-reader.readthedocs.io/en/latest/index.html Note: Only manageable collections can be exported.
 #'

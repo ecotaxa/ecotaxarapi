@@ -2,7 +2,7 @@
 % Please edit documentation in R/darwin_core_format_export.R
 \name{darwin_core_format_export}
 \alias{darwin_core_format_export}
-\title{Emodnet Format Export}
+\title{Darwin Core Format Export}
 \usage{
 darwin_core_format_export(DarwinCoreExportReq)
 }

@@ -6,30 +6,34 @@
 #' @param project_id \[integer, required\] The project to export.
 #' @param exp_type \[object of type [ExportTypeEnum], required\] The export type.
 #' @param use_latin1 \[boolean\] Export using latin 1 character set, AKA iso-8859-1. Default is utf-8.
-#' @param tsv_entities \[string, required\] For 'TSV' type, the entities to export, one letter for each of O(bject), P(rocess), A(cquisition), S(ample), classification H(istory), C(omments).
-#' @param split_by \[string, required\] For 'TSV' type, inside archives, split in one directory per... 'sample', 'taxo' or '' (no split).
-#' @param coma_as_separator \[boolean, required\] For 'TSV' type, use a , instead of . for decimal separator.
-#' @param format_dates_times \[boolean, required\] For 'TSV' type, format dates and times using - and : respectively.
-#' @param with_images \[boolean, required\] For 'BAK' and 'DOI' types, export images as well.
-#' @param with_internal_ids \[boolean, required\] For 'BAK' and 'DOI' types, export internal DB IDs.
-#' @param only_first_image \[boolean, required\] For 'DOI' type, export only first (displayed) image.
-#' @param sum_subtotal \[object of type [SummaryExportGroupingEnum], required\] For 'SUM', 'ABO', 'CNC' and 'BIV' types, if computations should be combined. Per A(cquisition) or S(ample) or <Empty>(just taxa).
+#' @param tsv_entities \[string\] For 'TSV' type, the entities to export, one letter for each of O(bject), P(rocess), A(cquisition), S(ample), C(omments).
+#' @param only_annotations \[boolean\] For 'BAK' type, only save objects' last annotation data in backup.
+#' @param split_by \[string\] For 'TSV' type, inside archives, split in one directory per... 'sample', 'acquisition', 'taxon' or '' (no split).
+#' @param coma_as_separator \[boolean\] For 'TSV' type, use a , instead of . for decimal separator.
+#' @param format_dates_times \[boolean\] For 'TSV' type, format dates and times using - and : respectively.
+#' @param with_images \[boolean\] For 'BAK' and 'DOI' types, export images as well.
+#' @param with_internal_ids \[boolean\] For 'TSV' type, export internal DB IDs.
+#' @param with_types_row \[boolean\] Add an EcoTaxa-compatible second line with types.
+#' @param only_first_image \[boolean\] For 'DOI' type, export only first (displayed) image.
+#' @param sum_subtotal \[object of type [SummaryExportGroupingEnum]\] For 'SUM', 'ABO', 'CNC' and 'BIV' types, if computations should be combined. Per A(cquisition) or S(ample) or <Empty>(just taxa).
 #' @param pre_mapping \[list\] For 'ABO', 'CNC' and 'BIV' types types, mapping from present taxon (key) to output replacement one (value). Use a null replacement to _discard_ the present taxon.
 #' @param formulae \[list\] Transitory: For 'CNC' and 'BIV' type, how to get values from DB free columns. Python syntax, prefixes are 'sam', 'ssm' and 'obj'.Variables used in computations are 'total_water_volume', 'subsample_coef' and 'individual_volume'
-#' @param out_to_ftp \[boolean, required\] Copy result file to FTP area. Original file is still available.
+#' @param out_to_ftp \[boolean\] Copy result file to FTP area. Original file is still available.
 #' 
 #' @export
-ExportReq <- function(project_id, exp_type, use_latin1=NULL, tsv_entities, split_by, coma_as_separator, format_dates_times, with_images, with_internal_ids, only_first_image, sum_subtotal, pre_mapping=NULL, formulae=NULL, out_to_ftp) {
+ExportReq <- function(project_id, exp_type, use_latin1=NULL, tsv_entities=NULL, only_annotations=NULL, split_by=NULL, coma_as_separator=NULL, format_dates_times=NULL, with_images=NULL, with_internal_ids=NULL, with_types_row=NULL, only_first_image=NULL, sum_subtotal=NULL, pre_mapping=NULL, formulae=NULL, out_to_ftp=NULL) {
   body <- list(
     project_id=project_id,
     exp_type=exp_type,
     use_latin1=use_latin1,
     tsv_entities=tsv_entities,
+    only_annotations=only_annotations,
     split_by=split_by,
     coma_as_separator=coma_as_separator,
     format_dates_times=format_dates_times,
     with_images=with_images,
     with_internal_ids=with_internal_ids,
+    with_types_row=with_types_row,
     only_first_image=only_first_image,
     sum_subtotal=sum_subtotal,
     pre_mapping=pre_mapping,

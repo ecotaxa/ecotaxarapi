@@ -9,7 +9,7 @@ Body_export_object_set_object_set_export_post(filters, request)
 \arguments{
 \item{filters}{[object of type \link{ProjectFilters}, required] filters}
 
-\item{request}{[object of type \link{ExportReq}, required] request}
+\item{request}{[object of type \link{ExportReq}, required] Request}
 }
 \description{
 A list defining a Body_export_object_set_object_set_export_post

@@ -4,7 +4,7 @@
 #' A list defining a Body_export_object_set_object_set_export_post
 #' 
 #' @param filters \[object of type [ProjectFilters], required\] filters
-#' @param request \[object of type [ExportReq], required\] request
+#' @param request \[object of type [ExportReq], required\] Request
 #' 
 #' @export
 Body_export_object_set_object_set_export_post <- function(filters, request) {

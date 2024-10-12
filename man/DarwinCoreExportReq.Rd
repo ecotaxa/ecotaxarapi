@@ -7,11 +7,12 @@
 DarwinCoreExportReq(
   collection_id,
   dry_run = NULL,
-  pre_mapping = NULL,
   include_predicted = NULL,
   with_absent = NULL,
   with_computations = NULL,
-  formulae = NULL
+  computations_pre_mapping = NULL,
+  formulae = NULL,
+  extra_xml = NULL
 )
 }
 \arguments{
@@ -19,15 +20,17 @@ DarwinCoreExportReq(
 
 \item{dry_run}{[boolean] If set, then only a diagnostic of doability will be done.}
 
-\item{pre_mapping}{[list] Mapping from present taxon (key) to output replacement one (value). Use a null replacement to \emph{discard} the present taxon. Note: These are EcoTaxa categories, WoRMS mapping happens after, whatever.}
-
 \item{include_predicted}{[boolean] If set, then predicted objects, as well as validated ones, will be exported. A validation status will allow to distinguish between the two possible statuses.}
 
 \item{with_absent}{[boolean] If set, then \emph{absent} records will be generated, in the relevant samples, for categories present in other samples.}
 
 \item{with_computations}{[vector of ] Compute organisms abundances (ABO), concentrations (CNC) or biovolumes (BIV). Several possible.}
 
+\item{computations_pre_mapping}{[list] Mapping from present taxon (key) to output replacement one (value), during computations. Use a 0 replacement to \emph{discard} the objects with present taxon. Note: These are EcoTaxa categories, WoRMS mapping happens after, whatever.}
+
 \item{formulae}{[list] Transitory: How to get values from DB free columns. Python syntax, prefixes are 'sam', 'ssm' and 'obj'. Variables used in computations are 'total_water_volume', 'subsample_coef' and 'individual_volume'}
+
+\item{extra_xml}{[vector of string] XML blocks which will be output, reformatted, inside the \if{html}{\out{<dataset>}} tag of produced EML. Formal schema is in dataset section of: https://eml.ecoinformatics.org/schema/eml_xsd}
 }
 \description{
 A list defining a DarwinCoreExportReq
