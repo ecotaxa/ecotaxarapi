@@ -12,6 +12,7 @@ search_projects(
   instrument_filter = NULL,
   filter_subset = NULL,
   order_field = NULL,
+  summary = NULL,
   window_start = NULL,
   window_size = NULL
 )
@@ -30,6 +31,8 @@ search_projects(
 \item{filter_subset}{boolean; Only return projects having 'subset' in their names.}
 
 \item{order_field}{string; One of \link{'instrument', 'instrument_url', 'highest_right', 'projid', 'title', 'visible', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'description', 'rf_models_used', 'cnn_network_id'}}
+
+\item{summary}{boolean; Return projects except somme fields like bodc_variables if set to True. For projects list display purpose.}
 
 \item{window_start}{integer; Skip \code{window_start} before returning data.}
 
