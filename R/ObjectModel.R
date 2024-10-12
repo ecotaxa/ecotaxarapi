@@ -5,60 +5,60 @@
 #' 
 #' @param objid \[integer, required\] The object Id.
 #' @param acquisid \[integer, required\] The parent acquisition Id.
-#' @param orig_id \[string, required\] Original object ID from initial TSV load.
-#' @param objdate \[string\] Object date
+#' @param classif_id \[integer\] The classification Id.
 #' @param objtime \[string\] Object time
 #' @param latitude \[number\] The latitude.
 #' @param longitude \[number\] The longitude.
 #' @param depth_min \[number\] The min depth.
 #' @param depth_max \[number\] The min depth.
-#' @param sunpos \[string\] Sun position, from date, time and coords.
-#' @param classif_id \[integer\] The classification Id.
+#' @param objdate \[string\] Object date
 #' @param classif_qual \[string\] The classification qualification. Could be **P** for predicted, **V** for validated or **D** for Dubious.
-#' @param classif_who \[integer\] The user who manualy classify this object.
+#' @param sunpos \[string\] Sun position, from date, time and coords.
 #' @param classif_when \[string\] The classification date.
+#' @param classif_who \[integer\] The user who manualy classify this object.
 #' @param classif_auto_id \[integer\] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. 
-#' @param classif_auto_score \[number\] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.
 #' @param classif_auto_when \[string\] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification date.
-#' @param classif_crossvalidation_id \[integer\] Always NULL in prod.
-#' @param complement_info \[string\] Complement info
-#' @param similarity \[number\] Always NULL in prod.
-#' @param random_value \[integer\] random_value
+#' @param classif_auto_score \[number\] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.
+#' @param orig_id \[string, required\] Original object ID from initial TSV load.
 #' @param object_link \[string\] Object link.
+#' @param complement_info \[string\] Complement info
 #' @param sample_id \[integer, required\] Sample (i.e. parent of parent acquisition) ID.
 #' @param project_id \[integer, required\] Project (i.e. parent of sample) ID.
 #' @param images \[vector of \] Images for this object.
 #' @param free_columns \[list\] Free columns from object mapping in project.
+#' @param classif_crossvalidation_id \[integer\] Always NULL, kept for compat.
+#' @param similarity \[number\] Always NULL, kept for compat.
+#' @param random_value \[integer, required\] Random value associated to an image
 #' 
 #' @export
-ObjectModel <- function(objid, acquisid, orig_id, objdate=NULL, objtime=NULL, latitude=NULL, longitude=NULL, depth_min=NULL, depth_max=NULL, sunpos=NULL, classif_id=NULL, classif_qual=NULL, classif_who=NULL, classif_when=NULL, classif_auto_id=NULL, classif_auto_score=NULL, classif_auto_when=NULL, classif_crossvalidation_id=NULL, complement_info=NULL, similarity=NULL, random_value=NULL, object_link=NULL, sample_id, project_id, images=NULL, free_columns=NULL) {
+ObjectModel <- function(objid, acquisid, classif_id=NULL, objtime=NULL, latitude=NULL, longitude=NULL, depth_min=NULL, depth_max=NULL, objdate=NULL, classif_qual=NULL, sunpos=NULL, classif_when=NULL, classif_who=NULL, classif_auto_id=NULL, classif_auto_when=NULL, classif_auto_score=NULL, orig_id, object_link=NULL, complement_info=NULL, sample_id, project_id, images=NULL, free_columns=NULL, classif_crossvalidation_id=NULL, similarity=NULL, random_value) {
   body <- list(
     objid=objid,
     acquisid=acquisid,
-    orig_id=orig_id,
-    objdate=objdate,
+    classif_id=classif_id,
     objtime=objtime,
     latitude=latitude,
     longitude=longitude,
     depth_min=depth_min,
     depth_max=depth_max,
-    sunpos=sunpos,
-    classif_id=classif_id,
+    objdate=objdate,
     classif_qual=classif_qual,
-    classif_who=classif_who,
+    sunpos=sunpos,
     classif_when=classif_when,
+    classif_who=classif_who,
     classif_auto_id=classif_auto_id,
-    classif_auto_score=classif_auto_score,
     classif_auto_when=classif_auto_when,
-    classif_crossvalidation_id=classif_crossvalidation_id,
-    complement_info=complement_info,
-    similarity=similarity,
-    random_value=random_value,
+    classif_auto_score=classif_auto_score,
+    orig_id=orig_id,
     object_link=object_link,
+    complement_info=complement_info,
     sample_id=sample_id,
     project_id=project_id,
     images=images,
-    free_columns=free_columns
+    free_columns=free_columns,
+    classif_crossvalidation_id=classif_crossvalidation_id,
+    similarity=similarity,
+    random_value=random_value
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

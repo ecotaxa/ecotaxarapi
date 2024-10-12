@@ -5,38 +5,38 @@
 \title{ImageModel}
 \usage{
 ImageModel(
-  imgid,
-  objid = NULL,
+  imgid = NULL,
+  objid,
   imgrank,
-  file_name,
-  orig_file_name,
   width,
   height,
-  thumb_file_name = NULL,
+  orig_file_name,
   thumb_width = NULL,
-  thumb_height = NULL
+  thumb_height = NULL,
+  file_name,
+  thumb_file_name = NULL
 )
 }
 \arguments{
-\item{imgid}{[integer, required] The id of the image.}
+\item{imgid}{[integer] The id of the image.}
 
-\item{objid}{[integer] The id of the object related to the image.}
+\item{objid}{[integer, required] The id of the object related to the image.}
 
 \item{imgrank}{[integer, required] The rank of the image.}
-
-\item{file_name}{[string, required] The file name.}
-
-\item{orig_file_name}{[string, required] The file name of the original image.}
 
 \item{width}{[integer, required] The width of the image.}
 
 \item{height}{[integer, required] The height of the image.}
 
-\item{thumb_file_name}{[string] Generate thumbnail if image is too large. This generated thumbnail file name.}
+\item{orig_file_name}{[string, required] The file name of the original image.}
 
 \item{thumb_width}{[integer] Generate thumbnail if image is too large. This generated thumbnail width.}
 
 \item{thumb_height}{[integer] Generate thumbnail if image is too large. The thumb height of the image.}
+
+\item{file_name}{[string, required] The file name.}
+
+\item{thumb_file_name}{[string] If image was too large at import time, the generated thumbnail file name.}
 }
 \description{
 A list defining a ImageModel

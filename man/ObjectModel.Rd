@@ -7,30 +7,30 @@
 ObjectModel(
   objid,
   acquisid,
-  orig_id,
-  objdate = NULL,
+  classif_id = NULL,
   objtime = NULL,
   latitude = NULL,
   longitude = NULL,
   depth_min = NULL,
   depth_max = NULL,
-  sunpos = NULL,
-  classif_id = NULL,
+  objdate = NULL,
   classif_qual = NULL,
-  classif_who = NULL,
+  sunpos = NULL,
   classif_when = NULL,
+  classif_who = NULL,
   classif_auto_id = NULL,
-  classif_auto_score = NULL,
   classif_auto_when = NULL,
-  classif_crossvalidation_id = NULL,
-  complement_info = NULL,
-  similarity = NULL,
-  random_value = NULL,
+  classif_auto_score = NULL,
+  orig_id,
   object_link = NULL,
+  complement_info = NULL,
   sample_id,
   project_id,
   images = NULL,
-  free_columns = NULL
+  free_columns = NULL,
+  classif_crossvalidation_id = NULL,
+  similarity = NULL,
+  random_value
 )
 }
 \arguments{
@@ -38,9 +38,7 @@ ObjectModel(
 
 \item{acquisid}{[integer, required] The parent acquisition Id.}
 
-\item{orig_id}{[string, required] Original object ID from initial TSV load.}
-
-\item{objdate}{[string] Object date}
+\item{classif_id}{[integer] The classification Id.}
 
 \item{objtime}{[string] Object time}
 
@@ -52,31 +50,27 @@ ObjectModel(
 
 \item{depth_max}{[number] The min depth.}
 
-\item{sunpos}{[string] Sun position, from date, time and coords.}
-
-\item{classif_id}{[integer] The classification Id.}
+\item{objdate}{[string] Object date}
 
 \item{classif_qual}{[string] The classification qualification. Could be \strong{P} for predicted, \strong{V} for validated or \strong{D} for Dubious.}
 
-\item{classif_who}{[integer] The user who manualy classify this object.}
+\item{sunpos}{[string] Sun position, from date, time and coords.}
 
 \item{classif_when}{[string] The classification date.}
 
-\item{classif_auto_id}{[integer] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'.}
+\item{classif_who}{[integer] The user who manualy classify this object.}
 
-\item{classif_auto_score}{[number] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.}
+\item{classif_auto_id}{[integer] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'.}
 
 \item{classif_auto_when}{[string] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification date.}
 
-\item{classif_crossvalidation_id}{[integer] Always NULL in prod.}
+\item{classif_auto_score}{[number] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.}
 
-\item{complement_info}{[string] Complement info}
-
-\item{similarity}{[number] Always NULL in prod.}
-
-\item{random_value}{[integer] random_value}
+\item{orig_id}{[string, required] Original object ID from initial TSV load.}
 
 \item{object_link}{[string] Object link.}
+
+\item{complement_info}{[string] Complement info}
 
 \item{sample_id}{[integer, required] Sample (i.e. parent of parent acquisition) ID.}
 
@@ -85,6 +79,12 @@ ObjectModel(
 \item{images}{[vector of ] Images for this object.}
 
 \item{free_columns}{[list] Free columns from object mapping in project.}
+
+\item{classif_crossvalidation_id}{[integer] Always NULL, kept for compat.}
+
+\item{similarity}{[number] Always NULL, kept for compat.}
+
+\item{random_value}{[integer, required] Random value associated to an image}
 }
 \description{
 A list defining a ObjectModel

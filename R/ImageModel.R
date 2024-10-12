@@ -3,30 +3,30 @@
 #' 
 #' A list defining a ImageModel
 #' 
-#' @param imgid \[integer, required\] The id of the image.
-#' @param objid \[integer\] The id of the object related to the image.
+#' @param imgid \[integer\] The id of the image.
+#' @param objid \[integer, required\] The id of the object related to the image.
 #' @param imgrank \[integer, required\] The rank of the image.
-#' @param file_name \[string, required\] The file name.
-#' @param orig_file_name \[string, required\] The file name of the original image.
 #' @param width \[integer, required\] The width of the image.
 #' @param height \[integer, required\] The height of the image.
-#' @param thumb_file_name \[string\] Generate thumbnail if image is too large. This generated thumbnail file name.
+#' @param orig_file_name \[string, required\] The file name of the original image.
 #' @param thumb_width \[integer\] Generate thumbnail if image is too large. This generated thumbnail width.
 #' @param thumb_height \[integer\] Generate thumbnail if image is too large. The thumb height of the image.
+#' @param file_name \[string, required\] The file name.
+#' @param thumb_file_name \[string\] If image was too large at import time, the generated thumbnail file name.
 #' 
 #' @export
-ImageModel <- function(imgid, objid=NULL, imgrank, file_name, orig_file_name, width, height, thumb_file_name=NULL, thumb_width=NULL, thumb_height=NULL) {
+ImageModel <- function(imgid=NULL, objid, imgrank, width, height, orig_file_name, thumb_width=NULL, thumb_height=NULL, file_name, thumb_file_name=NULL) {
   body <- list(
     imgid=imgid,
     objid=objid,
     imgrank=imgrank,
-    file_name=file_name,
-    orig_file_name=orig_file_name,
     width=width,
     height=height,
-    thumb_file_name=thumb_file_name,
+    orig_file_name=orig_file_name,
     thumb_width=thumb_width,
-    thumb_height=thumb_height
+    thumb_height=thumb_height,
+    file_name=file_name,
+    thumb_file_name=thumb_file_name
   )
   body[sapply(body, is.null)] <- NULL
   return(body)
