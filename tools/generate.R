@@ -2,6 +2,7 @@ library("jsonlite")
 library("glue")
 library("stringr")
 library("styler")
+library("dplyr")
 
 ## Prepare (load API description, define functions)  ----
 
@@ -111,6 +112,13 @@ for (path in paths) {
     args <- get_args(x, api)
     request_body_args <- names(args[gel(args, "in") == "body"])
     schema <- get_schema(x, api)
+    request_body_type <- names(x$requestBody$content)
+    if (is.null(request_body_type)) {request_body_type <- ""}
+    # request_function <- case_when(
+    #   request_body_type == "multipart/form-data" ~ "req_body_multipart",
+    #   request_body_type == "application/json" ~ "req_body_json",
+    #   TRUE ~ "req_body_json"
+    # )
 
     # inform the user
     message(count, ": ", method, " ", path, " -> ", x$operationId)
@@ -182,7 +190,9 @@ for (path in paths) {
       str_c("httr2::req_method('", str_to_upper(method) ,"') %>% "),
 
       # add body to request if needed
-      if (!is.null(schema)) { # schema
+      if (request_body_type == "multipart/form-data") {
+        glue("httr2::req_body_multipart(!!!{schema$title}) %>% ")
+      } else if (!is.null(schema)) { # schema
         glue("httr2::req_body_json({schema$title}) %>% ")
       } else if (!is.null(x$requestBody)){
         glue("httr2::req_body_json(list({request_body_args})) %>% ") # body
