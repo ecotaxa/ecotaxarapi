@@ -143,7 +143,7 @@ for (path in paths) {
         str_c(
           "@param ",
           schema$title, " ",
-          "Output of ", schema$title, "(); ",
+          "Output of [", schema$title, "()]; ",
           schema$description
         )
       },
