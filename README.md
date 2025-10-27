@@ -41,6 +41,6 @@ This package is in the early stage of its development. Your help is very welcome
 
 Most object models and functions in the `R` directory are generated *programmatically* by parsing the API specification and writing the corresponding R code. The functions to do so are in `tools`. Edit those and run them to re-generate the functions in the `R` directory, then generate the documentation with `document()` and then commit.
 
-If a problem comes from the API specification itself (unclear argument, missing default value, missing object definition, etc.), please report it directly to <https://github.com/ecotaxa/ecotaxa_back/issues>.
+If a problem comes from the API specification itself (unclear argument, missing default value, missing object definition, etc.), please report it directly to <https://github.com/ecotaxa/ecotaxa/issues>.
 
 Thanks in advance for your help!
