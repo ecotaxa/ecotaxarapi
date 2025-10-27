@@ -2,7 +2,7 @@
 
 #' Search Organizations
 #'
-#' **Search for organizations.** So far, organizations are just names in users table.
+#' **Search for organizations.**
 #'
 #' @param name string; Search by name, use % for searching with 'any char'.
 #'

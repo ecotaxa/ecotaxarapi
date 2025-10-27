@@ -7,7 +7,7 @@
 darwin_core_format_export(DarwinCoreExportReq)
 }
 \arguments{
-\item{DarwinCoreExportReq}{Output of DarwinCoreExportReq(); Darwin Core format export request, only allowed format for a Collection. @see https://dwc.tdwg.org/}
+\item{DarwinCoreExportReq}{Output of \code{\link[=DarwinCoreExportReq]{DarwinCoreExportReq()}}; Darwin Core format export request, only allowed format for a Collection. @see https://dwc.tdwg.org/}
 }
 \description{
 \strong{Export the collection in Darwin Core format, e.g. for EMODnet portal}, @see https://www.emodnet-ingestion.eu Produces a DwC-A (https://dwc.tdwg.org/) archive into a temporary directory, ready for download. Maybe useful, a reader in Python: https://python-dwca-reader.readthedocs.io/en/latest/index.html Note: Only manageable collections can be exported.

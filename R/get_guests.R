@@ -1,0 +1,18 @@
+# Generated automatically. See README before editing.
+
+#' Get Guests
+#'
+#' Returns the list of **all guests** with their full information, or just some of them if their ids are provided. 🔒 *For admins and managers only.*
+#'
+#' @param ids string; String containing the list of one or more id separated by non-num char. **If several ids are provided**, one full info is returned per user.
+#' @param fields string; Return the default fields (typically used in conjunction with an additional field list). For users list display purpose.
+#'
+#' @export
+get_guests <- function(ids = NULL, fields = NULL) {
+  handle_api_response(
+    httr2::request(base_url = paste0(api_url(), "/guests", query_string(ids = ids, fields = fields))) %>%
+      httr2::req_method("GET") %>%
+      httr2::req_auth_bearer_token(api_token()) %>%
+      httr2::req_perform()
+  )
+}

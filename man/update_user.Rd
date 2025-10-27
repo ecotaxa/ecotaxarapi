@@ -9,7 +9,7 @@ update_user(user_id, UserModelWithRights)
 \arguments{
 \item{user_id}{integer; Internal, numeric id of the user.}
 
-\item{UserModelWithRights}{Output of UserModelWithRights();}
+\item{UserModelWithRights}{Output of \code{\link[=UserModelWithRights]{UserModelWithRights()}};}
 }
 \description{
 \strong{Update the user}, return \strong{NULL upon success.} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can change any field with respect of consistency. - A user can update own password and name. - An ordinary user cannot update anything for another user.

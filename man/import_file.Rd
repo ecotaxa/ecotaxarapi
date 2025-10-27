@@ -9,7 +9,7 @@ import_file(project_id, ImportReq)
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
-\item{ImportReq}{Output of ImportReq(); Import request, from UI choices.}
+\item{ImportReq}{Output of \code{\link[=ImportReq]{ImportReq()}}; Import request, from UI choices.}
 }
 \description{
 \strong{Validate or do a real import} of an EcoTaxa archive or directory.

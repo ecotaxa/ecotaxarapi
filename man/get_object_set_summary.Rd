@@ -11,7 +11,7 @@ get_object_set_summary(project_id, only_total, ProjectFilters)
 
 \item{only_total}{boolean; If True, returns only the \strong{Total number of objects}. Else returns also the \strong{Number of validated ones}, the \strong{number of Dubious ones} and the number of \strong{predicted ones}.}
 
-\item{ProjectFilters}{Output of ProjectFilters(); How to reduce project data.}
+\item{ProjectFilters}{Output of \code{\link[=ProjectFilters]{ProjectFilters()}}; How to reduce project data.}
 }
 \description{
 For the given project, with given filters, \strong{return the classification summary}. i.e.: - Total number of objects And optionally - Number of Validated ones - Number of Dubious ones - Number of Predicted ones

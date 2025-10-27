@@ -6,7 +6,7 @@
 #'
 #' @param no_bot array; not-a-robot proof
 #' @param token string; token in the url to validate request
-#' @param UserModelWithRights Output of UserModelWithRights();
+#' @param UserModelWithRights Output of [UserModelWithRights()];
 #'
 #' @export
 create_user <- function(no_bot = NULL, token = NULL, UserModelWithRights) {

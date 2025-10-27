@@ -7,7 +7,7 @@
 #' @param project_id integer; Internal, numeric id of the project.
 #' @param forced_id integer; The new classification Id.
 #' @param reason string; The reason of this new classification.
-#' @param ProjectFilters Output of ProjectFilters(); How to reduce project data.
+#' @param ProjectFilters Output of [ProjectFilters()]; How to reduce project data.
 #'
 #' @export
 reclassify_object_set <- function(project_id, forced_id, reason, ProjectFilters) {

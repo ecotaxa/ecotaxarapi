@@ -5,11 +5,12 @@
 #' **Search for collections.** Note: Only manageable collections are returned.
 #'
 #' @param title string; Search by title, use % for searching with 'any char'.
+#' @param fields string; Return the default fields (typically used in conjunction with an additional field list). For users list display purpose.
 #'
 #' @export
-search_collections <- function(title) {
+search_collections <- function(title, fields = NULL) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/collections/search", query_string(title = title))) %>%
+    httr2::request(base_url = paste0(api_url(), "/collections/search", query_string(title = title, fields = fields))) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

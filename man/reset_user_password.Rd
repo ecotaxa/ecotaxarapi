@@ -11,7 +11,7 @@ reset_user_password(no_bot = NULL, token = NULL, ResetPasswordReq)
 
 \item{token}{string; token in the url to validate request}
 
-\item{ResetPasswordReq}{Output of ResetPasswordReq(); Minimal user information need to reset the password}
+\item{ResetPasswordReq}{Output of \code{\link[=ResetPasswordReq]{ResetPasswordReq()}}; Minimal user information need to reset the password}
 }
 \description{
 reset user password \strong{return NULL on success} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can reset a user password. - An unlogged user can ask for a reset in two steps. and receive a mail with a token. But must eventually provide a no-robot proof. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair \link{remote IP, reCAPTCHA response}.

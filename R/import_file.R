@@ -5,7 +5,7 @@
 #' **Validate or do a real import** of an EcoTaxa archive or directory.
 #'
 #' @param project_id integer; Internal, numeric id of the project.
-#' @param ImportReq Output of ImportReq(); Import request, from UI choices.
+#' @param ImportReq Output of [ImportReq()]; Import request, from UI choices.
 #'
 #' @export
 import_file <- function(project_id, ImportReq) {

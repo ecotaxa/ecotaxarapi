@@ -1,11 +1,11 @@
 # Generated automatically. See README before editing.
 
-#' Reset Object Set To Predicted
+#' Force Object Set To Predicted
 #'
-#' **Reset to Predicted** all objects for the given project with the filters. Return **NULL upon success.**
+#' **Force to Predicted** all objects for the given project with the filters. Return **NULL upon success.**
 #'
 #' @param project_id integer; Internal, numeric id of the project.
-#' @param ProjectFilters Output of ProjectFilters(); How to reduce project data.
+#' @param ProjectFilters Output of [ProjectFilters()]; How to reduce project data.
 #'
 #' @export
 reset_object_set_to_predicted <- function(project_id, ProjectFilters) {

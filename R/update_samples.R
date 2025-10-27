@@ -4,7 +4,7 @@
 #'
 #' Do the required **update for each sample in the set.** Any non-null field in the model is written to every impacted sample. **Returns the number of updated entities.**
 #'
-#' @param BulkUpdateReq Output of BulkUpdateReq();
+#' @param BulkUpdateReq Output of [BulkUpdateReq()];
 #'
 #' @export
 update_samples <- function(BulkUpdateReq) {

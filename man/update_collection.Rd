@@ -4,12 +4,12 @@
 \alias{update_collection}
 \title{Update Collection}
 \usage{
-update_collection(collection_id, CollectionModel)
+update_collection(collection_id, CollectionReq)
 }
 \arguments{
 \item{collection_id}{integer; Internal, the unique numeric id of this collection.}
 
-\item{CollectionModel}{Output of CollectionModel(); Basic and computed information about the Collection.}
+\item{CollectionReq}{Output of \code{\link[=CollectionReq]{CollectionReq()}}; update full or partial collection Request model}
 }
 \description{
 \strong{Update the collection}. Note that some updates are silently failing when not compatible with the composing projects. \strong{Returns NULL upon success.} Note: The collection is updated only if manageable.

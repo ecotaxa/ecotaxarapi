@@ -4,7 +4,7 @@
 #'
 #' ⚠️ Deprecated, see general, summary and backup exports for alternatives. Start an export job for the given object set and options. 🔒 Current user needs *at least Read* right on the requested project.
 #'
-#' @param Body_export_object_set_object_set_export_post Output of Body_export_object_set_object_set_export_post();
+#' @param Body_export_object_set_object_set_export_post Output of [Body_export_object_set_object_set_export_post()];
 #'
 #' @export
 export_object_set <- function(Body_export_object_set_object_set_export_post) {

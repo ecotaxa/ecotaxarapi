@@ -4,7 +4,7 @@
 #'
 #' **Start a prediction** AKA automatic classification for the given object set and options.
 #'
-#' @param Body_predict_object_set_object_set_predict_post Output of Body_predict_object_set_object_set_predict_post();
+#' @param Body_predict_object_set_object_set_predict_post Output of [Body_predict_object_set_object_set_predict_post()];
 #'
 #' @export
 predict_object_set <- function(Body_predict_object_set_object_set_predict_post) {

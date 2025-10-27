@@ -4,7 +4,7 @@
 #'
 #' Start a backup export job for the given object set and options. If filters are empty, the produced zip will contain the full project. 🔒 Current user needs *at least Read* right on the requested project.
 #'
-#' @param Body_export_object_set_backup_object_set_export_backup_post Output of Body_export_object_set_backup_object_set_export_backup_post();
+#' @param Body_export_object_set_backup_object_set_export_backup_post Output of [Body_export_object_set_backup_object_set_export_backup_post()];
 #'
 #' @export
 export_object_set_backup <- function(Body_export_object_set_backup_object_set_export_backup_post) {

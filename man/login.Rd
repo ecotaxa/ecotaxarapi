@@ -7,8 +7,8 @@
 login(LoginReq)
 }
 \arguments{
-\item{LoginReq}{Output of LoginReq();}
+\item{LoginReq}{Output of \code{\link[=LoginReq]{LoginReq()}};}
 }
 \description{
-\strong{Login barrier,} If successful, the login will returns a \strong{JWT} which will have to be used in bearer authentication scheme for subsequent calls.
+\strong{Login barrier,} If successful, the login will return a \strong{JWT} which will have to be used in bearer authentication scheme for subsequent calls.
 }

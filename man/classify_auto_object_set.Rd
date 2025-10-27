@@ -7,7 +7,7 @@
 classify_auto_object_set(ClassifyAutoReq)
 }
 \arguments{
-\item{ClassifyAutoReq}{Output of ClassifyAutoReq();}
+\item{ClassifyAutoReq}{Output of \code{\link[=ClassifyAutoReq]{ClassifyAutoReq()}};}
 }
 \description{
 \strong{Set automatic classification} of a set of objects. \strong{Returns the number of updated entities.}

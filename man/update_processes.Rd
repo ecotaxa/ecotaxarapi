@@ -7,7 +7,7 @@
 update_processes(BulkUpdateReq)
 }
 \arguments{
-\item{BulkUpdateReq}{Output of BulkUpdateReq();}
+\item{BulkUpdateReq}{Output of \code{\link[=BulkUpdateReq]{BulkUpdateReq()}};}
 }
 \description{
 Do the required \strong{update for each process in the set.} \strong{Returns the number of updated entities.}

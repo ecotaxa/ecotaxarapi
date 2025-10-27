@@ -4,10 +4,12 @@
 \alias{search_collections}
 \title{Search Collections}
 \usage{
-search_collections(title)
+search_collections(title, fields = NULL)
 }
 \arguments{
 \item{title}{string; Search by title, use \% for searching with 'any char'.}
+
+\item{fields}{string; Return the default fields (typically used in conjunction with an additional field list). For users list display purpose.}
 }
 \description{
 \strong{Search for collections.} Note: Only manageable collections are returned.

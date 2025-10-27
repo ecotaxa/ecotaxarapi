@@ -10,5 +10,5 @@ search_organizations(name)
 \item{name}{string; Search by name, use \% for searching with 'any char'.}
 }
 \description{
-\strong{Search for organizations.} So far, organizations are just names in users table.
+\strong{Search for organizations.}
 }

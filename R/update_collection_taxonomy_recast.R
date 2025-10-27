@@ -5,7 +5,7 @@
 #' **Create or Update the collection taxonomy recast**. **Returns NULL upon success.** Note: The collection is updated only if manageable.
 #'
 #' @param collection_id integer; Internal, the unique numeric id of this collection.
-#' @param TaxonomyRecast Output of TaxonomyRecast(); In various contexts, a taxo recast (from taxon -> to taxon) setting.
+#' @param TaxonomyRecast Output of [TaxonomyRecast()]; In various contexts, a taxo recast (from taxon -> to taxon) setting.
 #'
 #' @export
 update_collection_taxonomy_recast <- function(collection_id, TaxonomyRecast) {

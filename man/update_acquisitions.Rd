@@ -7,7 +7,7 @@
 update_acquisitions(BulkUpdateReq)
 }
 \arguments{
-\item{BulkUpdateReq}{Output of BulkUpdateReq();}
+\item{BulkUpdateReq}{Output of \code{\link[=BulkUpdateReq]{BulkUpdateReq()}};}
 }
 \description{
 Do the required \strong{update for each acquisition in the set}. \strong{Return the number of updated entities.}

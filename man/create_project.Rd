@@ -7,7 +7,7 @@
 create_project(CreateProjectReq)
 }
 \arguments{
-\item{CreateProjectReq}{Output of CreateProjectReq();}
+\item{CreateProjectReq}{Output of \code{\link[=CreateProjectReq]{CreateProjectReq()}};}
 }
 \description{
 \strong{Create an empty project with only a title,} and \strong{return the numeric id of this newly created project}. The project will be managed by current user. 🔒 The user has to be \emph{app administrator} or \emph{project creator}.

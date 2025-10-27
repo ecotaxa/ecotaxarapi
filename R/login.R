@@ -2,9 +2,9 @@
 
 #' Login
 #'
-#' **Login barrier,** If successful, the login will returns a **JWT** which will have to be used in bearer authentication scheme for subsequent calls.
+#' **Login barrier,** If successful, the login will return a **JWT** which will have to be used in bearer authentication scheme for subsequent calls.
 #'
-#' @param LoginReq Output of LoginReq();
+#' @param LoginReq Output of [LoginReq()];
 #'
 #' @export
 login <- function(LoginReq) {

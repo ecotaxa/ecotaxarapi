@@ -6,7 +6,7 @@
 #'
 #' @param no_bot array; not-a-robot proof
 #' @param token string; token in the url to validate request
-#' @param ResetPasswordReq Output of ResetPasswordReq(); Minimal user information need to reset the password
+#' @param ResetPasswordReq Output of [ResetPasswordReq()]; Minimal user information need to reset the password
 #'
 #' @export
 reset_user_password <- function(no_bot = NULL, token = NULL, ResetPasswordReq) {

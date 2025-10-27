@@ -4,7 +4,7 @@
 #'
 #' Do the required **update for each acquisition in the set**. **Return the number of updated entities.**
 #'
-#' @param BulkUpdateReq Output of BulkUpdateReq();
+#' @param BulkUpdateReq Output of [BulkUpdateReq()];
 #'
 #' @export
 update_acquisitions <- function(BulkUpdateReq) {

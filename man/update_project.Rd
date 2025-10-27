@@ -9,7 +9,7 @@ update_project(project_id, ProjectModel)
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
-\item{ProjectModel}{Output of ProjectModel(); Basic and computed information about the Project.}
+\item{ProjectModel}{Output of \code{\link[=ProjectModel]{ProjectModel()}}; Basic and computed information about the Project.}
 }
 \description{
 \strong{Update the project}, return \strong{NULL upon success.} Note that some fields will \strong{NOT} be updated and simply ignored, e.g. \emph{free_cols}.

@@ -9,7 +9,7 @@ export_object_set_summary(
 )
 }
 \arguments{
-\item{Body_export_object_set_summary_object_set_export_summary_post}{Output of Body_export_object_set_summary_object_set_export_summary_post();}
+\item{Body_export_object_set_summary_object_set_export_summary_post}{Output of \code{\link[=Body_export_object_set_summary_object_set_export_summary_post]{Body_export_object_set_summary_object_set_export_summary_post()}};}
 }
 \description{
 Start a summary export job for the given object set and options. 🔒 Current user needs \emph{at least Read} right on the requested project.

@@ -4,7 +4,7 @@
 #'
 #' Do the required **update for each objects in the set.** **Returns the number of updated entities.** 🔒 Current user needs *Manage* right on all projects of specified objects.
 #'
-#' @param BulkUpdateReq Output of BulkUpdateReq();
+#' @param BulkUpdateReq Output of [BulkUpdateReq()];
 #'
 #' @export
 update_object_set <- function(BulkUpdateReq) {

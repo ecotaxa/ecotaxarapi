@@ -7,7 +7,7 @@
 predict_object_set(Body_predict_object_set_object_set_predict_post)
 }
 \arguments{
-\item{Body_predict_object_set_object_set_predict_post}{Output of Body_predict_object_set_object_set_predict_post();}
+\item{Body_predict_object_set_object_set_predict_post}{Output of \code{\link[=Body_predict_object_set_object_set_predict_post]{Body_predict_object_set_object_set_predict_post()}};}
 }
 \description{
 \strong{Start a prediction} AKA automatic classification for the given object set and options.

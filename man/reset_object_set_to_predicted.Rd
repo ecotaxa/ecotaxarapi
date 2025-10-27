@@ -2,15 +2,15 @@
 % Please edit documentation in R/reset_object_set_to_predicted.R
 \name{reset_object_set_to_predicted}
 \alias{reset_object_set_to_predicted}
-\title{Reset Object Set To Predicted}
+\title{Force Object Set To Predicted}
 \usage{
 reset_object_set_to_predicted(project_id, ProjectFilters)
 }
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
-\item{ProjectFilters}{Output of ProjectFilters(); How to reduce project data.}
+\item{ProjectFilters}{Output of \code{\link[=ProjectFilters]{ProjectFilters()}}; How to reduce project data.}
 }
 \description{
-\strong{Reset to Predicted} all objects for the given project with the filters. Return \strong{NULL upon success.}
+\strong{Force to Predicted} all objects for the given project with the filters. Return \strong{NULL upon success.}
 }

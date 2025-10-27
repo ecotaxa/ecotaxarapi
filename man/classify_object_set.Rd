@@ -7,7 +7,7 @@
 classify_object_set(ClassifyReq)
 }
 \arguments{
-\item{ClassifyReq}{Output of ClassifyReq();}
+\item{ClassifyReq}{Output of \code{\link[=ClassifyReq]{ClassifyReq()}};}
 }
 \description{
 \strong{Change classification and/or qualification for a set of objects.} \strong{Returns the number of updated entities.} 🔒 Current user needs at \emph{least Annotate} right on all projects of specified objects.

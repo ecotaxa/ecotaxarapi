@@ -7,7 +7,7 @@
 #' @param project_id integer; Internal, numeric id of the project.
 #' @param dry_run boolean; If set, then no real write but consequences of the revert will be replied.
 #' @param target integer; Use null/None for reverting using the last annotation from anyone, or a user id for the last annotation from this user.
-#' @param ProjectFilters Output of ProjectFilters(); How to reduce project data.
+#' @param ProjectFilters Output of [ProjectFilters()]; How to reduce project data.
 #'
 #' @export
 revert_object_set_to_history <- function(project_id, dry_run, target = NULL, ProjectFilters) {

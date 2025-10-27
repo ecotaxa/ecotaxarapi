@@ -5,7 +5,7 @@
 #' **Update the project**, return **NULL upon success.** Note that some fields will **NOT** be updated and simply ignored, e.g. *free_cols*.
 #'
 #' @param project_id integer; Internal, numeric id of the project.
-#' @param ProjectModel Output of ProjectModel(); Basic and computed information about the Project.
+#' @param ProjectModel Output of [ProjectModel()]; Basic and computed information about the Project.
 #'
 #' @export
 update_project <- function(project_id, ProjectModel) {

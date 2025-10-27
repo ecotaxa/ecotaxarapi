@@ -6,7 +6,7 @@
 #'
 #' @param project_id integer; Internal, numeric id of the project.
 #' @param only_total boolean; If True, returns only the **Total number of objects**. Else returns also the **Number of validated ones**, the **number of Dubious ones** and the number of **predicted ones**.
-#' @param ProjectFilters Output of ProjectFilters(); How to reduce project data.
+#' @param ProjectFilters Output of [ProjectFilters()]; How to reduce project data.
 #'
 #' @export
 get_object_set_summary <- function(project_id, only_total, ProjectFilters) {

@@ -9,7 +9,7 @@ export_object_set_backup(
 )
 }
 \arguments{
-\item{Body_export_object_set_backup_object_set_export_backup_post}{Output of Body_export_object_set_backup_object_set_export_backup_post();}
+\item{Body_export_object_set_backup_object_set_export_backup_post}{Output of \code{\link[=Body_export_object_set_backup_object_set_export_backup_post]{Body_export_object_set_backup_object_set_export_backup_post()}};}
 }
 \description{
 Start a backup export job for the given object set and options. If filters are empty, the produced zip will contain the full project. 🔒 Current user needs \emph{at least Read} right on the requested project.

@@ -4,7 +4,7 @@
 #'
 #' **Change classification and/or qualification for a set of objects.** **Returns the number of updated entities.** 🔒 Current user needs at *least Annotate* right on all projects of specified objects.
 #'
-#' @param ClassifyReq Output of ClassifyReq();
+#' @param ClassifyReq Output of [ClassifyReq()];
 #'
 #' @export
 classify_object_set <- function(ClassifyReq) {

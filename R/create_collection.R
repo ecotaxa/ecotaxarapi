@@ -4,7 +4,7 @@
 #'
 #' **Create a collection** with at least one project inside. Returns the created collection Id. Note: 'manage' right is required on all underlying projects.
 #'
-#' @param CreateCollectionReq Output of CreateCollectionReq();
+#' @param CreateCollectionReq Output of [CreateCollectionReq()];
 #'
 #' @export
 create_collection <- function(CreateCollectionReq) {

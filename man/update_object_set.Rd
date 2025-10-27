@@ -7,7 +7,7 @@
 update_object_set(BulkUpdateReq)
 }
 \arguments{
-\item{BulkUpdateReq}{Output of BulkUpdateReq();}
+\item{BulkUpdateReq}{Output of \code{\link[=BulkUpdateReq]{BulkUpdateReq()}};}
 }
 \description{
 Do the required \strong{update for each objects in the set.} \strong{Returns the number of updated entities.} 🔒 Current user needs \emph{Manage} right on all projects of specified objects.

@@ -9,7 +9,7 @@ project_subset(project_id, SubsetReq)
 \arguments{
 \item{project_id}{integer; Internal, numeric id of the project.}
 
-\item{SubsetReq}{Output of SubsetReq(); Subset request.}
+\item{SubsetReq}{Output of \code{\link[=SubsetReq]{SubsetReq()}}; Subset request.}
 }
 \description{
 \strong{Subset a project into another one.}

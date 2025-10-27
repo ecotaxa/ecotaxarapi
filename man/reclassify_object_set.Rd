@@ -13,7 +13,7 @@ reclassify_object_set(project_id, forced_id, reason, ProjectFilters)
 
 \item{reason}{string; The reason of this new classification.}
 
-\item{ProjectFilters}{Output of ProjectFilters(); How to reduce project data.}
+\item{ProjectFilters}{Output of \code{\link[=ProjectFilters]{ProjectFilters()}}; How to reduce project data.}
 }
 \description{
 Regardless of present classification or state, \strong{set the new classification for this object set.} If the filter designates "all with given classification", add a TaxonomyChangeLog entry. \strong{Returns the number of affected objects.}

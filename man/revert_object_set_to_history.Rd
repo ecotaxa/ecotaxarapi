@@ -18,7 +18,7 @@ revert_object_set_to_history(
 
 \item{target}{integer; Use null/None for reverting using the last annotation from anyone, or a user id for the last annotation from this user.}
 
-\item{ProjectFilters}{Output of ProjectFilters(); How to reduce project data.}
+\item{ProjectFilters}{Output of \code{\link[=ProjectFilters]{ProjectFilters()}}; How to reduce project data.}
 }
 \description{
 \strong{Revert all objects for the given project}, with the filters, to the target.

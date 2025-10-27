@@ -4,7 +4,7 @@
 #'
 #' Do the required **update for each process in the set.** **Returns the number of updated entities.**
 #'
-#' @param BulkUpdateReq Output of BulkUpdateReq();
+#' @param BulkUpdateReq Output of [BulkUpdateReq()];
 #'
 #' @export
 update_processes <- function(BulkUpdateReq) {

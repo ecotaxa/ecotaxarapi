@@ -5,7 +5,7 @@
 #' **Subset a project into another one.**
 #'
 #' @param project_id integer; Internal, numeric id of the project.
-#' @param SubsetReq Output of SubsetReq(); Subset request.
+#' @param SubsetReq Output of [SubsetReq()]; Subset request.
 #'
 #' @export
 project_subset <- function(project_id, SubsetReq) {

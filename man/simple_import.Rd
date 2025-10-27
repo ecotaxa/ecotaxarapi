@@ -11,7 +11,7 @@ simple_import(project_id, dry_run, SimpleImportReq)
 
 \item{dry_run}{boolean; If set, then only a diagnostic of doability will be done. In this case, plain value check. If no dry_run, this call will create a background job.}
 
-\item{SimpleImportReq}{Output of SimpleImportReq(); Simple Import request.}
+\item{SimpleImportReq}{Output of \code{\link[=SimpleImportReq]{SimpleImportReq()}}; Simple Import request.}
 }
 \description{
 \strong{Import images only}, with same metadata for all.

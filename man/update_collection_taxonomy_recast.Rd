@@ -9,7 +9,7 @@ update_collection_taxonomy_recast(collection_id, TaxonomyRecast)
 \arguments{
 \item{collection_id}{integer; Internal, the unique numeric id of this collection.}
 
-\item{TaxonomyRecast}{Output of TaxonomyRecast(); In various contexts, a taxo recast (from taxon -> to taxon) setting.}
+\item{TaxonomyRecast}{Output of \code{\link[=TaxonomyRecast]{TaxonomyRecast()}}; In various contexts, a taxo recast (from taxon -> to taxon) setting.}
 }
 \description{
 \strong{Create or Update the collection taxonomy recast}. \strong{Returns NULL upon success.} Note: The collection is updated only if manageable.

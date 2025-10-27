@@ -4,7 +4,7 @@
 #'
 #' **Create an empty project with only a title,** and **return the numeric id of this newly created project**. The project will be managed by current user. 🔒 The user has to be *app administrator* or *project creator*.
 #'
-#' @param CreateProjectReq Output of CreateProjectReq();
+#' @param CreateProjectReq Output of [CreateProjectReq()];
 #'
 #' @export
 create_project <- function(CreateProjectReq) {

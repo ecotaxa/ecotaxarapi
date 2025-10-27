@@ -4,7 +4,7 @@
 #'
 #' **Set automatic classification** of a set of objects. **Returns the number of updated entities.**
 #'
-#' @param ClassifyAutoReq Output of ClassifyAutoReq();
+#' @param ClassifyAutoReq Output of [ClassifyAutoReq()];
 #'
 #' @export
 classify_auto_object_set <- function(ClassifyAutoReq) {

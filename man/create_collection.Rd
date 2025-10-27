@@ -7,7 +7,7 @@
 create_collection(CreateCollectionReq)
 }
 \arguments{
-\item{CreateCollectionReq}{Output of CreateCollectionReq();}
+\item{CreateCollectionReq}{Output of \code{\link[=CreateCollectionReq]{CreateCollectionReq()}};}
 }
 \description{
 \strong{Create a collection} with at least one project inside. Returns the created collection Id. Note: 'manage' right is required on all underlying projects.
