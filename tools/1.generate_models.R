@@ -3,7 +3,9 @@
 #
 # (c) 2025 J-O Irisson, T Panaïotis GNU General Public License v3
 
-library("tidyverse")
+library("purrr")
+library("dplyr")
+library("stringr")
 library("glue")
 library("styler")
 
