@@ -86,14 +86,19 @@ model_props <- function(x) {
 }
 
 
+## Actually parse the file and write functions ----
+
 schemas <- api$components$schemas
 
 iwalk(schemas, function(sch, sch_name) {
   message("  write doc. for ", sch_name)
 
   sch_type <- schema_type(sch)
-  if (sch_type == "enum") {
 
+  if (sch_type == "enum") {
+    # Format an enum (i.e. list of possibilities)
+
+    # the documentation part, that describes the enum
     doc <- c(
       sch$title,
       "",
@@ -104,15 +109,16 @@ iwalk(schemas, function(sch, sch_name) {
       str_c("@name ", sch_name),
       "@export"
     )
+    # the "function" part, which is just a placeholder
     fun <- "NULL"
 
-  } else {
+  }  else {
+    # Format a Model
 
-# -------------------------------------------------------------------------
-
-
+    # get its list of properties, correctly/homogeneously structured
     props <- model_props(sch)
 
+    # documentation part
     doc <- c(
       sch$title,
       "",
@@ -124,6 +130,7 @@ iwalk(schemas, function(sch, sch_name) {
     )
     # TODO add example
 
+    # the function itself, that defines the object
     fun <- c(
       str_c(sch_name, " <- function(",
             str_c(gel(props, "name"), ifelse(gel(props, "required"), "", "=NULL"), collapse=", "),
