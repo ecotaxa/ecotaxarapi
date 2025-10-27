@@ -3,13 +3,6 @@
 #' 
 #' A list defining a Collection Model
 #' 
-#' @param project_ids \[vector of integer, required\] The list of composing project IDs.
-#' @param provider_user \[object of type [MinUserModel]\] Is the person who         is responsible for the content of this metadata record. Writer of the title and abstract.
-#' @param contact_user \[object of type [MinUserModel]\] Is the person who         should be contacted in cases of questions regarding the content of the dataset or any data restrictions.         This is also the person who is most likely to stay involved in the dataset the longest.
-#' @param creator_users \[vector of \] All people who         are responsible for the creation of the collection. Data creators should receive credit         for their work and should therefore be included in the citation.
-#' @param creator_organisations \[vector of string\] All         organisations who are responsible for the creation of the collection. Data creators should         receive credit for their work and should therefore be included in the citation.
-#' @param associate_users \[vector of \] Other person(s)         associated with the collection.
-#' @param associate_organisations \[vector of string\] Other         organisation(s) associated with the collection.
 #' @param id \[integer, required\] The collection Id.
 #' @param external_id \[string, required\] The external Id.
 #' @param external_id_system \[string, required\] The external Id system.
@@ -19,17 +12,17 @@
 #' @param license \[string\] The collection license.
 #' @param abstract \[string\] The collection abstract.
 #' @param description \[string\] The collection description.
+#' @param project_ids \[vector of integer, required\] The list of composing project IDs.
+#' @param provider_user \[object of type [MinUserModel]\] Is the person who         is responsible for the content of this metadata record. Writer of the title and abstract.
+#' @param contact_user \[object of type [MinUserModel]\] Is the person who         should be contacted in cases of questions regarding the content of the dataset or any data restrictions.         This is also the person who is most likely to stay involved in the dataset the longest.
+#' @param creator_users \[vector of \] All people who         are responsible for the creation of the collection. Data creators should receive credit         for their work and should therefore be included in the citation.
+#' @param creator_organisations \[vector of \] All         organisations who are responsible for the creation of the collection. Data creators should         receive credit for their work and should therefore be included in the citation.
+#' @param associate_users \[vector of \] Other person(s)         associated with the collection.
+#' @param associate_organisations \[vector of \] Other         organisation(s) associated with the collection.
 #' 
 #' @export
-CollectionModel <- function(project_ids, provider_user=NULL, contact_user=NULL, creator_users=NULL, creator_organisations=NULL, associate_users=NULL, associate_organisations=NULL, id, external_id, external_id_system, title, short_title=NULL, citation=NULL, license=NULL, abstract=NULL, description=NULL) {
+CollectionModel <- function(id, external_id, external_id_system, title, short_title=NULL, citation=NULL, license=NULL, abstract=NULL, description=NULL, project_ids, provider_user=NULL, contact_user=NULL, creator_users=NULL, creator_organisations=NULL, associate_users=NULL, associate_organisations=NULL) {
   body <- list(
-    project_ids=project_ids,
-    provider_user=provider_user,
-    contact_user=contact_user,
-    creator_users=creator_users,
-    creator_organisations=creator_organisations,
-    associate_users=associate_users,
-    associate_organisations=associate_organisations,
     id=id,
     external_id=external_id,
     external_id_system=external_id_system,
@@ -38,7 +31,14 @@ CollectionModel <- function(project_ids, provider_user=NULL, contact_user=NULL, 
     citation=citation,
     license=license,
     abstract=abstract,
-    description=description
+    description=description,
+    project_ids=project_ids,
+    provider_user=provider_user,
+    contact_user=contact_user,
+    creator_users=creator_users,
+    creator_organisations=creator_organisations,
+    associate_users=associate_users,
+    associate_organisations=associate_organisations
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

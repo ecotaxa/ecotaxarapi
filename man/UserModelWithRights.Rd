@@ -7,18 +7,18 @@
 UserModelWithRights(
   id,
   email,
-  password = NULL,
   name,
-  organisation = NULL,
-  status = NULL,
-  status_date = NULL,
-  status_admin_comment = NULL,
   country = NULL,
   orcid = NULL,
   usercreationdate = NULL,
+  password = NULL,
+  status = NULL,
+  status_date = NULL,
+  status_admin_comment = NULL,
   usercreationreason = NULL,
   mail_status = NULL,
   mail_status_date = NULL,
+  organisation,
   can_do = NULL,
   last_used_projects = NULL
 )
@@ -28,17 +28,7 @@ UserModelWithRights(
 
 \item{email}{[string, required] User's email address, as text, used during registration.}
 
-\item{password}{[string] Encrypted (or not) password.}
-
 \item{name}{[string, required] User's full name, as text.}
-
-\item{organisation}{[string] User's organisation name, as text.}
-
-\item{status}{[integer] Status of the user : 1 for active, 0 for inactive ,2 for pending, -1 for blocked}
-
-\item{status_date}{[string] Timestamp status modification date}
-
-\item{status_admin_comment}{[string] Optional Users admininistrator comment about the account status.}
 
 \item{country}{[string] The country name, as text (but chosen in a consistent list).}
 
@@ -46,11 +36,21 @@ UserModelWithRights(
 
 \item{usercreationdate}{[string] The date of creation of the user, as text formatted according to the ISO 8601 standard.}
 
+\item{password}{[string] Encrypted (or not) password.}
+
+\item{status}{[integer] Status of the user : 1 for active, 0 for inactive ,2 for pending, -1 for blocked}
+
+\item{status_date}{[string] Timestamp status modification date}
+
+\item{status_admin_comment}{[string] Optional Users admininistrator comment about the account status.}
+
 \item{usercreationreason}{[string] Paragraph describing the usage of EcoTaxa made by the user.}
 
 \item{mail_status}{[boolean] True for verified, False for waiting for verification, None for no action.}
 
 \item{mail_status_date}{[string] Timestamp mail status modification date}
+
+\item{organisation}{[string, required] User's organisation name, as text.}
 
 \item{can_do}{[vector of integer] List of User's allowed actions : 1 create a project, 2 administrate the app, 3 administrate users, 4 create taxon.}
 

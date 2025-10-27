@@ -4,29 +4,45 @@
 #' A list defining a Constants
 #' 
 #' @param license_texts \[list\] The supported licenses and help text/links.
+#' @param access \[list\] Project access levels.
 #' @param app_manager \[vector of string\] The application manager identity (name, mail), from config file.
 #' @param countries \[vector of string\] List of known countries names.
+#' @param people_organization_directories \[list\] Available directories to identify people and organizations in collections settings
 #' @param user_status \[list\] Application User status values
+#' @param user_type \[list\] Application User type values
 #' @param password_regexp \[string\] 8 char. minimum, at least one uppercase, one lowercase, one number and one special char in '#?!@%^&*-+' 
 #' @param email_verification \[boolean\] Require verification before activation.
 #' @param account_validation \[boolean\] Require validation by a Users Administrator before activation.
 #' @param short_token_age \[integer\] Email confirmation, password reset token lifespan.
 #' @param profile_token_age \[integer\] Profile modification token lifespan.
 #' @param recaptchaid \[boolean\] use Google ReCaptcha
+#' @param formulae \[string\] Project default concentration formulae
+#' @param default_project_access \[string\] Project default access level
+#' @param max_upload_size \[integer\] My Files max file upload size (bytes)
+#' @param time_to_live \[string\] My Files number of days before deleting directories
+#' @param all_in_one \[boolean\] local install - run without network access
 #' 
 #' @export
-Constants <- function(license_texts=NULL, app_manager=NULL, countries=NULL, user_status=NULL, password_regexp=NULL, email_verification=NULL, account_validation=NULL, short_token_age=NULL, profile_token_age=NULL, recaptchaid=NULL) {
+Constants <- function(license_texts=NULL, access=NULL, app_manager=NULL, countries=NULL, people_organization_directories=NULL, user_status=NULL, user_type=NULL, password_regexp=NULL, email_verification=NULL, account_validation=NULL, short_token_age=NULL, profile_token_age=NULL, recaptchaid=NULL, formulae=NULL, default_project_access=NULL, max_upload_size=NULL, time_to_live=NULL, all_in_one=NULL) {
   body <- list(
     license_texts=license_texts,
+    access=access,
     app_manager=app_manager,
     countries=countries,
+    people_organization_directories=people_organization_directories,
     user_status=user_status,
+    user_type=user_type,
     password_regexp=password_regexp,
     email_verification=email_verification,
     account_validation=account_validation,
     short_token_age=short_token_age,
     profile_token_age=profile_token_age,
-    recaptchaid=recaptchaid
+    recaptchaid=recaptchaid,
+    formulae=formulae,
+    default_project_access=default_project_access,
+    max_upload_size=max_upload_size,
+    time_to_live=time_to_live,
+    all_in_one=all_in_one
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

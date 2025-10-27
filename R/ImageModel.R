@@ -3,7 +3,7 @@
 #' 
 #' A list defining a ImageModel
 #' 
-#' @param imgid \[integer\] The id of the image.
+#' @param imgid \[integer, required\] The id of the image.
 #' @param objid \[integer, required\] The id of the object related to the image.
 #' @param imgrank \[integer, required\] The rank of the image.
 #' @param width \[integer, required\] The width of the image.
@@ -15,7 +15,7 @@
 #' @param thumb_file_name \[string\] If image was too large at import time, the generated thumbnail file name.
 #' 
 #' @export
-ImageModel <- function(imgid=NULL, objid, imgrank, width, height, orig_file_name, thumb_width=NULL, thumb_height=NULL, file_name, thumb_file_name=NULL) {
+ImageModel <- function(imgid, objid, imgrank, width, height, orig_file_name, thumb_width=NULL, thumb_height=NULL, file_name, thumb_file_name=NULL) {
   body <- list(
     imgid=imgid,
     objid=objid,

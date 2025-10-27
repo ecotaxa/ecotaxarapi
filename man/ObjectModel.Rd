@@ -5,6 +5,10 @@
 \title{ObjectModel}
 \usage{
 ObjectModel(
+  classif_when = NULL,
+  classif_auto_id = NULL,
+  classif_auto_score = NULL,
+  classif_auto_when = NULL,
   objid,
   acquisid,
   classif_id = NULL,
@@ -16,11 +20,8 @@ ObjectModel(
   objdate = NULL,
   classif_qual = NULL,
   sunpos = NULL,
-  classif_when = NULL,
+  classif_score = NULL,
   classif_who = NULL,
-  classif_auto_id = NULL,
-  classif_auto_when = NULL,
-  classif_auto_score = NULL,
   orig_id,
   object_link = NULL,
   complement_info = NULL,
@@ -34,6 +35,14 @@ ObjectModel(
 )
 }
 \arguments{
+\item{classif_when}{[string] The human classification date, if \strong{P} or \strong{V}.}
+
+\item{classif_auto_id}{[integer] Set if the object was ever predicted, remains forever with these value. Reflect the 'last state' only if classif_qual is 'P'.}
+
+\item{classif_auto_score}{[number] Set if the object was ever predicted, remains forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.}
+
+\item{classif_auto_when}{[string] Set if the object was ever predicted, remains forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification date.}
+
 \item{objid}{[integer, required] The object Id.}
 
 \item{acquisid}{[integer, required] The parent acquisition Id.}
@@ -56,15 +65,9 @@ ObjectModel(
 
 \item{sunpos}{[string] Sun position, from date, time and coords.}
 
-\item{classif_when}{[string] The classification date.}
+\item{classif_score}{[number] The ML score for this object, if \strong{P}.}
 
-\item{classif_who}{[integer] The user who manualy classify this object.}
-
-\item{classif_auto_id}{[integer] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'.}
-
-\item{classif_auto_when}{[string] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification date.}
-
-\item{classif_auto_score}{[number] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.}
+\item{classif_who}{[integer] The user who manually classified this object, if \strong{V} or \strong{D}.}
 
 \item{orig_id}{[string, required] Original object ID from initial TSV load.}
 

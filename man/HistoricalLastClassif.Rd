@@ -8,10 +8,11 @@ HistoricalLastClassif(
   objid = NULL,
   classif_id = NULL,
   histo_classif_date = NULL,
-  histo_classif_type = NULL,
   histo_classif_id = NULL,
+  histo_classif_type = NULL,
   histo_classif_qual = NULL,
-  histo_classif_who = NULL
+  histo_classif_who = NULL,
+  histo_classif_score = NULL
 )
 }
 \arguments{
@@ -21,13 +22,15 @@ HistoricalLastClassif(
 
 \item{histo_classif_date}{[string] The classification date.}
 
-\item{histo_classif_type}{[string] The type of classification. Could be \strong{A} for Automatic or \strong{M} for Manual.}
-
 \item{histo_classif_id}{[integer] The classification Id.}
+
+\item{histo_classif_type}{[string] The type of classification. Could be \strong{A} for Automatic or \strong{M} for Manual.}
 
 \item{histo_classif_qual}{[string] The classification qualification. Could be \strong{P} for predicted, \strong{V} for validated or \strong{D} for Dubious.}
 
-\item{histo_classif_who}{[integer] The user who manualy classify this object.}
+\item{histo_classif_who}{[integer] The user who manually classified this object.}
+
+\item{histo_classif_score}{[number] Histo Classif Score}
 }
 \description{
 A list defining a HistoricalLastClassif

@@ -4,10 +4,12 @@
 \alias{BackupExportReq}
 \title{Backup Export request Model}
 \usage{
-BackupExportReq(project_id, out_to_ftp = NULL)
+BackupExportReq(collection_id = NULL, project_id, out_to_ftp = NULL)
 }
 \arguments{
-\item{project_id}{[integer, required] The project to export.}
+\item{collection_id}{[integer] The Collection to export if requested.}
+
+\item{project_id}{[integer, string, required] The project(int) or projects (str, project ids list) to export.}
 
 \item{out_to_ftp}{[boolean] Copy result file to FTP area. Original file is still available.}
 }

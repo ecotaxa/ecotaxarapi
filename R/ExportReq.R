@@ -3,7 +3,8 @@
 #' 
 #' A list defining a Export request Model
 #' 
-#' @param project_id \[integer, required\] The project to export.
+#' @param collection_id \[integer\] The Collection to export if requested.
+#' @param project_id \[integer, string, required\] The project(int) or projects (str, project ids list) to export.
 #' @param exp_type \[object of type [ExportTypeEnum], required\] The export type.
 #' @param use_latin1 \[boolean\] Export using latin 1 character set, AKA iso-8859-1. Default is utf-8.
 #' @param tsv_entities \[string\] For 'TSV' type, the entities to export, one letter for each of O(bject), P(rocess), A(cquisition), S(ample), C(omments).
@@ -21,8 +22,9 @@
 #' @param out_to_ftp \[boolean\] Copy result file to FTP area. Original file is still available.
 #' 
 #' @export
-ExportReq <- function(project_id, exp_type, use_latin1=NULL, tsv_entities=NULL, only_annotations=NULL, split_by=NULL, coma_as_separator=NULL, format_dates_times=NULL, with_images=NULL, with_internal_ids=NULL, with_types_row=NULL, only_first_image=NULL, sum_subtotal=NULL, pre_mapping=NULL, formulae=NULL, out_to_ftp=NULL) {
+ExportReq <- function(collection_id=NULL, project_id, exp_type, use_latin1=NULL, tsv_entities=NULL, only_annotations=NULL, split_by=NULL, coma_as_separator=NULL, format_dates_times=NULL, with_images=NULL, with_internal_ids=NULL, with_types_row=NULL, only_first_image=NULL, sum_subtotal=NULL, pre_mapping=NULL, formulae=NULL, out_to_ftp=NULL) {
   body <- list(
+    collection_id=collection_id,
     project_id=project_id,
     exp_type=exp_type,
     use_latin1=use_latin1,

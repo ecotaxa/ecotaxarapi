@@ -5,7 +5,7 @@
 \title{ImageModel}
 \usage{
 ImageModel(
-  imgid = NULL,
+  imgid,
   objid,
   imgrank,
   width,
@@ -18,7 +18,7 @@ ImageModel(
 )
 }
 \arguments{
-\item{imgid}{[integer] The id of the image.}
+\item{imgid}{[integer, required] The id of the image.}
 
 \item{objid}{[integer, required] The id of the object related to the image.}
 

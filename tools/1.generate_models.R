@@ -1,47 +1,82 @@
-library("jsonlite")
+#
+# Parse openapi.json to define data models
+#
+# (c) 2025 J-O Irisson, T Panaïotis GNU General Public License v3
+
 library("tidyverse")
 library("glue")
-library("stringr")
 library("styler")
 
-## Prepare (load API description, define functions)  ----
+source("tools/0.read_openapi_and_prepare.R")
 
-# load API description
-# api <- fromJSON("https://ecotaxa.obs-vlfr.fr/api/api/openapi.json", simplifyDataFrame=F, simplifyVector=F)
-api <- fromJSON("tools/openapi.json", simplifyDataFrame=F, simplifyVector=F)
+## Define functions ----
 
-# Extract elements from a list, as a vector
-get_elements <- function(x, id) { sapply(x, getElement, id) }
-gel <- get_elements
-
-get_type <- function(x) {
-  if (is.null(x$type)) {
-    if (!is.null(x$`$ref`)) {
-      model <- x$`$ref` %>% str_split("/") %>% pluck(1) %>% tail(1)
-      type <- str_c("object of type [", model, "]")
-    }
-    if (!is.null(x$allOf)) {
-      type <- get_type(x$allOf[[1]])
-    }
+#' Detect the schema's nature: Enum or Model
+#'
+#' @param x an element of api$components$schemas
+schema_type <- function(x) {
+  if (!is.null(x$enum)) {
+    type <- "enum"
   } else {
-    if (x$type == "array") {
-      type <- x$items$type
-      type <- str_c("vector of ", type)
-    } else if (x$type == "object") {
-      type <- "list"
-    } else (
-      type <- x$type
-    )
+    type <- "model"
   }
   return(type)
 }
 
-get_schema_props <- function(x) {
+#' Extract the type of a property in a Model
+#'
+#' @param x property of a schema
+prop_type <- function(x) {
+  # deal with empty types (e.g. list())
+  if (length(x) == 0) {
+    type <- NULL
+  } else {
+    if (is.null(x$type)) {
+      # specific type of object, defined as a Model
+      if (!is.null(x$`$ref`)) {
+        model <- x$`$ref` %>% str_split("/") %>% pluck(1) %>% tail(1)
+        type <- str_c("object of type [", model, "]")
+      }
+      # multiple types
+      if (!is.null(x$allOf)) {
+        type <- sapply(x$allOf, prop_type) |>
+          # reduce this to a single string
+          unlist() |> str_c(collapse=", ")
+      }
+      if (!is.null(x$anyOf)) {
+        type <- sapply(x$anyOf, prop_type) |>
+          unlist() |> str_c(collapse=", ")
+      }
+    } else {
+      if (x$type == "array") {
+        # vector of stuff
+        type <- x$items$type
+        type <- str_c("vector of ", type)
+      } else if (x$type == "object") {
+        # generic object, not a given type/Model
+        type <- "list"
+      } else (
+        # or just get the actual type
+        type <- x$type
+      )
+    }
+  }
+  return(type)
+}
+
+#' Parse a Model's properties
+#'
+#' @param x an element of api$components$schemas
+model_props <- function(x) {
+  # name of required properties
   required_props <- unlist(x$required)
+
+  # parse all properties
   props <- imap(x$properties, function(prop, name) {
+    # add a common set of characteristics for each property
     prop$name <- name
     prop$required <- name %in% required_props
-    prop$type <- get_type(prop)
+    prop$type <- prop_type(prop)
     if (is.null(prop$title)) {prop$title <- name}
     if (is.null(prop$description)) {prop$description <- prop$title}
     prop$description <- str_replace_all(prop$description, "\n", " ")
@@ -50,68 +85,61 @@ get_schema_props <- function(x) {
   return(props)
 }
 
-wrap_in_list <- function(x) {
-  lapply(x, function(.x) {
-    if (length(.x) != 1) {.x <- list(.x)}
-    return(.x)
-  })
-}
-
-
-list_as_tibble <- function(x, ...) {
-  el <- list(...)
-  lapply(substitute(el), function(.x) {message(.x)})
-}
-
-#list_as_tibble(props, foo, bar)
-
-#list_as_tibble <- function(x) {
-#  x <- lapply(props, wrap_in_list) %>% lapply(as_tibble_row)
-#  bind_rows(x)
-#  # elements <- sapply(x, names) %>% unlist() %>% unique()
-#  # xl <- lapply(elements, function(el) {
-#  #   map(x, pluck, el)
-#  # })
-#  # names(xl) <- elements
-#  # as_tibble(xl)
-#}
-
-#list_as_tibble(props)
 
 schemas <- api$components$schemas
 
 iwalk(schemas, function(sch, sch_name) {
   message("  write doc. for ", sch_name)
 
-  props <- get_schema_props(sch)
+  sch_type <- schema_type(sch)
+  if (sch_type == "enum") {
 
-  doc <- c(
-    sch$title,
-    "",
-    str_c("A list defining a ", sch$title),
-    "",
-    map_chr(props, glue_data, "@param {name} \\[{type}{ifelse(required, ', required', '')}\\] {description}"),
-    "",
-    "@export"
-  )
-  doc <- str_c("#' ", doc)
-  # TODO add example
+    doc <- c(
+      sch$title,
+      "",
+      str_c("A vector defining a ", sch$title),
+      "",
+      str_c("@format ", sch$type, " containing ", glue_collapse(sch$enum, ", ", last=" or ")),
+      "",
+      str_c("@name ", sch_name),
+      "@export"
+    )
+    fun <- "NULL"
 
-  fun <- c(
-    str_c(sch_name, " <- function(",
-          str_c(gel(props, "name"), ifelse(gel(props, "required"), "", "=NULL"), collapse=", "),
-          ") {"),
-    "  body <- list(",
-    str_c(map_chr(props, glue_data, "    {name}={name}"), collapse = ",\n"),
-    "  )",
-    "  body[sapply(body, is.null)] <- NULL",
-    "  return(body)",
-    "}"
-  )
+  } else {
+
+# -------------------------------------------------------------------------
+
+
+    props <- model_props(sch)
+
+    doc <- c(
+      sch$title,
+      "",
+      str_c("A list defining a ", sch$title),
+      "",
+      map_chr(props, glue_data, "@param {name} \\[{type}{ifelse(required, ', required', '')}\\] {description}"),
+      "",
+      "@export"
+    )
+    # TODO add example
+
+    fun <- c(
+      str_c(sch_name, " <- function(",
+            str_c(gel(props, "name"), ifelse(gel(props, "required"), "", "=NULL"), collapse=", "),
+            ") {"),
+      "  body <- list(",
+      str_c(map_chr(props, glue_data, "    {name}={name}"), collapse = ",\n"),
+      "  )",
+      "  body[sapply(body, is.null)] <- NULL",
+      "  return(body)",
+      "}"
+    )
+  }
 
   out <- c(
     "# Automatically generated. Do not edit this file.",
-    doc,
+    str_c("#' ", doc),
     fun
   )
   cat(out, file=str_c("R/", sch_name, ".R"), sep="\n")

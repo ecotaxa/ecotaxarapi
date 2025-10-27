@@ -5,6 +5,20 @@
 \title{ProjectModel}
 \usage{
 ProjectModel(
+  projid,
+  title,
+  access,
+  status = NULL,
+  objcount = NULL,
+  pctvalidated = NULL,
+  pctclassified = NULL,
+  classifsettings = NULL,
+  classiffieldlist = NULL,
+  popoverfieldlist = NULL,
+  comments = NULL,
+  rf_models_used = NULL,
+  cnn_network_id = NULL,
+  formulae = NULL,
   obj_free_cols = NULL,
   sample_free_cols = NULL,
   acquisition_free_cols = NULL,
@@ -14,28 +28,41 @@ ProjectModel(
   managers = NULL,
   annotators = NULL,
   viewers = NULL,
+  contact = NULL,
   instrument = NULL,
   instrument_url = NULL,
-  contact = NULL,
-  highest_right = NULL,
-  license = NULL,
-  projid,
-  title,
-  visible = NULL,
-  status = NULL,
-  objcount = NULL,
-  pctvalidated = NULL,
-  pctclassified = NULL,
-  classifsettings = NULL,
-  classiffieldlist = NULL,
-  popoverfieldlist = NULL,
-  comments = NULL,
-  description = NULL,
-  rf_models_used = NULL,
-  cnn_network_id = NULL
+  highest_right = NULL
 )
 }
 \arguments{
+\item{projid}{[integer, required] The project Id.}
+
+\item{title}{[string, required] The project title.}
+
+\item{access}{[string, required] When "1" (PUBLIC), the project is visible by all users.PUBLIC: "1", OPEN: "2", PRIVATE: "0"}
+
+\item{status}{[string] The project status.}
+
+\item{objcount}{[number] The number of objects.}
+
+\item{pctvalidated}{[number] Percentage of validated images.}
+
+\item{pctclassified}{[number] Percentage of classified images.}
+
+\item{classifsettings}{[string] Classification settings}
+
+\item{classiffieldlist}{[string] Classification field list}
+
+\item{popoverfieldlist}{[string] Pop over field list}
+
+\item{comments}{[string] The project comments.}
+
+\item{rf_models_used}{[string] Rf models used}
+
+\item{cnn_network_id}{[string] Cnn network id}
+
+\item{formulae}{[string] Concentration formulae.}
+
 \item{obj_free_cols}{[list] Object free columns.}
 
 \item{sample_free_cols}{[list] Sample free columns.}
@@ -54,43 +81,13 @@ ProjectModel(
 
 \item{viewers}{[vector of ] Viewers of this project, if not manager nor annotator.}
 
+\item{contact}{[object of type \link{MinUserModel}] The contact person is a manager who serves as the contact person for other users and EcoTaxa's managers.}
+
 \item{instrument}{[string] This project's instrument code.}
 
 \item{instrument_url}{[string] This project's instrument BODC definition.}
 
-\item{contact}{[object of type \link{MinUserModel}] The contact person is a manager who serves as the contact person for other users and EcoTaxa's managers.}
-
 \item{highest_right}{[string] The highest right for requester on this project. One of 'Manage', 'Annotate', 'View'.}
-
-\item{license}{[object of type \link{LicenseEnum}] Data licence.}
-
-\item{projid}{[integer, required] The project Id.}
-
-\item{title}{[string, required] The project title.}
-
-\item{visible}{[boolean] The project visibility.}
-
-\item{status}{[string] The project status.}
-
-\item{objcount}{[number] The number of objects.}
-
-\item{pctvalidated}{[number] Percentage of validated images.}
-
-\item{pctclassified}{[number] Percentage of classified images.}
-
-\item{classifsettings}{[string] Classification settings}
-
-\item{classiffieldlist}{[string] Classification field list}
-
-\item{popoverfieldlist}{[string] Pop over field list}
-
-\item{comments}{[string] The project comments.}
-
-\item{description}{[string] The project description, i.e. main traits.}
-
-\item{rf_models_used}{[string] Rf models used}
-
-\item{cnn_network_id}{[string] Cnn network id}
 }
 \description{
 A list defining a ProjectModel

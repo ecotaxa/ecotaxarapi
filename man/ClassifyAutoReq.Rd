@@ -2,7 +2,7 @@
 % Please edit documentation in R/ClassifyAutoReq.R
 \name{ClassifyAutoReq}
 \alias{ClassifyAutoReq}
-\title{Classify auto request Model}
+\title{ClassifyAutoReq}
 \usage{
 ClassifyAutoReq(target_ids, classifications, scores, keep_log)
 }
@@ -16,5 +16,5 @@ ClassifyAutoReq(target_ids, classifications, scores, keep_log)
 \item{keep_log}{[boolean, required] Set if former automatic classification history is needed.}
 }
 \description{
-A list defining a Classify auto request Model
+A list defining a ClassifyAutoReq
 }

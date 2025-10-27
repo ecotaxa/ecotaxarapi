@@ -3,12 +3,14 @@
 #' 
 #' A list defining a Backup Export request Model
 #' 
-#' @param project_id \[integer, required\] The project to export.
+#' @param collection_id \[integer\] The Collection to export if requested.
+#' @param project_id \[integer, string, required\] The project(int) or projects (str, project ids list) to export.
 #' @param out_to_ftp \[boolean\] Copy result file to FTP area. Original file is still available.
 #' 
 #' @export
-BackupExportReq <- function(project_id, out_to_ftp=NULL) {
+BackupExportReq <- function(collection_id=NULL, project_id, out_to_ftp=NULL) {
   body <- list(
+    collection_id=collection_id,
     project_id=project_id,
     out_to_ftp=out_to_ftp
   )

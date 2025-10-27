@@ -3,9 +3,9 @@
 \name{LicenseEnum}
 \alias{LicenseEnum}
 \title{LicenseEnum}
-\usage{
-LicenseEnum()
+\format{
+string containing CC0 1.0, CC BY 4.0, CC BY-NC 4.0, Copyright or
 }
 \description{
-A list defining a LicenseEnum
+A vector defining a LicenseEnum
 }

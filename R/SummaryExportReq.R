@@ -3,7 +3,8 @@
 #' 
 #' A list defining a Summary Export request Model
 #' 
-#' @param project_id \[integer, required\] The project to export.
+#' @param collection_id \[integer\] The Collection to export if requested.
+#' @param project_id \[integer, string, required\] The project(int) or projects (str, project ids list) to export.
 #' @param quantity \[object of type [SummaryExportQuantitiesOptionsEnum]\] The quantity to compute. Abundance is always possible.
 #' @param summarise_by \[object of type [SummaryExportSumOptionsEnum]\] Computations aggregation level.
 #' @param taxo_mapping \[list\] Mapping from present taxon (key) to output replacement one (value). Use a 0 replacement to _discard_ the present taxon.
@@ -11,8 +12,9 @@
 #' @param out_to_ftp \[boolean\] Copy result file to FTP area. Original file is still available.
 #' 
 #' @export
-SummaryExportReq <- function(project_id, quantity=NULL, summarise_by=NULL, taxo_mapping=NULL, formulae=NULL, out_to_ftp=NULL) {
+SummaryExportReq <- function(collection_id=NULL, project_id, quantity=NULL, summarise_by=NULL, taxo_mapping=NULL, formulae=NULL, out_to_ftp=NULL) {
   body <- list(
+    collection_id=collection_id,
     project_id=project_id,
     quantity=quantity,
     summarise_by=summarise_by,

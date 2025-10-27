@@ -3,9 +3,9 @@
 \name{SummaryExportGroupingEnum}
 \alias{SummaryExportGroupingEnum}
 \title{SummaryExportGroupingEnum}
-\usage{
-SummaryExportGroupingEnum()
+\format{
+string containing , S, A or P
 }
 \description{
-A list defining a SummaryExportGroupingEnum
+A vector defining a SummaryExportGroupingEnum
 }

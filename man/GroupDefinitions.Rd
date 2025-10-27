@@ -3,9 +3,9 @@
 \name{GroupDefinitions}
 \alias{GroupDefinitions}
 \title{GroupDefinitions}
-\usage{
-GroupDefinitions()
+\format{
+string containing C, S or A
 }
 \description{
-A list defining a GroupDefinitions
+A vector defining a GroupDefinitions
 }

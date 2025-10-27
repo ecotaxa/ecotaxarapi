@@ -3,6 +3,20 @@
 #' 
 #' A list defining a ProjectModel
 #' 
+#' @param projid \[integer, required\] The project Id.
+#' @param title \[string, required\] The project title.
+#' @param access \[string, required\] When "1" (PUBLIC), the project is visible by all users.PUBLIC: "1", OPEN: "2", PRIVATE: "0"
+#' @param status \[string\] The project status.
+#' @param objcount \[number\] The number of objects.
+#' @param pctvalidated \[number\] Percentage of validated images.
+#' @param pctclassified \[number\] Percentage of classified images.
+#' @param classifsettings \[string\] Classification settings
+#' @param classiffieldlist \[string\] Classification field list
+#' @param popoverfieldlist \[string\] Pop over field list
+#' @param comments \[string\] The project comments.
+#' @param rf_models_used \[string\] Rf models used
+#' @param cnn_network_id \[string\] Cnn network id
+#' @param formulae \[string\] Concentration formulae.
 #' @param obj_free_cols \[list\] Object free columns.
 #' @param sample_free_cols \[list\] Sample free columns.
 #' @param acquisition_free_cols \[list\] Acquisition free columns.
@@ -12,29 +26,28 @@
 #' @param managers \[vector of \] Managers of this project.
 #' @param annotators \[vector of \] Annotators of this project, if not manager.
 #' @param viewers \[vector of \] Viewers of this project, if not manager nor annotator.
+#' @param contact \[object of type [MinUserModel]\] The contact person is a manager who serves as the contact person for other users and EcoTaxa's managers.
 #' @param instrument \[string\] This project's instrument code.
 #' @param instrument_url \[string\] This project's instrument BODC definition.
-#' @param contact \[object of type [MinUserModel]\] The contact person is a manager who serves as the contact person for other users and EcoTaxa's managers.
 #' @param highest_right \[string\] The highest right for requester on this project. One of 'Manage', 'Annotate', 'View'.
-#' @param license \[object of type [LicenseEnum]\] Data licence.
-#' @param projid \[integer, required\] The project Id.
-#' @param title \[string, required\] The project title.
-#' @param visible \[boolean\] The project visibility.
-#' @param status \[string\] The project status.
-#' @param objcount \[number\] The number of objects.
-#' @param pctvalidated \[number\] Percentage of validated images.
-#' @param pctclassified \[number\] Percentage of classified images.
-#' @param classifsettings \[string\] Classification settings
-#' @param classiffieldlist \[string\] Classification field list
-#' @param popoverfieldlist \[string\] Pop over field list
-#' @param comments \[string\] The project comments.
-#' @param description \[string\] The project description, i.e. main traits.
-#' @param rf_models_used \[string\] Rf models used
-#' @param cnn_network_id \[string\] Cnn network id
 #' 
 #' @export
-ProjectModel <- function(obj_free_cols=NULL, sample_free_cols=NULL, acquisition_free_cols=NULL, process_free_cols=NULL, bodc_variables=NULL, init_classif_list=NULL, managers=NULL, annotators=NULL, viewers=NULL, instrument=NULL, instrument_url=NULL, contact=NULL, highest_right=NULL, license=NULL, projid, title, visible=NULL, status=NULL, objcount=NULL, pctvalidated=NULL, pctclassified=NULL, classifsettings=NULL, classiffieldlist=NULL, popoverfieldlist=NULL, comments=NULL, description=NULL, rf_models_used=NULL, cnn_network_id=NULL) {
+ProjectModel <- function(projid, title, access, status=NULL, objcount=NULL, pctvalidated=NULL, pctclassified=NULL, classifsettings=NULL, classiffieldlist=NULL, popoverfieldlist=NULL, comments=NULL, rf_models_used=NULL, cnn_network_id=NULL, formulae=NULL, obj_free_cols=NULL, sample_free_cols=NULL, acquisition_free_cols=NULL, process_free_cols=NULL, bodc_variables=NULL, init_classif_list=NULL, managers=NULL, annotators=NULL, viewers=NULL, contact=NULL, instrument=NULL, instrument_url=NULL, highest_right=NULL) {
   body <- list(
+    projid=projid,
+    title=title,
+    access=access,
+    status=status,
+    objcount=objcount,
+    pctvalidated=pctvalidated,
+    pctclassified=pctclassified,
+    classifsettings=classifsettings,
+    classiffieldlist=classiffieldlist,
+    popoverfieldlist=popoverfieldlist,
+    comments=comments,
+    rf_models_used=rf_models_used,
+    cnn_network_id=cnn_network_id,
+    formulae=formulae,
     obj_free_cols=obj_free_cols,
     sample_free_cols=sample_free_cols,
     acquisition_free_cols=acquisition_free_cols,
@@ -44,25 +57,10 @@ ProjectModel <- function(obj_free_cols=NULL, sample_free_cols=NULL, acquisition_
     managers=managers,
     annotators=annotators,
     viewers=viewers,
+    contact=contact,
     instrument=instrument,
     instrument_url=instrument_url,
-    contact=contact,
-    highest_right=highest_right,
-    license=license,
-    projid=projid,
-    title=title,
-    visible=visible,
-    status=status,
-    objcount=objcount,
-    pctvalidated=pctvalidated,
-    pctclassified=pctclassified,
-    classifsettings=classifsettings,
-    classiffieldlist=classiffieldlist,
-    popoverfieldlist=popoverfieldlist,
-    comments=comments,
-    description=description,
-    rf_models_used=rf_models_used,
-    cnn_network_id=cnn_network_id
+    highest_right=highest_right
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

@@ -5,6 +5,7 @@
 \title{Summary Export request Model}
 \usage{
 SummaryExportReq(
+  collection_id = NULL,
   project_id,
   quantity = NULL,
   summarise_by = NULL,
@@ -14,7 +15,9 @@ SummaryExportReq(
 )
 }
 \arguments{
-\item{project_id}{[integer, required] The project to export.}
+\item{collection_id}{[integer] The Collection to export if requested.}
+
+\item{project_id}{[integer, string, required] The project(int) or projects (str, project ids list) to export.}
 
 \item{quantity}{[object of type \link{SummaryExportQuantitiesOptionsEnum}] The quantity to compute. Abundance is always possible.}
 

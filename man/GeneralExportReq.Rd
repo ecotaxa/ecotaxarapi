@@ -5,6 +5,7 @@
 \title{General Export request Model}
 \usage{
 GeneralExportReq(
+  collection_id = NULL,
   project_id,
   split_by = NULL,
   with_images = NULL,
@@ -15,7 +16,9 @@ GeneralExportReq(
 )
 }
 \arguments{
-\item{project_id}{[integer, required] The project to export.}
+\item{collection_id}{[integer] The Collection to export if requested.}
+
+\item{project_id}{[integer, string, required] The project(int) or projects (str, project ids list) to export.}
 
 \item{split_by}{[object of type \link{ExportSplitOptionsEnum}] If not none, separate (in ZIP sub-directories) output per given field.}
 

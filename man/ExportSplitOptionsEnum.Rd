@@ -3,9 +3,9 @@
 \name{ExportSplitOptionsEnum}
 \alias{ExportSplitOptionsEnum}
 \title{ExportSplitOptionsEnum}
-\usage{
-ExportSplitOptionsEnum()
+\format{
+string containing sample, acquisition, taxon or none
 }
 \description{
-A list defining a ExportSplitOptionsEnum
+A vector defining a ExportSplitOptionsEnum
 }

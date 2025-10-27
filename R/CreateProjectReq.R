@@ -6,15 +6,15 @@
 #' @param clone_of_id \[integer\] Internal, numeric id of a project to clone as a new one. By default it does not clone anything.
 #' @param title \[string, required\] The project title, as text.
 #' @param instrument \[string\] The project instrument.
-#' @param visible \[boolean\] When TRUE, the project is created visible by all users.
+#' @param access \[object of type [AccessLevelEnum]\] When "1" (PUBLIC), the project is created visible by all users.PUBLIC: "1", OPEN: "2", PRIVATE: "0"
 #' 
 #' @export
-CreateProjectReq <- function(clone_of_id=NULL, title, instrument=NULL, visible=NULL) {
+CreateProjectReq <- function(clone_of_id=NULL, title, instrument=NULL, access=NULL) {
   body <- list(
     clone_of_id=clone_of_id,
     title=title,
     instrument=instrument,
-    visible=visible
+    access=access
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

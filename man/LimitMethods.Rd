@@ -3,9 +3,9 @@
 \name{LimitMethods}
 \alias{LimitMethods}
 \title{LimitMethods}
-\usage{
-LimitMethods()
+\format{
+string containing P or V
 }
 \description{
-A list defining a LimitMethods
+A vector defining a LimitMethods
 }

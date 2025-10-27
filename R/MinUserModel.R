@@ -6,13 +6,15 @@
 #' @param id \[integer, required\] The unique numeric id of this user.
 #' @param email \[string, required\] User's email address, as text, used during registration.
 #' @param name \[string, required\] User's full name, as text.
+#' @param organisation \[string, required\] User's organisation name, as text.
 #' 
 #' @export
-MinUserModel <- function(id, email, name) {
+MinUserModel <- function(id, email, name, organisation) {
   body <- list(
     id=id,
     email=email,
-    name=name
+    name=name,
+    organisation=organisation
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

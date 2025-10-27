@@ -3,9 +3,9 @@
 \name{SummaryExportQuantitiesOptionsEnum}
 \alias{SummaryExportQuantitiesOptionsEnum}
 \title{SummaryExportQuantitiesOptionsEnum}
-\usage{
-SummaryExportQuantitiesOptionsEnum()
+\format{
+string containing abundance, concentration or biovolume
 }
 \description{
-A list defining a SummaryExportQuantitiesOptionsEnum
+A vector defining a SummaryExportQuantitiesOptionsEnum
 }

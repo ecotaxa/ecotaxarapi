@@ -6,25 +6,39 @@
 \usage{
 Constants(
   license_texts = NULL,
+  access = NULL,
   app_manager = NULL,
   countries = NULL,
+  people_organization_directories = NULL,
   user_status = NULL,
+  user_type = NULL,
   password_regexp = NULL,
   email_verification = NULL,
   account_validation = NULL,
   short_token_age = NULL,
   profile_token_age = NULL,
-  recaptchaid = NULL
+  recaptchaid = NULL,
+  formulae = NULL,
+  default_project_access = NULL,
+  max_upload_size = NULL,
+  time_to_live = NULL,
+  all_in_one = NULL
 )
 }
 \arguments{
 \item{license_texts}{[list] The supported licenses and help text/links.}
 
+\item{access}{[list] Project access levels.}
+
 \item{app_manager}{[vector of string] The application manager identity (name, mail), from config file.}
 
 \item{countries}{[vector of string] List of known countries names.}
 
+\item{people_organization_directories}{[list] Available directories to identify people and organizations in collections settings}
+
 \item{user_status}{[list] Application User status values}
+
+\item{user_type}{[list] Application User type values}
 
 \item{password_regexp}{[string] 8 char. minimum, at least one uppercase, one lowercase, one number and one special char in '#?!@\%^&*-+'}
 
@@ -37,6 +51,16 @@ Constants(
 \item{profile_token_age}{[integer] Profile modification token lifespan.}
 
 \item{recaptchaid}{[boolean] use Google ReCaptcha}
+
+\item{formulae}{[string] Project default concentration formulae}
+
+\item{default_project_access}{[string] Project default access level}
+
+\item{max_upload_size}{[integer] My Files max file upload size (bytes)}
+
+\item{time_to_live}{[string] My Files number of days before deleting directories}
+
+\item{all_in_one}{[boolean] local install - run without network access}
 }
 \description{
 A list defining a Constants

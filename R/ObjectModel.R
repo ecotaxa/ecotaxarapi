@@ -3,6 +3,10 @@
 #' 
 #' A list defining a ObjectModel
 #' 
+#' @param classif_when \[string\] The human classification date, if **P** or **V**.
+#' @param classif_auto_id \[integer\] Set if the object was ever predicted, remains forever with these value. Reflect the 'last state' only if classif_qual is 'P'. 
+#' @param classif_auto_score \[number\] Set if the object was ever predicted, remains forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.
+#' @param classif_auto_when \[string\] Set if the object was ever predicted, remains forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification date.
 #' @param objid \[integer, required\] The object Id.
 #' @param acquisid \[integer, required\] The parent acquisition Id.
 #' @param classif_id \[integer\] The classification Id.
@@ -14,11 +18,8 @@
 #' @param objdate \[string\] Object date
 #' @param classif_qual \[string\] The classification qualification. Could be **P** for predicted, **V** for validated or **D** for Dubious.
 #' @param sunpos \[string\] Sun position, from date, time and coords.
-#' @param classif_when \[string\] The classification date.
-#' @param classif_who \[integer\] The user who manualy classify this object.
-#' @param classif_auto_id \[integer\] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. 
-#' @param classif_auto_when \[string\] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification date.
-#' @param classif_auto_score \[number\] Set if the object was ever predicted, remain forever with these value. Reflect the 'last state' only if classif_qual is 'P'. The classification auto score is generally between 0 and 1. This is a confidence score, in the fact that, the taxon prediction for this object is correct.
+#' @param classif_score \[number\] The ML score for this object, if **P**.
+#' @param classif_who \[integer\] The user who manually classified this object, if **V** or **D**.
 #' @param orig_id \[string, required\] Original object ID from initial TSV load.
 #' @param object_link \[string\] Object link.
 #' @param complement_info \[string\] Complement info
@@ -31,8 +32,12 @@
 #' @param random_value \[integer, required\] Random value associated to an image
 #' 
 #' @export
-ObjectModel <- function(objid, acquisid, classif_id=NULL, objtime=NULL, latitude=NULL, longitude=NULL, depth_min=NULL, depth_max=NULL, objdate=NULL, classif_qual=NULL, sunpos=NULL, classif_when=NULL, classif_who=NULL, classif_auto_id=NULL, classif_auto_when=NULL, classif_auto_score=NULL, orig_id, object_link=NULL, complement_info=NULL, sample_id, project_id, images=NULL, free_columns=NULL, classif_crossvalidation_id=NULL, similarity=NULL, random_value) {
+ObjectModel <- function(classif_when=NULL, classif_auto_id=NULL, classif_auto_score=NULL, classif_auto_when=NULL, objid, acquisid, classif_id=NULL, objtime=NULL, latitude=NULL, longitude=NULL, depth_min=NULL, depth_max=NULL, objdate=NULL, classif_qual=NULL, sunpos=NULL, classif_score=NULL, classif_who=NULL, orig_id, object_link=NULL, complement_info=NULL, sample_id, project_id, images=NULL, free_columns=NULL, classif_crossvalidation_id=NULL, similarity=NULL, random_value) {
   body <- list(
+    classif_when=classif_when,
+    classif_auto_id=classif_auto_id,
+    classif_auto_score=classif_auto_score,
+    classif_auto_when=classif_auto_when,
     objid=objid,
     acquisid=acquisid,
     classif_id=classif_id,
@@ -44,11 +49,8 @@ ObjectModel <- function(objid, acquisid, classif_id=NULL, objtime=NULL, latitude
     objdate=objdate,
     classif_qual=classif_qual,
     sunpos=sunpos,
-    classif_when=classif_when,
+    classif_score=classif_score,
     classif_who=classif_who,
-    classif_auto_id=classif_auto_id,
-    classif_auto_when=classif_auto_when,
-    classif_auto_score=classif_auto_score,
     orig_id=orig_id,
     object_link=object_link,
     complement_info=complement_info,

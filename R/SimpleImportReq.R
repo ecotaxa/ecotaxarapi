@@ -4,7 +4,7 @@
 #' A list defining a Simple import request Model
 #' 
 #' @param source_path \[string, required\] Source path on server, to zip or plain directory.
-#' @param values \[list, required\] :imgdate, imgtime, latitude, longitude, depthmin, depthmax, taxolb, userlb, status
+#' @param values \[list, required\] :imgdate, imgtime, latitude, longitude, depthmin, depthmax, taxolb, userlb, datelb, status
 #' @param possible_values \[vector of string\] Possible Values
 #' 
 #' @export

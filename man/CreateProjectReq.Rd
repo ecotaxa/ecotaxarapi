@@ -4,7 +4,7 @@
 \alias{CreateProjectReq}
 \title{Create project request Model}
 \usage{
-CreateProjectReq(clone_of_id = NULL, title, instrument = NULL, visible = NULL)
+CreateProjectReq(clone_of_id = NULL, title, instrument = NULL, access = NULL)
 }
 \arguments{
 \item{clone_of_id}{[integer] Internal, numeric id of a project to clone as a new one. By default it does not clone anything.}
@@ -13,7 +13,7 @@ CreateProjectReq(clone_of_id = NULL, title, instrument = NULL, visible = NULL)
 
 \item{instrument}{[string] The project instrument.}
 
-\item{visible}{[boolean] When TRUE, the project is created visible by all users.}
+\item{access}{[object of type \link{AccessLevelEnum}] When "1" (PUBLIC), the project is created visible by all users.PUBLIC: "1", OPEN: "2", PRIVATE: "0"}
 }
 \description{
 A list defining a Create project request Model

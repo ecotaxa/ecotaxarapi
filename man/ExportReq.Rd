@@ -5,6 +5,7 @@
 \title{Export request Model}
 \usage{
 ExportReq(
+  collection_id = NULL,
   project_id,
   exp_type,
   use_latin1 = NULL,
@@ -24,7 +25,9 @@ ExportReq(
 )
 }
 \arguments{
-\item{project_id}{[integer, required] The project to export.}
+\item{collection_id}{[integer] The Collection to export if requested.}
+
+\item{project_id}{[integer, string, required] The project(int) or projects (str, project ids list) to export.}
 
 \item{exp_type}{[object of type \link{ExportTypeEnum}, required] The export type.}
 

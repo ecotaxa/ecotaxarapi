@@ -3,7 +3,8 @@
 #' 
 #' A list defining a General Export request Model
 #' 
-#' @param project_id \[integer, required\] The project to export.
+#' @param collection_id \[integer\] The Collection to export if requested.
+#' @param project_id \[integer, string, required\] The project(int) or projects (str, project ids list) to export.
 #' @param split_by \[object of type [ExportSplitOptionsEnum]\] If not none, separate (in ZIP sub-directories) output per given field.
 #' @param with_images \[object of type [ExportImagesOptionsEnum]\] Add in ZIP first (i.e. visible) image, all images, or no image.⚠️ 'all' means maybe several lines per object in TSVs.
 #' @param with_internal_ids \[boolean\] Export internal database IDs.
@@ -12,8 +13,9 @@
 #' @param out_to_ftp \[boolean\] Copy result file to FTP area. Original file is still available.
 #' 
 #' @export
-GeneralExportReq <- function(project_id, split_by=NULL, with_images=NULL, with_internal_ids=NULL, with_types_row=NULL, only_annotations=NULL, out_to_ftp=NULL) {
+GeneralExportReq <- function(collection_id=NULL, project_id, split_by=NULL, with_images=NULL, with_internal_ids=NULL, with_types_row=NULL, only_annotations=NULL, out_to_ftp=NULL) {
   body <- list(
+    collection_id=collection_id,
     project_id=project_id,
     split_by=split_by,
     with_images=with_images,

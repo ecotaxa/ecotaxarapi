@@ -9,7 +9,7 @@ SimpleImportReq(source_path, values, possible_values = NULL)
 \arguments{
 \item{source_path}{[string, required] Source path on server, to zip or plain directory.}
 
-\item{values}{[list, required] :imgdate, imgtime, latitude, longitude, depthmin, depthmax, taxolb, userlb, status}
+\item{values}{[list, required] :imgdate, imgtime, latitude, longitude, depthmin, depthmax, taxolb, userlb, datelb, status}
 
 \item{possible_values}{[vector of string] Possible Values}
 }

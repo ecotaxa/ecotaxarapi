@@ -3,9 +3,9 @@
 \name{SciExportTypeEnum}
 \alias{SciExportTypeEnum}
 \title{SciExportTypeEnum}
-\usage{
-SciExportTypeEnum()
+\format{
+string containing ABO, CNC or BIV
 }
 \description{
-A list defining a SciExportTypeEnum
+A vector defining a SciExportTypeEnum
 }

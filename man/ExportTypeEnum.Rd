@@ -3,9 +3,9 @@
 \name{ExportTypeEnum}
 \alias{ExportTypeEnum}
 \title{ExportTypeEnum}
-\usage{
-ExportTypeEnum()
+\format{
+string containing TSV, BAK, DOI, SUM, ABO, CNC or BIV
 }
 \description{
-A list defining a ExportTypeEnum
+A vector defining a ExportTypeEnum
 }

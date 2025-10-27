@@ -3,9 +3,9 @@
 \name{ExportImagesOptionsEnum}
 \alias{ExportImagesOptionsEnum}
 \title{ExportImagesOptionsEnum}
-\usage{
-ExportImagesOptionsEnum()
+\format{
+string containing all, first or none
 }
 \description{
-A list defining a ExportImagesOptionsEnum
+A vector defining a ExportImagesOptionsEnum
 }

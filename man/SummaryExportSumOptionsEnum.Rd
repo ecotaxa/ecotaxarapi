@@ -3,9 +3,9 @@
 \name{SummaryExportSumOptionsEnum}
 \alias{SummaryExportSumOptionsEnum}
 \title{SummaryExportSumOptionsEnum}
-\usage{
-SummaryExportSumOptionsEnum()
+\format{
+string containing none, sample or acquisition
 }
 \description{
-A list defining a SummaryExportSumOptionsEnum
+A vector defining a SummaryExportSumOptionsEnum
 }
