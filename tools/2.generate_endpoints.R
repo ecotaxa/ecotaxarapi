@@ -1,18 +1,16 @@
-library("jsonlite")
-library("glue")
-library("stringr")
-library("styler")
+#
+# Parse openapi.json to define endpoint functions
+#
+# (c) 2025 J-O Irisson, T Panaïotis GNU General Public License v3
+
 library("dplyr")
+library("stringr")
+library("glue")
+library("styler")
 
-## Prepare (load API description, define functions)  ----
+source("tools/0.read_openapi_and_prepare.R")
 
-# load API description
-#api <- fromJSON("https://ecotaxa.obs-vlfr.fr/api/api/openapi.json", simplifyDataFrame=F, simplifyVector=F)
-api <- fromJSON("tools/openapi.json", simplifyDataFrame=F, simplifyVector=F)
-
-# Extract elements from a list, as a vector
-get_elements <- function(x, id) { sapply(x, getElement, id) }
-gel <- get_elements
+## Define useful functions  ----
 
 # Get last element, fast
 last <- function(x) { x[length(x)] }
@@ -92,7 +90,6 @@ clean_string <- function(x) {
 # api$components$schemas$UserModel
 # api$paths
 # path with several methods: "/users/{user_id}" has "get" "put"
-
 
 
 ## Create functions ----
