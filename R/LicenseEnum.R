@@ -6,5 +6,4 @@
 #' @format string containing CC0 1.0, CC BY 4.0, CC BY-NC 4.0, Copyright or 
 #' 
 #' @name LicenseEnum
-#' @export
 NULL

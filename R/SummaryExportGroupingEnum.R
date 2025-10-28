@@ -6,5 +6,4 @@
 #' @format string containing , S, A or P
 #' 
 #' @name SummaryExportGroupingEnum
-#' @export
 NULL

@@ -6,5 +6,4 @@
 #' @format string containing ABO, CNC or BIV
 #' 
 #' @name SciExportTypeEnum
-#' @export
 NULL

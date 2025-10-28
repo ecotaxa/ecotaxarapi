@@ -6,5 +6,4 @@
 #' @format string containing TSV, BAK, DOI, SUM, ABO, CNC or BIV
 #' 
 #' @name ExportTypeEnum
-#' @export
 NULL

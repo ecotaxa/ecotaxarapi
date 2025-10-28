@@ -108,8 +108,7 @@ iwalk(schemas, function(sch, sch_name) {
       "",
       str_c("@format ", sch$type, " containing ", glue_collapse(sch$enum, ", ", last=" or ")),
       "",
-      str_c("@name ", sch_name),
-      "@export"
+      str_c("@name ", sch_name)
     )
     # the "function" part, which is just a placeholder
     fun <- "NULL"

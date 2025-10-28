@@ -6,5 +6,4 @@
 #' @format string containing 1, 2 or 0
 #' 
 #' @name AccessLevelEnum
-#' @export
 NULL

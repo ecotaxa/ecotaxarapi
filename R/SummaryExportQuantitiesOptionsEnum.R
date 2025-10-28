@@ -6,5 +6,4 @@
 #' @format string containing abundance, concentration or biovolume
 #' 
 #' @name SummaryExportQuantitiesOptionsEnum
-#' @export
 NULL

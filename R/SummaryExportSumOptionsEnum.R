@@ -6,5 +6,4 @@
 #' @format string containing none, sample or acquisition
 #' 
 #' @name SummaryExportSumOptionsEnum
-#' @export
 NULL

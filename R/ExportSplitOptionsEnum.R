@@ -6,5 +6,4 @@
 #' @format string containing sample, acquisition, taxon or none
 #' 
 #' @name ExportSplitOptionsEnum
-#' @export
 NULL

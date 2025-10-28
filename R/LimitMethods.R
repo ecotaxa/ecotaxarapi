@@ -6,5 +6,4 @@
 #' @format string containing P or V
 #' 
 #' @name LimitMethods
-#' @export
 NULL

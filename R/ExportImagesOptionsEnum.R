@@ -6,5 +6,4 @@
 #' @format string containing all, first or none
 #' 
 #' @name ExportImagesOptionsEnum
-#' @export
 NULL

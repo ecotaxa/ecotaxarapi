@@ -6,5 +6,4 @@
 #' @format string containing C, S or A
 #' 
 #' @name GroupDefinitions
-#' @export
 NULL
