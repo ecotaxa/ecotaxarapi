@@ -138,7 +138,21 @@ iwalk(schemas, function(sch, sch_name) {
             str_c(gel(props, "name"), ifelse(gel(props, "required"), "", "=NULL"), collapse=", "),
             ") {"),
       "  body <- list(",
-      str_c(map_chr(props, glue_data, "    {name}={name}"), collapse = ",\n"),
+      str_c(
+        map_chr(props, function(p) {
+          bin <- FALSE
+          if (!is.null(p$format)) {
+            bin <- p$format == "binary"
+          }
+          str_c("    ", p$name, "=",
+            if (bin) {
+              str_c("curl::form_file(", p$name, ")")
+            } else {
+              p$name
+            }
+          )
+        }),
+      collapse = ",\n"),
       "  )",
       "  body[sapply(body, is.null)] <- NULL",
       "  return(body)",

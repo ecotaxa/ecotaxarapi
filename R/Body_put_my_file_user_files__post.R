@@ -9,7 +9,7 @@
 #' @export
 Body_put_my_file_user_files__post <- function(file, path=NULL) {
   body <- list(
-    file=file,
+    file=curl::form_file(file),
     path=path
   )
   body[sapply(body, is.null)] <- NULL

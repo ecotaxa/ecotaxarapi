@@ -10,7 +10,7 @@
 #' @export
 Body_put_user_file_my_files_post <- function(file, path=NULL, tag=NULL) {
   body <- list(
-    file=file,
+    file=curl::form_file(file),
     path=path,
     tag=tag
   )
