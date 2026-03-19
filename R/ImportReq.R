@@ -3,7 +3,7 @@
 #' 
 #' A list defining a Import request Model
 #' 
-#' @param source_path \[string, required\] Source path on server, to zip or plain directory.     The path can be returned by a file upload (absolute),     otherwise it's relative to shared file area root.
+#' @param source_path \[string, required\] Source path on server, to zip or plain directory. The path can be returned by a file upload (absolute), otherwise it's relative to shared file area root.
 #' @param taxo_mappings \[list\] Optional taxonomy mapping, the key specifies the taxonomy ID found in file and the value specifies the final taxonomy ID to write.
 #' @param skip_loaded_files \[boolean\] If true skip loaded files, else don't.
 #' @param skip_existing_objects \[boolean\] If true skip existing objects, else don't.

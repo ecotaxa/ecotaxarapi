@@ -14,5 +14,5 @@ create_user(no_bot = NULL, token = NULL, UserModelWithRights)
 \item{UserModelWithRights}{Output of \code{\link[=UserModelWithRights]{UserModelWithRights()}};}
 }
 \description{
-\strong{Create a new user}, return \strong{NULL upon success.} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can create a user. - An unlogged user can self-create an account. But must eventually provide a no-robot proof. - An ordinary logged user cannot create another account. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair \link{remote IP, reCAPTCHA response}.
+\strong{Create a new user}, return \strong{NULL upon success.} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can create a user. - An unlogged user can self-create an account. But must eventually provide a no-robot proof. - An ordinary logged user cannot create another account. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair [remote IP, reCAPTCHA response].
 }

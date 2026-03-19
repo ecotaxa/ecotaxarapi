@@ -22,7 +22,8 @@ Constants(
   default_project_access = NULL,
   max_upload_size = NULL,
   time_to_live = NULL,
-  all_in_one = NULL
+  all_in_one = NULL,
+  taxoserver_url = NULL
 )
 }
 \arguments{
@@ -61,6 +62,8 @@ Constants(
 \item{time_to_live}{[string] My Files number of days before deleting directories}
 
 \item{all_in_one}{[boolean] local install - run without network access}
+
+\item{taxoserver_url}{[string] url of taxonomy server ecotaxoserver}
 }
 \description{
 A list defining a Constants

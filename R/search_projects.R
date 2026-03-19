@@ -10,7 +10,7 @@
 #' @param title_filter string; Use this pattern for matching returned projects names.
 #' @param instrument_filter string; Only return projects where this instrument was used.
 #' @param filter_subset boolean; Only return projects having 'subset' in their names.
-#' @param order_field string; One of ['projid', 'title', 'access', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'rf_models_used', 'cnn_network_id', 'formulae', 'instrument', 'instrument_url', 'highest_right']
+#' @param order_field string; One of \['projid', 'title', 'access', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'rf_models_used', 'cnn_network_id', 'formulae', 'instrument', 'instrument_url', 'highest_right'\]
 #' @param fields string; Return the default fields (typically used in conjunction with an additional field list). For users list display purpose.
 #' @param window_start integer; Skip `window_start` before returning data.
 #' @param window_size integer; Return only `window_size` lines.

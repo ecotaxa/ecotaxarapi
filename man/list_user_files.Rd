@@ -10,5 +10,5 @@ list_user_files(sub_path)
 \item{sub_path}{string; NULL}
 }
 \description{
-\strong{List the private files} which are usable for some file-related operations. A sub_path starting with "/" is considered relative to user folder. \emph{e.g. import.}
+\strong{List the private files} from user files directory which are usable for some file-related operations. A sub_path starting with "/" is considered relative to user folder. \emph{e.g. import.}
 }

@@ -6,8 +6,8 @@
 #' @param external_id \[string\] The external Id.
 #' @param title \[string\] The collection title.
 #' @param short_title \[string\] The collection short title.
-#' @param provider_user \[integer\] Id of the person who         is responsible for the content of this metadata record. Writer of the title and abstract.
-#' @param contact_user \[integer\] Id of the person who         should be contacted in cases of questions regarding the content of the dataset or any data restrictions.         This is also the person who is most likely to stay involved in the dataset the longest.
+#' @param provider_user \[integer\] Id of the person who is responsible for the content of this metadata record. Writer of the title and abstract.
+#' @param contact_user \[integer\] Id of the person who should be contacted in cases of questions regarding the content of the dataset or any data restrictions. This is also the person who is most likely to stay involved in the dataset the longest.
 #' @param project_ids \[vector of integer\] The list of composing project IDs.
 #' @param license \[object of type [LicenseEnum]\] The collection license.
 #' @param citation \[string\] The collection citation.
@@ -15,11 +15,12 @@
 #' @param description \[string\] The collection description.
 #' @param creator_users \[vector of \] List of users id's or dict with name, organization for external persons.
 #' @param associate_users \[vector of \] List of users id's or dict with name, organization for external persons.
-#' @param creator_organisations \[vector of \] All         organisations who are responsible for the creation of the collection. Data creators should         receive credit for their work and should therefore be included in the citation.
-#' @param associate_organisations \[vector of \] Other         organisation(s) Ids or names associated with the collection.
+#' @param creator_organisations \[vector of \] All organisations who are responsible for the creation of the collection. Data creators should receive credit for their work and should therefore be included in the citation.
+#' @param associate_organisations \[vector of \] Other organisation(s) Ids or names associated with the collection.
+#' @param display_order \[list\] display order of creators and asosciates (users and organizations) needed to publish
 #' 
 #' @export
-CollectionReq <- function(external_id=NULL, title=NULL, short_title=NULL, provider_user=NULL, contact_user=NULL, project_ids=NULL, license=NULL, citation=NULL, abstract=NULL, description=NULL, creator_users=NULL, associate_users=NULL, creator_organisations=NULL, associate_organisations=NULL) {
+CollectionReq <- function(external_id=NULL, title=NULL, short_title=NULL, provider_user=NULL, contact_user=NULL, project_ids=NULL, license=NULL, citation=NULL, abstract=NULL, description=NULL, creator_users=NULL, associate_users=NULL, creator_organisations=NULL, associate_organisations=NULL, display_order=NULL) {
   body <- list(
     external_id=external_id,
     title=title,
@@ -34,7 +35,8 @@ CollectionReq <- function(external_id=NULL, title=NULL, short_title=NULL, provid
     creator_users=creator_users,
     associate_users=associate_users,
     creator_organisations=creator_organisations,
-    associate_organisations=associate_organisations
+    associate_organisations=associate_organisations,
+    display_order=display_order
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

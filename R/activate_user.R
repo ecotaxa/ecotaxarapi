@@ -2,7 +2,7 @@
 
 #' Activate User
 #'
-#' Activate a new user if external validation is on., return **NULL upon success.** 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can activate a user or bypass the activation and inform the user when a modification request value/reason is provided. - An ordinary logged user cannot activate another account. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair [remote IP, reCAPTCHA response].
+#' Activate a new user if external validation is on., return **NULL upon success.** 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can activate a user or bypass the activation and inform the user when a modification request value/reason is provided. - An ordinary logged user cannot activate another account. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair \[remote IP, reCAPTCHA response\].
 #'
 #' @param user_id integer; Internal, the unique numeric id of this user.
 #' @param status string; Internal, the status name assign to this user.

@@ -4,14 +4,18 @@
 #' A list defining a TaxaSearchRsp
 #' 
 #' @param id \[integer, required\] The taxon/category IDs.
+#' @param status \[string, required\] The taxon/category status, 'D' for Deprecated, 'A' for Approved or 'N' for Not approved.
+#' @param aphia_id \[integer\] The Worms aphia_id of the taxon.
 #' @param renm_id \[integer\] The advised replacement ID if the taxon/category is deprecated.
 #' @param text \[string, required\] The taxon name, display one.
 #' @param pr \[integer, required\] 1 if the taxon is in project list, 0 otherwise.
 #' 
 #' @export
-TaxaSearchRsp <- function(id, renm_id=NULL, text, pr) {
+TaxaSearchRsp <- function(id, status, aphia_id=NULL, renm_id=NULL, text, pr) {
   body <- list(
     id=id,
+    status=status,
+    aphia_id=aphia_id,
     renm_id=renm_id,
     text=text,
     pr=pr

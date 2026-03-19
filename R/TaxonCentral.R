@@ -5,8 +5,9 @@
 #' 
 #' @param id \[integer, required\] The unique numeric id of the taxon.
 #' @param parent_id \[integer\] The unique numeric id of the taxon parent.
+#' @param aphia_id \[integer\] The unique numeric aphia_id of the taxon if in Worms.
+#' @param rank \[string\] The WoRMS rank of the taxon.
 #' @param name \[string, required\] The name of the taxon.
-#' @param id_source \[string\] The source ID.
 #' @param taxotype \[string, required\] The taxon type, 'M' for Morpho or 'P' for Phylo.
 #' @param display_name \[string\] The display name of the taxon. It is suffixed in EcoTaxoServer with (Deprecated) when taxostatus is 'D'
 #' @param lastupdate_datetime \[string\] Taxon last update. Date, with format YYYY-MM-DD hh:mm:ss.
@@ -21,12 +22,13 @@
 #' @param nbrobjcum \[integer\] Number of objects in this category and descendant ones.
 #' 
 #' @export
-TaxonCentral <- function(id, parent_id=NULL, name, id_source=NULL, taxotype, display_name=NULL, lastupdate_datetime=NULL, id_instance=NULL, taxostatus, rename_to=NULL, source_url=NULL, source_desc=NULL, creator_email=NULL, creation_datetime=NULL, nbrobj=NULL, nbrobjcum=NULL) {
+TaxonCentral <- function(id, parent_id=NULL, aphia_id=NULL, rank=NULL, name, taxotype, display_name=NULL, lastupdate_datetime=NULL, id_instance=NULL, taxostatus, rename_to=NULL, source_url=NULL, source_desc=NULL, creator_email=NULL, creation_datetime=NULL, nbrobj=NULL, nbrobjcum=NULL) {
   body <- list(
     id=id,
     parent_id=parent_id,
+    aphia_id=aphia_id,
+    rank=rank,
     name=name,
-    id_source=id_source,
     taxotype=taxotype,
     display_name=display_name,
     lastupdate_datetime=lastupdate_datetime,

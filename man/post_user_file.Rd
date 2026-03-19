@@ -4,11 +4,11 @@
 \alias{post_user_file}
 \title{Put User File}
 \usage{
-post_user_file(Body_put_user_file_my_files_post)
+post_user_file(Body_put_user_file_user_files__post)
 }
 \arguments{
-\item{Body_put_user_file_my_files_post}{Output of \code{\link[=Body_put_user_file_my_files_post]{Body_put_user_file_my_files_post()}};}
+\item{Body_put_user_file_user_files__post}{Output of \code{\link[=Body_put_user_file_user_files__post]{Body_put_user_file_user_files__post()}};}
 }
 \description{
-Put User File
+\strong{Upload a file for the current user files directory.} The returned text will contain a server-side path which is usable for some file-related operations. \emph{e.g. import.}
 }

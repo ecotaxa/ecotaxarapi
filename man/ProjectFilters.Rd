@@ -39,7 +39,7 @@ ProjectFilters(
 
 \item{taxochild}{[string] If 'Y' and taxo is set, also include children of each member of 'taxo' list in taxonomy tree.}
 
-\item{statusfilter}{[string] Include objects with given status:             'NV': Not validated              'PV': Predicted or Validated              'PVD': Predicted or Validated or Dubious             'NVM': Validated, but not by me              'VM': Validated by me              'U': Not classified             other: direct equality comparison with DB value}
+\item{statusfilter}{[string] Include objects with given status: 'NV': Not validated 'PV': Predicted or Validated 'PVD': Predicted or Validated or Dubious 'NVM': Validated, but not by me 'VM': Validated by me 'U': Not classified other: direct equality comparison with DB value}
 
 \item{MapN}{[string] If all 4 are set (MapN, MapW, MapE, MapS), include objects inside the defined bounding rectangle.}
 
@@ -81,7 +81,7 @@ ProjectFilters(
 
 \item{freenumend}{[string] End of included range for the column defined by freenum, in which objects are included.}
 
-\item{freetxt}{[string]  Textual DB column number as basis for following criteria (freetxtval)             If starts with 's' then it's a text column in Sample             If starts with 'a' then it's a text column in Acquisition              If starts with 'p' then it's a text column in Process              If starts with 'o' then it's a text column in Object .}
+\item{freetxt}{[string]  Textual DB column number as basis for following criteria (freetxtval) If starts with 's' then it's a text column in Sample If starts with 'a' then it's a text column in Acquisition If starts with 'p' then it's a text column in Process If starts with 'o' then it's a text column in Object .}
 
 \item{freetxtval}{[string] Text to match in the column defined by freetxt, for an object to be include.}
 

@@ -7,8 +7,9 @@
 TaxonCentral(
   id,
   parent_id = NULL,
+  aphia_id = NULL,
+  rank = NULL,
   name,
-  id_source = NULL,
   taxotype,
   display_name = NULL,
   lastupdate_datetime = NULL,
@@ -28,9 +29,11 @@ TaxonCentral(
 
 \item{parent_id}{[integer] The unique numeric id of the taxon parent.}
 
-\item{name}{[string, required] The name of the taxon.}
+\item{aphia_id}{[integer] The unique numeric aphia_id of the taxon if in Worms.}
 
-\item{id_source}{[string] The source ID.}
+\item{rank}{[string] The WoRMS rank of the taxon.}
+
+\item{name}{[string, required] The name of the taxon.}
 
 \item{taxotype}{[string, required] The taxon type, 'M' for Morpho or 'P' for Phylo.}
 

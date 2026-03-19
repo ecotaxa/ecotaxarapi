@@ -19,7 +19,7 @@ PredictionReq(
 
 \item{source_project_ids}{[vector of integer, required] The source projects, objects in them will serve as reference.}
 
-\item{learning_limit}{[integer] When set (to a positive value), there will be this number  of objects, \emph{per category}, in the learning set.}
+\item{learning_limit}{[integer] When set (to a positive value), there will be this number of objects, \emph{per category}, in the learning set.}
 
 \item{features}{[vector of string, required] The object features AKA free column, to use in the algorithm. Features must be common to all projects, source ones and destination one.}
 

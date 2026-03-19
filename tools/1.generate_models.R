@@ -81,7 +81,7 @@ model_props <- function(x) {
     prop$type <- prop_type(prop)
     if (is.null(prop$title)) {prop$title <- name}
     if (is.null(prop$description)) {prop$description <- prop$title}
-    prop$description <- str_replace_all(prop$description, "\n", " ")
+    prop$description <- clean_string(prop$description)
     return(prop)
   })
   return(props)

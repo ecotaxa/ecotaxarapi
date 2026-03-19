@@ -20,7 +20,8 @@ CollectionModel(
   creator_users = NULL,
   creator_organisations = NULL,
   associate_users = NULL,
-  associate_organisations = NULL
+  associate_organisations = NULL,
+  display_order = NULL
 )
 }
 \arguments{
@@ -44,17 +45,19 @@ CollectionModel(
 
 \item{project_ids}{[vector of integer, required] The list of composing project IDs.}
 
-\item{provider_user}{[object of type \link{MinUserModel}] Is the person who         is responsible for the content of this metadata record. Writer of the title and abstract.}
+\item{provider_user}{[object of type \link{MinUserModel}] Is the person who is responsible for the content of this metadata record. Writer of the title and abstract.}
 
-\item{contact_user}{[object of type \link{MinUserModel}] Is the person who         should be contacted in cases of questions regarding the content of the dataset or any data restrictions.         This is also the person who is most likely to stay involved in the dataset the longest.}
+\item{contact_user}{[object of type \link{MinUserModel}] Is the person who should be contacted in cases of questions regarding the content of the dataset or any data restrictions. This is also the person who is most likely to stay involved in the dataset the longest.}
 
-\item{creator_users}{[vector of ] All people who         are responsible for the creation of the collection. Data creators should receive credit         for their work and should therefore be included in the citation.}
+\item{creator_users}{[vector of ] All people who are responsible for the creation of the collection. Data creators should receive credit for their work and should therefore be included in the citation. (with display order)}
 
-\item{creator_organisations}{[vector of ] All         organisations who are responsible for the creation of the collection. Data creators should         receive credit for their work and should therefore be included in the citation.}
+\item{creator_organisations}{[vector of ] All organisations who are responsible for the creation of the collection. Data creators should receive credit for their work and should therefore be included in the citation. (with display order)}
 
-\item{associate_users}{[vector of ] Other person(s)         associated with the collection.}
+\item{associate_users}{[vector of ] Other person(s) associated with the collection (with display order).}
 
-\item{associate_organisations}{[vector of ] Other         organisation(s) associated with the collection.}
+\item{associate_organisations}{[vector of ] Other organisation(s) associated with the collection (with display order) .}
+
+\item{display_order}{[list] display order of creators and asosciates (users and organizations) needed to publish}
 }
 \description{
 A list defining a Collection Model

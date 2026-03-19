@@ -30,7 +30,7 @@ search_projects(
 
 \item{filter_subset}{boolean; Only return projects having 'subset' in their names.}
 
-\item{order_field}{string; One of \link{'projid', 'title', 'access', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'rf_models_used', 'cnn_network_id', 'formulae', 'instrument', 'instrument_url', 'highest_right'}}
+\item{order_field}{string; One of ['projid', 'title', 'access', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'rf_models_used', 'cnn_network_id', 'formulae', 'instrument', 'instrument_url', 'highest_right']}
 
 \item{fields}{string; Return the default fields (typically used in conjunction with an additional field list). For users list display purpose.}
 

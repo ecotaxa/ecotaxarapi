@@ -4,10 +4,14 @@
 \alias{TaxaSearchRsp}
 \title{TaxaSearchRsp}
 \usage{
-TaxaSearchRsp(id, renm_id = NULL, text, pr)
+TaxaSearchRsp(id, status, aphia_id = NULL, renm_id = NULL, text, pr)
 }
 \arguments{
 \item{id}{[integer, required] The taxon/category IDs.}
+
+\item{status}{[string, required] The taxon/category status, 'D' for Deprecated, 'A' for Approved or 'N' for Not approved.}
+
+\item{aphia_id}{[integer] The Worms aphia_id of the taxon.}
 
 \item{renm_id}{[integer] The advised replacement ID if the taxon/category is deprecated.}
 

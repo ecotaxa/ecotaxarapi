@@ -5,7 +5,7 @@
 #' 
 #' @param taxo \[string\] Coma-separated list of numeric taxonomy/category ids. Only include objects classified with one of them.
 #' @param taxochild \[string\] If 'Y' and taxo is set, also include children of each member of 'taxo' list in taxonomy tree.
-#' @param statusfilter \[string\] Include objects with given status:             'NV': Not validated              'PV': Predicted or Validated              'PVD': Predicted or Validated or Dubious             'NVM': Validated, but not by me              'VM': Validated by me              'U': Not classified             other: direct equality comparison with DB value          
+#' @param statusfilter \[string\] Include objects with given status: 'NV': Not validated 'PV': Predicted or Validated 'PVD': Predicted or Validated or Dubious 'NVM': Validated, but not by me 'VM': Validated by me 'U': Not classified other: direct equality comparison with DB value 
 #' @param MapN \[string\] If all 4 are set (MapN, MapW, MapE, MapS), include objects inside the defined bounding rectangle.
 #' @param MapW \[string\] If all 4 are set (MapN, MapW, MapE, MapS), include objects inside the defined bounding rectangle.
 #' @param MapE \[string\] If all 4 are set (MapN, MapW, MapE, MapS), include objects inside the defined bounding rectangle.
@@ -26,7 +26,7 @@
 #' @param freenum \[string\] Numerical DB column number in Object as basis for the 2 following criteria (freenumst, freenumend).
 #' @param freenumst \[string\] Start of included range for the column defined by freenum, in which objects are included.
 #' @param freenumend \[string\] End of included range for the column defined by freenum, in which objects are included.
-#' @param freetxt \[string\]  Textual DB column number as basis for following criteria (freetxtval)             If starts with 's' then it's a text column in Sample             If starts with 'a' then it's a text column in Acquisition              If starts with 'p' then it's a text column in Process              If starts with 'o' then it's a text column in Object .         
+#' @param freetxt \[string\]  Textual DB column number as basis for following criteria (freetxtval) If starts with 's' then it's a text column in Sample If starts with 'a' then it's a text column in Acquisition If starts with 'p' then it's a text column in Process If starts with 'o' then it's a text column in Object . 
 #' @param freetxtval \[string\] Text to match in the column defined by freetxt, for an object to be include.
 #' @param filt_annot \[string\] Coma-separated list of annotators, i.e. persons who validated the classification at any point in time.
 #' @param filt_last_annot \[string\] Coma-separated list of annotators, i.e. persons who validated the classification in last.

@@ -7,7 +7,7 @@
 #' @param project_ids string; Limit the list to a set of ids.
 #' @param not_granted boolean; Return projects on which the current user has _no permission_, but visible to him/her.
 #' @param for_managing boolean; Return projects that can be written to (including erased) by the current user.
-#' @param order_field string; One of ['projid', 'title', 'access', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'rf_models_used', 'cnn_network_id', 'formulae', 'instrument', 'instrument_url', 'highest_right']
+#' @param order_field string; One of \['projid', 'title', 'access', 'status', 'objcount', 'pctvalidated', 'pctclassified', 'classifsettings', 'classiffieldlist', 'popoverfieldlist', 'comments', 'rf_models_used', 'cnn_network_id', 'formulae', 'instrument', 'instrument_url', 'highest_right'\]
 #' @param fields string; Return the default fields (typically used in conjunction with an additional field list). For users list display purpose.
 #' @param window_start integer; Skip `window_start` before returning data.
 #' @param window_size integer; Return only `window_size` lines.

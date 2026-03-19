@@ -78,7 +78,11 @@ get_schema <- function(x, api){
 clean_string <- function(x) {
   x %>%
     str_replace_all("\n", " ") %>% # remove line breaks
-    str_replace_all(" +", " ")     # remove multiple spaces
+    str_replace_all(" +", " ") %>% # remove multiple spaces
+    str_replace_all(fixed("["), "\\[") %>% # escape square brackets
+    str_replace_all(fixed("]"), "\\]") %>%
+    str_replace_all(fixed("{"), "\\{") %>% # escape curly brackets
+    str_replace_all(fixed("}"), "\\}")
 }
 
 ## Parse/explore API ---

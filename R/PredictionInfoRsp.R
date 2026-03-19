@@ -3,7 +3,7 @@
 #' 
 #' A list defining a PredictionInfoRsp
 #' 
-#' @param result \[vector of array\] List of lists [object ID, category ID, score for category].
+#' @param result \[vector of array\] List of lists \[object ID, category ID, score for category\].
 #' 
 #' @export
 PredictionInfoRsp <- function(result=NULL) {

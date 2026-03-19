@@ -16,5 +16,5 @@ activate_user(user_id, status, no_bot = NULL, activatereq)
 \item{activatereq}{NULL; activation parameters : reason if the request comes from an Administrator, password if the request comes from the user as it serves as email confirmation request.}
 }
 \description{
-Activate a new user if external validation is on., return \strong{NULL upon success.} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can activate a user or bypass the activation and inform the user when a modification request value/reason is provided. - An ordinary logged user cannot activate another account. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair \link{remote IP, reCAPTCHA response}.
+Activate a new user if external validation is on., return \strong{NULL upon success.} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator can activate a user or bypass the activation and inform the user when a modification request value/reason is provided. - An ordinary logged user cannot activate another account. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair [remote IP, reCAPTCHA response].
 }

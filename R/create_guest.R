@@ -2,7 +2,7 @@
 
 #' Create Guest
 #'
-#' **Create a new guest**, return **NULL upon success.** 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator or logged project manager can create a guest. - An ordinary logged user cannot create another guest. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair [remote IP, reCAPTCHA response].
+#' **Create a new guest**, return **NULL upon success.** 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator or logged project manager can create a guest. - An ordinary logged user cannot create another guest. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair \[remote IP, reCAPTCHA response\].
 #'
 #' @param GuestModel Output of [GuestModel()];
 #'

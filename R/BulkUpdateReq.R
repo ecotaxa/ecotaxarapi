@@ -4,7 +4,7 @@
 #' A list defining a Update request Model
 #' 
 #' @param target_ids \[vector of integer, required\] The IDs of the target entities.
-#' @param updates \[vector of , required\] The list of updates, to do on all impacted entities.        {            ucol : A column name, pseudo-columns AKA free ones, are OK.            uval : The new value to set, always as a string        }
+#' @param updates \[vector of , required\] The list of updates, to do on all impacted entities. \{ ucol : A column name, pseudo-columns AKA free ones, are OK. uval : The new value to set, always as a string \}
 #' 
 #' @export
 BulkUpdateReq <- function(target_ids, updates) {

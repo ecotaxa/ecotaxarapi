@@ -21,9 +21,10 @@
 #' @param max_upload_size \[integer\] My Files max file upload size (bytes)
 #' @param time_to_live \[string\] My Files number of days before deleting directories
 #' @param all_in_one \[boolean\] local install - run without network access
+#' @param taxoserver_url \[string\] url of taxonomy server ecotaxoserver
 #' 
 #' @export
-Constants <- function(license_texts=NULL, access=NULL, app_manager=NULL, countries=NULL, people_organization_directories=NULL, user_status=NULL, user_type=NULL, password_regexp=NULL, email_verification=NULL, account_validation=NULL, short_token_age=NULL, profile_token_age=NULL, recaptchaid=NULL, formulae=NULL, default_project_access=NULL, max_upload_size=NULL, time_to_live=NULL, all_in_one=NULL) {
+Constants <- function(license_texts=NULL, access=NULL, app_manager=NULL, countries=NULL, people_organization_directories=NULL, user_status=NULL, user_type=NULL, password_regexp=NULL, email_verification=NULL, account_validation=NULL, short_token_age=NULL, profile_token_age=NULL, recaptchaid=NULL, formulae=NULL, default_project_access=NULL, max_upload_size=NULL, time_to_live=NULL, all_in_one=NULL, taxoserver_url=NULL) {
   body <- list(
     license_texts=license_texts,
     access=access,
@@ -42,7 +43,8 @@ Constants <- function(license_texts=NULL, access=NULL, app_manager=NULL, countri
     default_project_access=default_project_access,
     max_upload_size=max_upload_size,
     time_to_live=time_to_live,
-    all_in_one=all_in_one
+    all_in_one=all_in_one,
+    taxoserver_url=taxoserver_url
   )
   body[sapply(body, is.null)] <- NULL
   return(body)

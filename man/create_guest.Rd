@@ -10,5 +10,5 @@ create_guest(GuestModel)
 \item{GuestModel}{Output of \code{\link[=GuestModel]{GuestModel()}};}
 }
 \description{
-\strong{Create a new guest}, return \strong{NULL upon success.} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator or logged project manager can create a guest. - An ordinary logged user cannot create another guest. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair \link{remote IP, reCAPTCHA response}.
+\strong{Create a new guest}, return \strong{NULL upon success.} 🔒 Depending on logged user, different authorizations apply: - An administrator or user administrator or logged project manager can create a guest. - An ordinary logged user cannot create another guest. If back-end configuration for self-creation check is Google reCAPTCHA, then no_bot is a pair [remote IP, reCAPTCHA response].
 }

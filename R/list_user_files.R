@@ -2,7 +2,7 @@
 
 #' List User Files
 #'
-#' **List the private files** which are usable for some file-related operations. A sub_path starting with "/" is considered relative to user folder. *e.g. import.*
+#' **List the private files** from user files directory which are usable for some file-related operations. A sub_path starting with "/" is considered relative to user folder. *e.g. import.*
 #'
 #' @param sub_path string; NULL
 #'

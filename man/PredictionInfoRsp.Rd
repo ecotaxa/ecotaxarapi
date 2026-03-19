@@ -7,7 +7,7 @@
 PredictionInfoRsp(result = NULL)
 }
 \arguments{
-\item{result}{[vector of array] List of lists \link{object ID, category ID, score for category}.}
+\item{result}{[vector of array] List of lists [object ID, category ID, score for category].}
 }
 \description{
 A list defining a PredictionInfoRsp

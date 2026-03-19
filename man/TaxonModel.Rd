@@ -6,35 +6,47 @@
 \usage{
 TaxonModel(
   id,
-  renm_id = NULL,
   name,
   type,
-  nb_objects,
-  nb_children_objects,
+  status,
   display_name,
   lineage,
   id_lineage,
+  lineage_status,
+  renm_id = NULL,
+  nb_objects,
+  nb_children_objects,
+  aphia_id = NULL,
+  rank = NULL,
   children
 )
 }
 \arguments{
 \item{id}{[integer, required] The taxon/category IDs.}
 
-\item{renm_id}{[integer] The advised replacement ID if the taxon/category is deprecated.}
-
 \item{name}{[string, required] The taxon/category verbatim name.}
 
 \item{type}{[string, required] The taxon/category type, 'M' for Morpho or 'P' for Phylo.}
 
-\item{nb_objects}{[integer, required] How many objects are classified in this category.}
-
-\item{nb_children_objects}{[integer, required] How many objects are classified in this category children (not itself).}
+\item{status}{[string, required] The taxon/category status, 'D' for Deprecated, 'A' for Approved or 'N' for Notapproved.}
 
 \item{display_name}{[string, required] The taxon/category display name.}
 
 \item{lineage}{[vector of string, required] The taxon/category name of ancestors, including self, in first.}
 
 \item{id_lineage}{[vector of integer, required] The taxon/category IDs of ancestors, including self, in first.}
+
+\item{lineage_status}{[string, required] The taxon ancestors' status, including self, in first.}
+
+\item{renm_id}{[integer] The advised replacement ID if the taxon/category is deprecated.}
+
+\item{nb_objects}{[integer, required] How many objects are classified in this category.}
+
+\item{nb_children_objects}{[integer, required] How many objects are classified in this category children (not itself).}
+
+\item{aphia_id}{[integer] The WoRMS aphia_id of the taxon.}
+
+\item{rank}{[string] The WoRMS rank of the taxon.}
 
 \item{children}{[vector of integer, required] The taxon/category IDs of children.}
 }

@@ -4,28 +4,36 @@
 #' A list defining a TaxonModel
 #' 
 #' @param id \[integer, required\] The taxon/category IDs.
-#' @param renm_id \[integer\] The advised replacement ID if the taxon/category is deprecated.
 #' @param name \[string, required\] The taxon/category verbatim name.
 #' @param type \[string, required\] The taxon/category type, 'M' for Morpho or 'P' for Phylo.
-#' @param nb_objects \[integer, required\] How many objects are classified in this category.
-#' @param nb_children_objects \[integer, required\] How many objects are classified in this category children (not itself).
+#' @param status \[string, required\] The taxon/category status, 'D' for Deprecated, 'A' for Approved or 'N' for Notapproved.
 #' @param display_name \[string, required\] The taxon/category display name.
 #' @param lineage \[vector of string, required\] The taxon/category name of ancestors, including self, in first.
 #' @param id_lineage \[vector of integer, required\] The taxon/category IDs of ancestors, including self, in first.
+#' @param lineage_status \[string, required\] The taxon ancestors' status, including self, in first.
+#' @param renm_id \[integer\] The advised replacement ID if the taxon/category is deprecated.
+#' @param nb_objects \[integer, required\] How many objects are classified in this category.
+#' @param nb_children_objects \[integer, required\] How many objects are classified in this category children (not itself).
+#' @param aphia_id \[integer\] The WoRMS aphia_id of the taxon.
+#' @param rank \[string\] The WoRMS rank of the taxon.
 #' @param children \[vector of integer, required\] The taxon/category IDs of children.
 #' 
 #' @export
-TaxonModel <- function(id, renm_id=NULL, name, type, nb_objects, nb_children_objects, display_name, lineage, id_lineage, children) {
+TaxonModel <- function(id, name, type, status, display_name, lineage, id_lineage, lineage_status, renm_id=NULL, nb_objects, nb_children_objects, aphia_id=NULL, rank=NULL, children) {
   body <- list(
     id=id,
-    renm_id=renm_id,
     name=name,
     type=type,
-    nb_objects=nb_objects,
-    nb_children_objects=nb_children_objects,
+    status=status,
     display_name=display_name,
     lineage=lineage,
     id_lineage=id_lineage,
+    lineage_status=lineage_status,
+    renm_id=renm_id,
+    nb_objects=nb_objects,
+    nb_children_objects=nb_children_objects,
+    aphia_id=aphia_id,
+    rank=rank,
     children=children
   )
   body[sapply(body, is.null)] <- NULL

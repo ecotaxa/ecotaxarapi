@@ -13,7 +13,7 @@ ImportReq(
 )
 }
 \arguments{
-\item{source_path}{[string, required] Source path on server, to zip or plain directory.     The path can be returned by a file upload (absolute),     otherwise it's relative to shared file area root.}
+\item{source_path}{[string, required] Source path on server, to zip or plain directory. The path can be returned by a file upload (absolute), otherwise it's relative to shared file area root.}
 
 \item{taxo_mappings}{[list] Optional taxonomy mapping, the key specifies the taxonomy ID found in file and the value specifies the final taxonomy ID to write.}
 

@@ -18,7 +18,8 @@ CollectionReq(
   creator_users = NULL,
   associate_users = NULL,
   creator_organisations = NULL,
-  associate_organisations = NULL
+  associate_organisations = NULL,
+  display_order = NULL
 )
 }
 \arguments{
@@ -28,9 +29,9 @@ CollectionReq(
 
 \item{short_title}{[string] The collection short title.}
 
-\item{provider_user}{[integer] Id of the person who         is responsible for the content of this metadata record. Writer of the title and abstract.}
+\item{provider_user}{[integer] Id of the person who is responsible for the content of this metadata record. Writer of the title and abstract.}
 
-\item{contact_user}{[integer] Id of the person who         should be contacted in cases of questions regarding the content of the dataset or any data restrictions.         This is also the person who is most likely to stay involved in the dataset the longest.}
+\item{contact_user}{[integer] Id of the person who should be contacted in cases of questions regarding the content of the dataset or any data restrictions. This is also the person who is most likely to stay involved in the dataset the longest.}
 
 \item{project_ids}{[vector of integer] The list of composing project IDs.}
 
@@ -46,9 +47,11 @@ CollectionReq(
 
 \item{associate_users}{[vector of ] List of users id's or dict with name, organization for external persons.}
 
-\item{creator_organisations}{[vector of ] All         organisations who are responsible for the creation of the collection. Data creators should         receive credit for their work and should therefore be included in the citation.}
+\item{creator_organisations}{[vector of ] All organisations who are responsible for the creation of the collection. Data creators should receive credit for their work and should therefore be included in the citation.}
 
-\item{associate_organisations}{[vector of ] Other         organisation(s) Ids or names associated with the collection.}
+\item{associate_organisations}{[vector of ] Other organisation(s) Ids or names associated with the collection.}
+
+\item{display_order}{[list] display order of creators and asosciates (users and organizations) needed to publish}
 }
 \description{
 A list defining a Update full or partial Collection Model
