@@ -9,7 +9,9 @@
 #' @export
 instrument_query <- function(project_ids) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/instruments/", query_string(project_ids = project_ids))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "instruments", "") %>%
+      httr2::req_url_query(project_ids = project_ids) %>%
       httr2::req_method("GET") %>%
       httr2::req_perform()
   )

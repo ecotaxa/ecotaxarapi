@@ -9,7 +9,8 @@
 #' @export
 classify_object_set <- function(ClassifyReq) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/object_set/classify")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "object_set", "classify") %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(ClassifyReq) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

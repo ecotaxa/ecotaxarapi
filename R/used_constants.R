@@ -8,7 +8,8 @@
 #' @export
 used_constants <- function() {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/constants")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "constants") %>%
       httr2::req_method("GET") %>%
       httr2::req_perform()
   )

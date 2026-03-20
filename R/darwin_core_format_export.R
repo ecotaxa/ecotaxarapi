@@ -9,7 +9,8 @@
 #' @export
 darwin_core_format_export <- function(DarwinCoreExportReq) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/collections/export/darwin_core")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "collections", "export", "darwin_core") %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(DarwinCoreExportReq) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

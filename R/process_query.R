@@ -9,7 +9,8 @@
 #' @export
 process_query <- function(process_id) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/process/", process_id, "")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "process", process_id) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

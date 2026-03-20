@@ -10,7 +10,9 @@
 #' @export
 project_set_get_stats <- function(ids, taxa_ids = NULL) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/project_set/taxo_stats", query_string(ids = ids, taxa_ids = taxa_ids))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "project_set", "taxo_stats") %>%
+      httr2::req_url_query(ids = ids, taxa_ids = taxa_ids) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

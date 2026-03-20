@@ -10,7 +10,8 @@
 #' @export
 reply_job_question <- function(job_id, reply_job_question) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/jobs/", job_id, "/answer")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "jobs", job_id, "answer") %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(list(reply_job_question)) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

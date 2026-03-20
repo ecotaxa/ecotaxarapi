@@ -15,7 +15,9 @@
 #' @export
 list_projects <- function(project_ids = NULL, not_granted = NULL, for_managing = NULL, order_field = NULL, fields = NULL, window_start = NULL, window_size = NULL) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/projects", query_string(project_ids = project_ids, not_granted = not_granted, for_managing = for_managing, order_field = order_field, fields = fields, window_start = window_start, window_size = window_size))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "projects") %>%
+      httr2::req_url_query(project_ids = project_ids, not_granted = not_granted, for_managing = for_managing, order_field = order_field, fields = fields, window_start = window_start, window_size = window_size) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

@@ -10,7 +10,8 @@
 #' @export
 update_collection <- function(collection_id, CollectionReq) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/collections/", collection_id, "")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "collections", collection_id) %>%
       httr2::req_method("PUT") %>%
       httr2::req_body_json(CollectionReq) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

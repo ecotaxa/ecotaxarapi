@@ -9,7 +9,8 @@
 #' @export
 classify_auto_mult_object_set <- function(ClassifyAutoReqMult) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/object_set/classify_auto_multiple")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "object_set", "classify_auto_multiple") %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(ClassifyAutoReqMult) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

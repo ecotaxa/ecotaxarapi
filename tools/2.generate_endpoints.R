@@ -171,19 +171,21 @@ for (path in paths) {
 
       # URL
       { #browser()
-        url_args <- gel(args, "name")[gel(args, "in") == "path"]
-        url_args_list <- as.list(str_c("', ", url_args, ", '"))
-        names(url_args_list) <- url_args
-        path_piece <- with(url_args_list, glue(path))
+        path_split <- path |>
+          str_replace("^/", "'api', '") |>
+          str_replace_all("\\/", "', '") |>
+          str_c("'") |>
+          str_remove_all("'\\{|\\}'")
 
-        url <- str_c("base_url=paste0(api_url(), '", path_piece, "'")
+        url <- str_c("httr2::request(api_url()) %>%
+  httr2::req_url_path(", path_split, ") %>% ")
 
         query_args <- gel(args, "name")[gel(args, "in") == "query"]
         if (length(query_args) > 0) {
-          url <- str_c(url, ", query_string(", str_c(query_args, "=", query_args, collapse=","), ")")
+          url <- str_c(url, "
+  httr2::req_url_query(", str_c(query_args, "=", query_args, collapse=", "), ") %>%")
         }
 
-        url <- str_c("httr2::request(", url, ")) %>% ")
         url
       },
 

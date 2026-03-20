@@ -9,7 +9,9 @@
 #' @export
 sample_set_get_stats <- function(sample_ids) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/sample_set/taxo_stats", query_string(sample_ids = sample_ids))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "sample_set", "taxo_stats") %>%
+      httr2::req_url_query(sample_ids = sample_ids) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

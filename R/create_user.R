@@ -11,7 +11,9 @@
 #' @export
 create_user <- function(no_bot = NULL, token = NULL, UserModelWithRights) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/users/create", query_string(no_bot = no_bot, token = token))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "users", "create") %>%
+      httr2::req_url_query(no_bot = no_bot, token = token) %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(UserModelWithRights) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

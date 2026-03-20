@@ -12,7 +12,9 @@
 #' @export
 activate_user <- function(user_id, status, no_bot = NULL, activatereq) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/users/activate/", user_id, "/", status, "", query_string(no_bot = no_bot))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "users", "activate", user_id, status) %>%
+      httr2::req_url_query(no_bot = no_bot) %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(list(activatereq)) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

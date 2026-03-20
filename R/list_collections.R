@@ -10,7 +10,9 @@
 #' @export
 list_collections <- function(collection_ids = NULL, fields = NULL) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/collections", query_string(collection_ids = collection_ids, fields = fields))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "collections") %>%
+      httr2::req_url_query(collection_ids = collection_ids, fields = fields) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

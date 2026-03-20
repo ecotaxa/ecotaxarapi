@@ -8,7 +8,8 @@
 #' @export
 query_ml_models <- function() {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/ml_models")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "ml_models") %>%
       httr2::req_method("GET") %>%
       httr2::req_perform()
   )

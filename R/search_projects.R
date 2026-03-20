@@ -18,7 +18,9 @@
 #' @export
 search_projects <- function(also_others = NULL, not_granted = NULL, for_managing = NULL, title_filter = NULL, instrument_filter = NULL, filter_subset = NULL, order_field = NULL, fields = NULL, window_start = NULL, window_size = NULL) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/projects/search", query_string(also_others = also_others, not_granted = not_granted, for_managing = for_managing, title_filter = title_filter, instrument_filter = instrument_filter, filter_subset = filter_subset, order_field = order_field, fields = fields, window_start = window_start, window_size = window_size))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "projects", "search") %>%
+      httr2::req_url_query(also_others = also_others, not_granted = not_granted, for_managing = for_managing, title_filter = title_filter, instrument_filter = instrument_filter, filter_subset = filter_subset, order_field = order_field, fields = fields, window_start = window_start, window_size = window_size) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

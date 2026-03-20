@@ -12,7 +12,9 @@
 #' @export
 revert_object_set_to_history <- function(project_id, dry_run, target = NULL, ProjectFilters) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/object_set/", project_id, "/revert_to_history", query_string(dry_run = dry_run, target = target))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "object_set", project_id, "revert_to_history") %>%
+      httr2::req_url_query(dry_run = dry_run, target = target) %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(ProjectFilters) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

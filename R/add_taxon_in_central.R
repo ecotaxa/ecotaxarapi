@@ -14,7 +14,9 @@
 #' @export
 add_taxon_in_central <- function(name, parent_id, taxotype, creator_email, source_desc = NULL, source_url = NULL) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/taxon/central", query_string(name = name, parent_id = parent_id, taxotype = taxotype, creator_email = creator_email, source_desc = source_desc, source_url = source_url))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "taxon", "central") %>%
+      httr2::req_url_query(name = name, parent_id = parent_id, taxotype = taxotype, creator_email = creator_email, source_desc = source_desc, source_url = source_url) %>%
       httr2::req_method("PUT") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

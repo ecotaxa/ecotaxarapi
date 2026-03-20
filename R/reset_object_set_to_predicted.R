@@ -10,7 +10,8 @@
 #' @export
 reset_object_set_to_predicted <- function(project_id, ProjectFilters) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/object_set/", project_id, "/reset_to_predicted")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "object_set", project_id, "reset_to_predicted") %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(ProjectFilters) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

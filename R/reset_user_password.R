@@ -11,7 +11,9 @@
 #' @export
 reset_user_password <- function(no_bot = NULL, token = NULL, ResetPasswordReq) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/users/reset_user_password", query_string(no_bot = no_bot, token = token))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "users", "reset_user_password") %>%
+      httr2::req_url_query(no_bot = no_bot, token = token) %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(ResetPasswordReq) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

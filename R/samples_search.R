@@ -10,7 +10,9 @@
 #' @export
 samples_search <- function(project_ids, id_pattern) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/samples/search", query_string(project_ids = project_ids, id_pattern = id_pattern))) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "samples", "search") %>%
+      httr2::req_url_query(project_ids = project_ids, id_pattern = id_pattern) %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()

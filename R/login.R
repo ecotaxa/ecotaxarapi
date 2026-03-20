@@ -9,7 +9,8 @@
 #' @export
 login <- function(LoginReq) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/login")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "login") %>%
       httr2::req_method("POST") %>%
       httr2::req_body_json(LoginReq) %>%
       httr2::req_perform()

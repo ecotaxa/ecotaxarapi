@@ -10,7 +10,8 @@
 #' @export
 update_organization <- function(organization_id, OrganizationModel) {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/organizations/", organization_id, "")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "organizations", organization_id) %>%
       httr2::req_method("PUT") %>%
       httr2::req_body_json(OrganizationModel) %>%
       httr2::req_auth_bearer_token(api_token()) %>%

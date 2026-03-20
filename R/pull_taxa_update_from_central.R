@@ -8,7 +8,8 @@
 #' @export
 pull_taxa_update_from_central <- function() {
   handle_api_response(
-    httr2::request(base_url = paste0(api_url(), "/taxa/pull_from_central")) %>%
+    httr2::request(api_url()) %>%
+      httr2::req_url_path("api", "taxa", "pull_from_central") %>%
       httr2::req_method("GET") %>%
       httr2::req_auth_bearer_token(api_token()) %>%
       httr2::req_perform()
