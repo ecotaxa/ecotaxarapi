@@ -1,7 +1,7 @@
 Package: ecotaxarapi
 Type: Package
 Title: R Package to access EcoTaxa's API
-Version: 0.1.0
+Version: 0.2.0
 Description: This package exposes all objects and endpoints of EcoTaxa's API (documented at http://ecotaxa.obs-vlfr.fr/api/docs) as R functions, allowing to easily call them from R.
 License: GPL-3
 Encoding: UTF-8
