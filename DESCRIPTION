@@ -12,7 +12,7 @@ Imports:
     dplyr,
     httr2,
     stats,
-    stringr
+    curl
 Depends:
     jsonlite
 Authors@R: c(
