@@ -17,7 +17,5 @@ Read your EcoTaxa token
 }
 \examples{
 # get a token
-token <- login(username="ecotaxa.api.user@gmail.com", password="test!")
-
-
+token <- login(LoginReq(username="ecotaxa.api.user@gmail.com", password="test!"))
 }

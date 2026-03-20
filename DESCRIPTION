@@ -13,6 +13,8 @@ Imports:
     httr2,
     stats,
     stringr
+Depends:
+    jsonlite
 Authors@R: c(
     person("Jean-Olivier", "Irisson", , "irisson@normalesup.org", role = c("aut", "cre")),
     person("Thelma", "Panaiotis", , "thelma.panaiotis@imev-mer.fr", role = "aut")

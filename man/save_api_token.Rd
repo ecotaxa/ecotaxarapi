@@ -18,7 +18,7 @@ The path to the token file.
 The token is saved to a file, its path can be changed with option "ecotaxar.token_path"; by default, it is "~/.R/ecotaxar/token".
 }
 \examples{
-token <- login(username="ecotaxa.api.user@gmail.com", password="test!")
+token <- login(LoginReq(username="ecotaxa.api.user@gmail.com", password="test!"))
 # save to the default path
 save_api_token(token)
 api_token_path()

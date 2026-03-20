@@ -31,7 +31,7 @@ api_token_path <- function() {
 #' @return The path to the token file.
 #' @export
 #' @examples
-#' token <- login(username="ecotaxa.api.user@gmail.com", password="test!")
+#' token <- login(LoginReq(username="ecotaxa.api.user@gmail.com", password="test!"))
 #' # save to the default path
 #' save_api_token(token)
 #' api_token_path()
@@ -60,9 +60,7 @@ save_api_token <- function(token, path=api_token_path()) {
 #' @export
 #' @examples
 #' # get a token
-#' token <- login(username="ecotaxa.api.user@gmail.com", password="test!")
-#'
-#'
+#' token <- login(LoginReq(username="ecotaxa.api.user@gmail.com", password="test!"))
 api_token <- function(path=api_token_path()) {
   if (!file.exists(path)) {
     stop("Cannot find API token at ", path)
